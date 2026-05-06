@@ -1,0 +1,51 @@
+# Rebuilds data/problems.js + data/reveal-config.js once per IST day (and when sources change).
+# Browser calendar uses REVEAL_SERIES_START_MS from generated reveal-config.js (source: src/reveal.ts).
+
+name: Publish problem bodies
+
+on:
+  schedule:
+    - cron: "35 18 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "data/problems.source.js"
+      - "package.json"
+      - "package-lock.json"
+      - "tsconfig.json"
+      - "src/**"
+      - "scripts/**"
+      - "problems/**"
+
+concurrency:
+  group: publish-problem-bodies
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies and build
+        run: npm ci && npm run build
+
+      - name: Commit generated assets and data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/problems.js data/reveal-config.js assets/app.js assets/schedule.js
+          if git diff --staged --quiet; then
+            echo "No change to publication slice."
+          else
+            git commit -m "chore: publish problem bodies (IST calendar slice)"
+            git push
+          fi

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Problem · Project Brahmagupta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=Shobhika:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+
+  <script>
+    /* MathJax 3 — TeX from problems/p*.tex: \(…\), \[…\], also $…$ / $$…$$. */
+    window.MathJax = {
+      tex: {
+        inlineMath: [
+          ["\\(", "\\)"],
+          ["$", "$"],
+        ],
+        displayMath: [
+          ["\\[", "\\]"],
+          ["$$", "$$"],
+        ],
+        processEscapes: true,
+        processEnvironments: true,
+        tags: "none",
+      },
+      options: {
+        skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+      },
+      startup: { typeset: false },
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body class="page-problem">
+  <header class="site-header">
+    <a class="brand" href="./index.html" title="Project Brahmagupta">
+      <span class="brand-stack">
+        <span class="brand-project-row">
+          <span class="brand-rule" aria-hidden="true"></span>
+          <span class="brand-sup">PROJECT</span>
+          <span class="brand-rule" aria-hidden="true"></span>
+        </span>
+        <span class="brand-name">BRAHMAGUPTA</span>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a href="./archive.html">Archive</a>
+      <a href="./contribute.html">Contribute</a>
+    </nav>
+  </header>
+
+  <main class="problem-page">
+    <nav class="problem-pager top">
+      <a id="prev-link" class="pager-link" href="#">← previous</a>
+      <span id="problem-pos" class="pager-pos"></span>
+      <a id="next-link" class="pager-link" href="#">next →</a>
+    </nav>
+
+    <article id="problem" class="problem-article">
+      <p class="loading">Loading…</p>
+    </article>
+
+    <nav class="problem-pager">
+      <a id="prev-link-2" class="pager-link" href="#">← previous</a>
+      <a class="pager-link" href="./archive.html">archive</a>
+      <a id="next-link-2" class="pager-link" href="#">next →</a>
+    </nav>
+  </main>
+
+  <footer class="site-foot">
+    <p>Project Brahmagupta · 108 problems from Indian mathematics</p>
+  </footer>
+
+  <script src="data/reveal-config.js"></script>
+  <script src="data/problems.js"></script>
+  <script src="assets/schedule.js"></script>
+  <script src="assets/app.js"></script>
+  <script>renderProblem();</script>
+</body>
+</html>

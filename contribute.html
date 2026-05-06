@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contribute · Project Brahmagupta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=Shobhika:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body class="page-prose">
+  <header class="site-header">
+    <a class="brand" href="./index.html" title="Project Brahmagupta">
+      <span class="brand-stack">
+        <span class="brand-project-row">
+          <span class="brand-rule" aria-hidden="true"></span>
+          <span class="brand-sup">PROJECT</span>
+          <span class="brand-rule" aria-hidden="true"></span>
+        </span>
+        <span class="brand-name">BRAHMAGUPTA</span>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a href="./archive.html">Archive</a>
+    </nav>
+  </header>
+
+  <main class="prose contribute">
+    <h1>Contribute a problem</h1>
+
+    <p class="lede">
+      If you know a problem from the Indian mathematical tradition that
+      belongs in this collection — a translation from a classical text, a
+      paraphrase, or a new problem motivated by one — please send it.
+    </p>
+
+    <p>
+      The form below opens your mail client with the fields filled in, and
+      sends to <a href="mailto:mittalbhumika7@gmail.com">mittalbhumika7@gmail.com</a>.
+      You can also write to that address directly.
+    </p>
+
+    <form id="contribute-form" class="contrib-form" novalidate>
+      <div class="field">
+        <label for="cf-title">Title</label>
+        <input id="cf-title" name="title" type="text" required placeholder="e.g. The lotus and the breeze" />
+      </div>
+
+      <div class="field">
+        <label for="cf-source">Source <span class="opt">optional</span></label>
+        <input id="cf-source" name="source" type="text" placeholder="e.g. Līlāvatī, ex. 54" />
+      </div>
+
+      <div class="field">
+        <label for="cf-statement">Problem statement</label>
+        <textarea id="cf-statement" name="statement" rows="9" required placeholder="The problem itself. Plain text, or TeX with delimiters such as \( … \) and \[ … \]."></textarea>
+      </div>
+
+      <div class="field">
+        <label for="cf-answer">Answer <span class="opt">optional, but helpful</span></label>
+        <input id="cf-answer" name="answer" type="text" placeholder="The single integer (or whatever) you arrived at." />
+      </div>
+
+      <div class="field">
+        <label for="cf-notes">Notes for the editor <span class="opt">optional</span></label>
+        <textarea id="cf-notes" name="notes" rows="4" placeholder="Anything you want us to know — alternate phrasings, hint, history."></textarea>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="cf-name">Your name <span class="opt">optional</span></label>
+          <input id="cf-name" name="name" type="text" />
+        </div>
+        <div class="field">
+          <label for="cf-email">Your email <span class="opt">optional</span></label>
+          <input id="cf-email" name="email" type="email" placeholder="for follow-up" />
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn">Send email</button>
+        <span id="cf-msg" class="form-msg"></span>
+      </div>
+
+      <p class="form-note">
+        Submitting opens your mail client with the contents prefilled. We
+        don't run a server; nothing is recorded here.
+      </p>
+    </form>
+  </main>
+
+  <footer class="site-foot">
+    <p>Project Brahmagupta · 108 problems from Indian mathematics</p>
+  </footer>
+
+  <script>
+    (function () {
+      const form = document.getElementById("contribute-form");
+      const msg = document.getElementById("cf-msg");
+      const RECIPIENT = "mittalbhumika7@gmail.com";
+
+      function val(id) {
+        const el = document.getElementById(id);
+        return (el && el.value || "").trim();
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const title = val("cf-title");
+        const statement = val("cf-statement");
+        if (!title || !statement) {
+          msg.textContent = "Please give at least a title and a problem statement.";
+          msg.className = "form-msg bad";
+          return;
+        }
+
+        const fields = [
+          ["Title",      title],
+          ["Source",     val("cf-source")],
+          ["",           ""],
+          ["Statement",  "\n" + statement],
+          ["",           ""],
+          ["Answer",     val("cf-answer")],
+          ["Notes",      val("cf-notes") ? "\n" + val("cf-notes") : ""],
+          ["",           ""],
+          ["Submitted by", val("cf-name")],
+          ["Reply to",   val("cf-email")],
+        ];
+
+        const body = fields
+          .filter(([k, v]) => k === "" || v)
+          .map(([k, v]) => k ? `${k}: ${v}` : "")
+          .join("\n");
+
+        const subject = "[contribute] " + title;
+        const url = "mailto:" + encodeURIComponent(RECIPIENT)
+          + "?subject=" + encodeURIComponent(subject)
+          + "&body=" + encodeURIComponent(body);
+
+        msg.textContent = "Opening your mail client…";
+        msg.className = "form-msg good";
+        window.location.href = url;
+      });
+    })();
+  </script>
+</body>
+</html>

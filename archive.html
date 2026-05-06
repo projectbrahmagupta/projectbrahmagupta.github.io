@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Archive · Project Brahmagupta</title>
+  <meta name="description" content="Published problems so far — growing daily during the season." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=Shobhika:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./index.html" title="Project Brahmagupta">
+      <span class="brand-stack">
+        <span class="brand-project-row">
+          <span class="brand-rule" aria-hidden="true"></span>
+          <span class="brand-sup">PROJECT</span>
+          <span class="brand-rule" aria-hidden="true"></span>
+        </span>
+        <span class="brand-name">BRAHMAGUPTA</span>
+      </span>
+    </a>
+    <nav class="site-nav">
+      <a href="./archive.html" aria-current="page">Archive</a>
+      <a href="./contribute.html">Contribute</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <h1>Archive</h1>
+      <p id="archive-meta" class="problems-sub"></p>
+    </section>
+
+    <section class="problems">
+      <div id="archive-list"></div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <p>Project Brahmagupta · 108 problems from Indian mathematics</p>
+  </footer>
+
+  <script src="data/reveal-config.js"></script>
+  <script src="data/problems.js"></script>
+  <script src="assets/schedule.js"></script>
+  <script src="assets/app.js"></script>
+  <script>renderArchive();</script>
+</body>
+</html>
