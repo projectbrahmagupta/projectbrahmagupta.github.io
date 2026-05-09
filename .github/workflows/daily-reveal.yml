@@ -3,9 +3,8 @@
 
 name: Publish problem bodies
 
+# Daily IST cron disabled — re-enable with e.g. cron: "35 18 * * *" under `schedule:` when needed.
 on:
-  schedule:
-    - cron: "35 18 * * *"
   workflow_dispatch:
   push:
     branches: [main]

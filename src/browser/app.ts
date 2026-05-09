@@ -32,6 +32,19 @@ function findDetail(n: number): ProblemPublished | null {
   return d && typeof d.body === "string" && d.body.length ? d : null;
 }
 
+function siteMode(): "contributions" | "problems" {
+  const cfg = typeof SITE_CONFIG !== "undefined" ? SITE_CONFIG : undefined;
+  return cfg?.mode === "problems" ? "problems" : "contributions";
+}
+
+function backFromProblemHref(): string {
+  return siteMode() === "problems" ? "./archive.html" : "./";
+}
+
+function backFromProblemLabel(): string {
+  return siteMode() === "problems" ? "← Archive" : "← Home";
+}
+
 function maxReveal(): number {
   const total = getSeriesTotal();
   return typeof maxRevealedN === "function" ? maxRevealedN(undefined, total) : total;
@@ -191,10 +204,12 @@ function renderProblem(): void {
     const note = opened
       ? `Statement not in this bundle yet — same calendar as below · <strong>${when}</strong>`
       : `Not yet available · opens <strong>${when}</strong>`;
+    const backHref = escapeHtml(backFromProblemHref());
+    const backLabel = escapeHtml(backFromProblemLabel());
     root.innerHTML =
       `<h1>${escapeHtml(meta.title)}</h1>` +
       `<p class="problem-locked-lede">${note}</p>` +
-      `<p class="problem-locked-hint"><a href="./archive.html">← Archive</a></p>`;
+      `<p class="problem-locked-hint"><a href="${backHref}">${backLabel}</a></p>`;
   }
 
   const pos = document.getElementById("problem-pos");

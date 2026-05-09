@@ -1,3 +1,11 @@
+/* Set by assets/site-mode.js from data/site-config.js */
+html[data-site-mode="contributions"] .show-if-problems {
+  display: none !important;
+}
+html[data-site-mode="problems"] .show-if-contributions {
+  display: none !important;
+}
+
 :root {
   --bg: #faf6ef;
   --bg-soft: #f3ecdf;
@@ -191,6 +199,26 @@ main {
   margin: 0 0 2rem;
 }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+.about-section {
+  padding-bottom: 1rem;
+  max-width: var(--measure);
+}
+.about-section h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3vw, 1.95rem);
+  margin: 0 0 1rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.about-section p {
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0 0 1.1rem;
+}
+.about-section p:last-child { margin-bottom: 0; }
 
 .btn {
   display: inline-block;

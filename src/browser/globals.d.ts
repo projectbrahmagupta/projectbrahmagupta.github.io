@@ -1,6 +1,15 @@
 import type { ProblemCatalogEntry, ProblemPublished } from "../types.js";
 
+interface SiteConfig {
+  mode?: "contributions" | "problems";
+  homeDocument?: {
+    contributions?: { title?: string; description?: string };
+    problems?: { title?: string; description?: string };
+  };
+}
+
 declare global {
+  var SITE_CONFIG: SiteConfig | undefined;
   var REVEAL_SERIES_START_MS: number;
   var SERIES_TOTAL: number;
   var PROBLEM_CATALOG: ProblemCatalogEntry[];

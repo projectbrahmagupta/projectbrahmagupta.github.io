@@ -4,6 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Problem · Project Brahmagupta</title>
+  <script src="data/site-config.js"></script>
+  <script src="assets/site-mode.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=Shobhika:wght@400;700&display=swap" rel="stylesheet" />
@@ -46,8 +48,9 @@
       </span>
     </a>
     <nav class="site-nav">
-      <a href="./archive.html">Archive</a>
+      <span class="show-if-problems"><a href="./archive.html">Archive</a></span>
       <a href="./contribute.html">Contribute</a>
+      <a href="./references.html">References</a>
     </nav>
   </header>
 
@@ -64,13 +67,15 @@
 
     <nav class="problem-pager">
       <a id="prev-link-2" class="pager-link" href="#">← previous</a>
-      <a class="pager-link" href="./archive.html">archive</a>
+      <a class="pager-link show-if-contributions" href="./">home</a>
+      <a class="pager-link show-if-problems" href="./archive.html">archive</a>
       <a id="next-link-2" class="pager-link" href="#">next →</a>
     </nav>
   </main>
 
   <footer class="site-foot">
-    <p>Project Brahmagupta · 108 problems from Indian mathematics</p>
+    <p class="show-if-contributions">Project Brahmagupta · contributions welcome</p>
+    <p class="show-if-problems">Project Brahmagupta · 108 problems from Indian mathematics</p>
   </footer>
 
   <script src="data/reveal-config.js"></script>

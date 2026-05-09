@@ -47,6 +47,16 @@
     const d = PROBLEMS.find((p) => p.n === n);
     return d && typeof d.body === "string" && d.body.length ? d : null;
   }
+  function siteMode() {
+    const cfg = typeof SITE_CONFIG !== "undefined" ? SITE_CONFIG : void 0;
+    return cfg?.mode === "problems" ? "problems" : "contributions";
+  }
+  function backFromProblemHref() {
+    return siteMode() === "problems" ? "./archive.html" : "./";
+  }
+  function backFromProblemLabel() {
+    return siteMode() === "problems" ? "\u2190 Archive" : "\u2190 Home";
+  }
   function maxReveal() {
     const total = getSeriesTotal();
     return typeof maxRevealedN === "function" ? maxRevealedN(void 0, total) : total;
@@ -168,7 +178,9 @@
       document.title = opened ? `${n}. ${meta.title} \xB7 Project Brahmagupta` : `Problem ${n} \xB7 Project Brahmagupta`;
       const when = escapeHtml(opensLineForN(n) || "");
       const note = opened ? `Statement not in this bundle yet \u2014 same calendar as below \xB7 <strong>${when}</strong>` : `Not yet available \xB7 opens <strong>${when}</strong>`;
-      root.innerHTML = `<h1>${escapeHtml(meta.title)}</h1><p class="problem-locked-lede">${note}</p><p class="problem-locked-hint"><a href="./archive.html">\u2190 Archive</a></p>`;
+      const backHref = escapeHtml(backFromProblemHref());
+      const backLabel = escapeHtml(backFromProblemLabel());
+      root.innerHTML = `<h1>${escapeHtml(meta.title)}</h1><p class="problem-locked-lede">${note}</p><p class="problem-locked-hint"><a href="${backHref}">${backLabel}</a></p>`;
     }
     const pos = document.getElementById("problem-pos");
     if (pos) pos.textContent = `${n} of ${total}`;
