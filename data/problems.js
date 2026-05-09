@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Catalog: data/problems.source.js · Statements: problems/p*.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-05-06T23:20:18.824Z): bodies for n ≤ 1 (1/108).
+ * Publication slice at build (2026-05-08T19:55:09.396Z): bodies for n ≤ 3 (3/108).
  */
 "use strict";
 
@@ -557,5 +557,19 @@ var PROBLEMS = [
     "title": "The diagonal of the rectangle",
     "tag": "geometry",
     "body": "Baudhāyana, in the oldest of the Śulba Sūtras, states what we now call the Pythagorean theorem for a rectangle.\n\nA primitive Pythagorean triple is a triple \\((a,b,c)\\) of positive integers with \\(a^2+b^2=c^2\\), \\(\\gcd(a,b,c)=1\\), and \\(a<b<c\\). How many primitive Pythagorean triples have hypotenuse \\(c\\) at most \\(1000\\)?"
+  },
+  {
+    "n": 2,
+    "source": "Baudhāyana Śulba Sūtra, 2.12",
+    "title": "Doubling the square",
+    "tag": "geometry · approximation",
+    "body": "Baudhāyana gave a rational approximation to \\(\\sqrt{2}\\), namely \\(\\displaystyle\\frac{577}{408}\\). Let \\(p_k/q_k\\) be the \\(k\\)th convergent of the continued fraction of \\(\\sqrt{2}\\). What is the smallest \\(k\\) for which \\(| \\sqrt{2} - p_k/q_k | < 10^{-20}\\)?"
+  },
+  {
+    "n": 3,
+    "source": "Baudhāyana ŚS, 1.58 (citi-construction)",
+    "title": "The bricks of the falcon-altar",
+    "tag": "combinatorics · geometry",
+    "body": "Four distinct brick patterns \\(A,B,C,D\\) are available. Five layers of an altar must each use one pattern, and no two consecutive layers may share the same pattern. In how many ways can the five layers be chosen?"
   }
 ];
