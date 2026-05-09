@@ -13,14 +13,14 @@ window.SITE_CONFIG = {
 
   homeDocument: {
     contributions: {
-      title: "Project Brahmagupta — contribute problems from Indian mathematics",
+      title: "Project Brahmagupta",
       description:
-        "Help build a collection of problems from the Indian mathematical tradition — classical sources, translations, and original pieces.",
+        "Problems in mathematics and computation, inspired by the classical Indian tradition of ganita.",
     },
     problems: {
-      title: "Project Brahmagupta — daily problems from Indian mathematics",
+      title: "Project Brahmagupta",
       description:
-        "One problem each morning from the Indian mathematical tradition — 108 days, India Standard Time.",
+        "One problem per day from a series in mathematics and computation, grounded in Indian mathematical sources.",
     },
   },
 };
