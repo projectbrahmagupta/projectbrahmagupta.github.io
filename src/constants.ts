@@ -13,11 +13,13 @@ export const FIRST_PROBLEM_OPENS_TITLE = "First problem opens 7 May 2026, 00:00 
 
 export const DATA_DIR = "data";
 
-/** Relative to repo root: `p1.tex` … `p108.tex` (LaTeX / MathJax). */
+/** Relative to repo root: `p001.tex` … `p108.tex` (LaTeX / MathJax). */
 export const PROBLEMS_DIR = "problems";
 
 export const PROBLEMS_SOURCE_FILENAME = "problems.source.js";
 export const PROBLEMS_PUBLISHED_FILENAME = "problems.js";
+/** Carousel on contribute.html — built from problems/p001.tex … p003.tex. */
+export const CONTRIBUTE_SAMPLES_FILENAME = "contribute-samples.js";
 export const REVEAL_BROWSER_FILENAME = "reveal-config.js";
 
 /** Env override for local previews (`PB_PUBLISH_MAX_N`). */

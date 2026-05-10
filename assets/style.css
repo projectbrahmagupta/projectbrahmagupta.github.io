@@ -466,6 +466,155 @@ sup, sub { font-size: 0.7em; line-height: 0; }
   color: var(--muted);
 }
 
+/* ---------- contribute sample carousel ---------- */
+.sample-carousel {
+  margin: 0 0 2.25rem;
+}
+.sample-carousel__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+}
+.sample-carousel__title {
+  font-family: var(--sans);
+  font-size: 0.84rem;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, var(--muted) 62%, var(--bg));
+  margin: 0;
+}
+.sample-carousel__toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.sample-carousel__arrow {
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.35rem 0.55rem;
+  background: var(--bg-soft);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.sample-carousel__arrow:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.sample-carousel__arrow:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(122, 46, 31, 0.12);
+}
+.sample-carousel__dots {
+  display: flex;
+  gap: 0.35rem;
+}
+.sample-carousel__dot {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  min-width: 1.65rem;
+  height: 1.65rem;
+  padding: 0 0.35rem;
+  border-radius: 999px;
+  border: 1px solid var(--rule);
+  background: var(--bg);
+  color: var(--ink-soft);
+  cursor: pointer;
+  line-height: 1;
+}
+.sample-carousel__dot.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+.sample-carousel__dot:hover:not(.is-active) {
+  border-color: var(--accent-soft);
+  color: var(--accent);
+}
+.sample-carousel__dot:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(122, 46, 31, 0.12);
+}
+.sample-carousel__viewport {
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: var(--bg-softer);
+  outline: none;
+  /* Height set by JS to match the active slide (short slides stay short). */
+  min-height: 0;
+  /* No transition until .is-ready — avoids a tall-then-shrink flash on load. */
+  transition: none;
+}
+.sample-carousel.is-ready .sample-carousel__viewport {
+  transition: height 0.28s ease;
+}
+/* Hide until first layout pass — use max-height (not height:0) so slide offsetHeight stays measurable */
+.sample-carousel.is-booting .sample-carousel__viewport {
+  visibility: hidden;
+  max-height: 0;
+  min-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  border-width: 0;
+  padding: 0;
+  margin: 0;
+}
+.sample-carousel__viewport:focus-visible {
+  box-shadow: 0 0 0 3px rgba(122, 46, 31, 0.15);
+}
+.sample-carousel__track {
+  display: flex;
+  align-items: flex-start;
+  transition: transform 0.55s ease;
+  will-change: transform;
+}
+.sample-carousel__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  padding: 0.85rem 1rem 1rem;
+  box-sizing: border-box;
+}
+.sample-carousel__slide.problem-article {
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+.sample-carousel__meta {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.45rem;
+}
+.sample-carousel__slide .body.problem-tex {
+  white-space: pre-wrap;
+  margin: 0;
+  padding: 0;
+}
+/* Tighter MathJax than full problem page — default CHTML margins read very large here */
+.sample-carousel mjx-container {
+  margin: 0.12em 0 !important;
+}
+.sample-carousel mjx-container[display="true"] {
+  margin: 0.35em 0 !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sample-carousel__track {
+    transition: none;
+  }
+  .sample-carousel.is-ready .sample-carousel__viewport {
+    transition: none;
+  }
+}
+
 /* ---------- contribute form ---------- */
 .contrib-form {
   margin-top: 2.2rem;

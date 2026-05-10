@@ -6,1245 +6,870 @@ Plain-text dump (no answer key). Regenerate: npm run export-txt
 Problem 1
 ================================================================================
 Source:     Baudhāyana Śulba Sūtra, 1.48
-Title:      The diagonal of the rectangle
-Tag:        geometry
+Title:      Faces of the Bhargava Cube
 --------------------------------------------------------------------------------
+In his 2006, Bhargava provided a geometric reinterpretation of composition laws by placing eight integers at the corners of a $2\times2\times2$ cube. Slicing the cube along each of its three pairs of opposite faces yields three binary quadratic forms, and these three forms always compose to the identity. The face determinants of the cube, when expanded, produce sums of products of pairs of entries. The following problem asks which integer quadruples make this symmetric sum a perfect cube, in the same spirit as the classical question of which integers are represented by a given quadratic form.
 
-Baudhāyana, in the oldest of the Śulba Sūtras, states what we now call the Pythagorean theorem for a rectangle.
+    For integers $a, b, c, d$, define the symmetric sum
 
-A primitive Pythagorean triple is a triple \((a,b,c)\) of positive integers with \(a^2+b^2=c^2\), \(\gcd(a,b,c)=1\), and \(a<b<c\). How many primitive Pythagorean triples have hypotenuse \(c\) at most \(1000\)?
+    $$B(a,b,c,d) = ab + ac + ad + bc + bd + cd.$$
+
+    We call $(a,b,c,d)$ balanced if $B(a,b,c,d)$ is a perfect cube.
+    Find the number of balanced quadruples with $1 \leq a, b, c, d \leq 10^4$.
 
 ================================================================================
 Problem 2
 ================================================================================
 Source:     Baudhāyana Śulba Sūtra, 2.12
-Title:      Doubling the square
-Tag:        geometry · approximation
+Title:      Vargaprakriti
 --------------------------------------------------------------------------------
-
-
-Baudhāyana gave a rational approximation to \(\sqrt{2}\), namely \(\displaystyle\frac{577}{408}\). Let \(p_k/q_k\) be the \(k\)th convergent of the continued fraction of \(\sqrt{2}\). What is the smallest \(k\) for which \(| \sqrt{2} - p_k/q_k | < 10^{-20}\)?
+Find positive integer solutions to \(x^2-92y^2=1\).
 
 ================================================================================
 Problem 3
 ================================================================================
 Source:     Baudhāyana ŚS, 1.58 (citi-construction)
-Title:      The bricks of the falcon-altar
-Tag:        combinatorics · geometry
+Title:      Vargaprakriti
 --------------------------------------------------------------------------------
-
-
-Four distinct brick patterns \(A,B,C,D\) are available. Five layers of an altar must each use one pattern, and no two consecutive layers may share the same pattern. In how many ways can the five layers be chosen?
+Find positive integer solutions to \(x^2-92y^2=1\).
 
 ================================================================================
 Problem 4
 ================================================================================
 Source:     Mānava Śulba Sūtra
-Title:      Squaring the circle, the Śulba way
-Tag:        approximation · geometry
+Title:      
 --------------------------------------------------------------------------------
 
-
-Mānava’s construction for a square equal in area to a circle of diameter \(d\) begins with
-\[
-  s \approx d - \frac{d}{8} + \frac{d}{8\cdot 29} - \frac{d}{8\cdot 29\cdot 6} + \frac{d}{8\cdot 29\cdot 6\cdot 8}.
-\]
-Take \(d=1\), let \(s\) be the resulting side, and set \(\pi_{\mathrm{Śulba}} = 4s^2\). Compute \(\lfloor 10^8 \cdot \pi_{\mathrm{Śulba}} \rfloor\).
 
 ================================================================================
 Problem 5
 ================================================================================
 Source:     Āpastamba Śulba Sūtra
-Title:      Combining two squares
-Tag:        geometry
+Title:      
 --------------------------------------------------------------------------------
-Āpastamba describes the construction of a single square equal in area to the sum of two given squares — a constructive proof of the Pythagorean theorem.
 
-      You are given squares of sides a₁, a₂, …, a₈ with
-
-      \\[ a_{1}=3, a_{2}=4, a_{3}=5, a_{4}=12, a_{5}=7, a_{6}=24, a_{7}=20, a_{8}=21. \\]
-
-      Their total area is A. Find the side s of the single square of equal total area, where s = √A. The answer is an integer.
 
 ================================================================================
 Problem 6
 ================================================================================
 Source:     Baudhāyana ŚS, 1.61
-Title:      Subtracting one square from another
-Tag:        geometry · number theory
+Title:      
 --------------------------------------------------------------------------------
-Given two squares of side a and b with a > b, the Śulba sūtras give a construction for a square equal to the difference of the two — that is, a square of side √(a² − b²).
 
-      How many ordered pairs of positive integers (a, b) with 1 ≤ b < a ≤ 100 are such that a² − b² is itself a perfect square?
 
 ================================================================================
 Problem 7
 ================================================================================
 Source:     in the spirit of Kātyāyana ŚS
-Title:      Stacking the layers
-Tag:        combinatorics
+Title:      
 --------------------------------------------------------------------------------
-An altar is built from layers of bricks of three sizes: of "1 puruṣa", of "1/2 puruṣa", and of "1/3 puruṣa" (in some unit). The altar must total exactly 7½ puruṣa.
 
-      How many ordered sequences of bricks (using any number of each of the three sizes, with repetition permitted) total 7½ puruṣa when laid in order?
-
-      (Two sequences are different if the ordering differs, even with the same multiset of bricks.)
 
 ================================================================================
 Problem 8
 ================================================================================
 Source:     after Baudhāyana ŚS
-Title:      Pythagorean primitives in a band
-Tag:        number theory
+Title:      
 --------------------------------------------------------------------------------
-Śulba authors knew the triples (3, 4, 5), (5, 12, 13), (8, 15, 17), (7, 24, 25), (12, 35, 37). All are primitive: their three sides share no common factor.
 
-      Find the sum of the perimeters of all primitive Pythagorean triples whose longest leg is at most 100. (The legs of (3, 4, 5) are 3 and 4; the longest is 4.)
 
 ================================================================================
 Problem 9
 ================================================================================
 Source:     Anuyogadvāra-sūtra
-Title:      The half-cuts (ardhaccheda)
-Tag:        logarithms · series
+Title:      
 --------------------------------------------------------------------------------
-The Jaina canonical works defined the ardhaccheda of a positive integer n — the number of times n can be halved before reaching 1. Where the result is fractional, only complete halvings are counted; thus ardhaccheda(n) = ⌊log₂ n⌋.
 
-      Compute
-
-      \\[ \sum_{n=1}^{10000} ardhaccheda(n) . \\]
 
 ================================================================================
 Problem 10
 ================================================================================
 Source:     Sūryaprajñapti and Tattvārtha-sūtra
-Title:      Innumerable, but countable
-Tag:        large numbers
+Title:      
 --------------------------------------------------------------------------------
-The Jaina cosmologists distinguished countable (saṃkhyeya), innumerable (asaṃkhyeya), and infinite (ananta) numbers, with elaborate sub-classifications of the innumerable. The smallest "innumerable" number, in some accounts, is 22¹⁹⁶.
 
-      Let N = 22¹⁹⁶. Find the number of decimal digits of N.
 
 ================================================================================
 Problem 11
 ================================================================================
 Source:     Bhagavatī-sūtra: enumeration of meters
-Title:      Meters of fixed length
-Tag:        combinatorics
+Title:      
 --------------------------------------------------------------------------------
-In Sanskrit and Prakrit prosody, a syllable is either laghu (light, weight 1) or guru (heavy, weight 2). A meter of total weight n is a sequence of laghu/guru summing to n. (Piṅgala observed long before Fibonacci that the count satisfies M(n) = M(n−1) + M(n−2).)
 
-      Of all meters of total weight 30, how many contain exactly twelve heavy syllables?
 
 ================================================================================
 Problem 12
 ================================================================================
 Source:     Tattvārthādhigama-sūtra
-Title:      Time, measured in palya
-Tag:        arithmetic · large numbers
+Title:      
 --------------------------------------------------------------------------------
-A palyopama is a Jaina time-unit defined by an emptying-the-pit thought-experiment: a cubical pit one yojana on a side is filled with hairs of newborn lambs, each one cut into 2¹⁹⁶ pieces, and one such piece is removed every hundred years.
 
-      Suppose, for the sake of arithmetic, that one yojana = 16 km, that the pit holds 10⁴⁵ hair-pieces, and that 2¹⁹⁶ pieces emerge from one hair. After one piece is removed every hundred years, how many full years are required to empty the pit? Report the answer as an integer.
-
-      (You may assume 2¹⁹⁶ ≈ 10⁵⁹, exactly: take 2¹⁹⁶ = 10⁵⁹ for this problem.)
 
 ================================================================================
 Problem 13
 ================================================================================
 Source:     Āryabhaṭīya, Gaṇitapāda 10
-Title:      Āryabhaṭa's π
-Tag:        approximation
+Title:      
 --------------------------------------------------------------------------------
-caturadhikaṃ śatam aṣṭaguṇaṃ dvāṣaṣṭis tathā sahasrāṇām ayutadvayaviṣkambhasyāsannaḥ vṛttapariṇāhaḥ.
-"100 + 4, multiplied by 8, plus 62 000: this is the approximate circumference of a circle whose diameter is 20 000." [Āryabhaṭīya, Gaṇitapāda, verse 10]
 
-      Āryabhaṭa's recipe gives the rational π ≈ 62832 / 20000 = 3.1416. Set π_Ā = 3.1416.
-
-      Now consider a circle whose circumference equals 1 (in some unit). Compute the integer ⌊10⁹ · d⌋, where d = 1/π_Ā is the diameter.
 
 ================================================================================
 Problem 14
 ================================================================================
 Source:     Āryabhaṭīya, Gaṇitapāda 12
-Title:      The first sine table
-Tag:        trigonometry
+Title:      
 --------------------------------------------------------------------------------
-Āryabhaṭa is the first known mathematician to give a table of jyā (Indian sine, a chord-half) values, computed at intervals of 3°45′ (so that 24 values cover 0° to 90°).
 
-      Take the standard radius R = 3438 arc-minutes (so that R · sin θ ≈ θ for very small θ, where θ is in arc-minutes). Compute, exactly,
-
-      \\[ \sum_{k=1}^{24} \lfloor R \cdot \sin( k \cdot 3^\circ45' ) \rfloor . \\]
 
 ================================================================================
 Problem 15
 ================================================================================
 Source:     Āryabhaṭīya, Gaṇitapāda 32–33
-Title:      The pulverizer
-Tag:        kuṭṭaka · number theory
+Title:      
 --------------------------------------------------------------------------------
-Āryabhaṭa I introduces the kuṭṭaka ("pulverizer") method for solving ax + c = by in integers — what we now call the linear Diophantine equation. The method spread throughout the tradition (Brahmagupta, Bhāskara I, Bhāskara II, Nārāyaṇa).
 
-      Find the smallest positive integer x satisfying
-
-      \\[ 137 x \equiv 1 \pmod{1729} . \\]
 
 ================================================================================
 Problem 16
 ================================================================================
 Source:     Āryabhaṭīya, Gaṇitapāda 6
-Title:      Sum of an arithmetic progression
-Tag:        series
+Title:      
 --------------------------------------------------------------------------------
-Āryabhaṭa gives the rule (Gaṇitapāda 6) for the sum of an arithmetic progression in the form: "the sum is the half-sum of the first and last terms, multiplied by the count of terms."
 
-      An arithmetic progression begins with 7 and has common difference 13. What is the sum of the first 2026 terms?
 
 ================================================================================
 Problem 17
 ================================================================================
 Source:     Āryabhaṭīya, Gaṇitapāda 22
-Title:      Sums of squares and cubes
-Tag:        series
+Title:      
 --------------------------------------------------------------------------------
-Āryabhaṭa's verse 22 gives a single formula for the "sum of the series of squares and the series of cubes" by viewing them as differences and accumulations.
 
-      Compute
-
-      \\[ ( 1^{3} + 2^{3} + \cdots + 50^{3} ) - ( 1^{2} + 2^{2} + \cdots + 50^{2} ) . \\]
 
 ================================================================================
 Problem 18
 ================================================================================
 Source:     Bhāskara I, Mahābhāskarīya VII.17
-Title:      Bhāskara I's sine approximation
-Tag:        trigonometry · approximation
+Title:      
 --------------------------------------------------------------------------------
-Bhāskara I (c. 600 CE), commenting on Āryabhaṭa, gives a remarkable rational approximation for the sine — accurate to better than 0.002 over the entire range 0 ≤ θ ≤ π:
 
-      \\[ \sin \theta \approx \frac{16 \theta (\pi - \theta )}{5 \pi^{2} - 4 \theta (\pi - \theta )} . \\]
-
-      Let f(θ) denote Bhāskara's approximation and e(θ) = sin θ − f(θ) the error. The maximum of |e(θ)| over θ ∈ [0, π] is attained at some θ*. Compute θ* in degrees, rounded to the nearest tenth of a degree, and report the integer ⌊10 · θ*⌋.
 
 ================================================================================
 Problem 19
 ================================================================================
 Source:     Āryabhaṭīya, Gaṇitapāda 19
-Title:      Mean diameters
-Tag:        geometry
+Title:      
 --------------------------------------------------------------------------------
-A diameter divides a circle into two equal semicircles. A second chord, perpendicular to and bisected by the diameter, divides the disk into four pieces. A third chord, parallel to the diameter and at the right distance, divides one of these pieces into two of equal area.
 
-      If the radius is 1 and the third chord is at distance h from the diameter, find ⌊10⁸ · h⌋.
 
 ================================================================================
 Problem 20
 ================================================================================
 Source:     Āryabhaṭīya, Kālakriyā 4
-Title:      The yuga revolutions
-Tag:        number theory · astronomy
+Title:      
 --------------------------------------------------------------------------------
-In Āryabhaṭa's astronomical model, in one mahāyuga of 4 320 000 years, the Moon completes 57 753 336 sidereal revolutions and the Sun 4 320 000.
 
-      How many days, on average, separate consecutive new moons (i.e. the synodic month), to the nearest integer? You may use the fact that one mahāyuga contains 1 577 917 500 civil days.
 
 ================================================================================
 Problem 21
 ================================================================================
 Source:     Āryabhaṭīya, Gaṇitapāda 17
-Title:      Chords in a circle
-Tag:        geometry
+Title:      
 --------------------------------------------------------------------------------
-Āryabhaṭa, verse 17, gives an essentially correct formula for chord-lengths in a circle in terms of two intersecting chords: if two chords intersect inside a circle and are divided into segments (a, b) and (c, d), then a · b = c · d.
 
-      Two chords intersect inside a circle. The first chord is divided by the intersection into segments of lengths 4 and 9. The second chord has total length 13 and is divided into two integer segments. What is the longer segment of the second chord?
 
 ================================================================================
 Problem 22
 ================================================================================
 Source:     Bhāskara I's commentary on the Āryabhaṭīya
-Title:      Place value, in words
-Tag:        arithmetic
+Title:      
 --------------------------------------------------------------------------------
-The Indian decimal place-value names go: eka (1), daśa (10), śata (10²), sahasra (10³), ayuta (10⁴), niyuta (10⁵), prayuta (10⁶), koṭi (10⁷), arbuda (10⁸), vṛnda (10⁹), and continuing.
 
-      Reading right to left, the digits of 2026! end in some number of zeros. Find that number.
 
 ================================================================================
 Problem 23
 ================================================================================
 Source:     Lalla, Śiṣya-dhī-vṛddhi-tantra
-Title:      Calendar of intercalation
-Tag:        number theory · astronomy
+Title:      
 --------------------------------------------------------------------------------
-In one mahāyuga of 4 320 000 years there are 51 840 000 solar months and 53 433 336 sidereal lunar months — and, by subtraction, 1 593 336 synodic months. The mismatch between solar and lunar months is corrected by inserting an intercalary month (adhimāsa) every so often.
 
-      What is the smallest positive integer k such that exactly k mahāyugas contain a whole number of intercalary months and a whole number of solar months at the same time?
 
 ================================================================================
 Problem 24
 ================================================================================
 Source:     after Āryabhaṭīya, Kālakriyā
-Title:      When do all five planets meet?
-Tag:        number theory
+Title:      
 --------------------------------------------------------------------------------
-In an astronomical model, five planets have sidereal periods (in days) of 88, 225, 687, 4332, and 10759. They are all in conjunction now.
 
-      To the nearest integer, after how many years (one year = 365.25 days) will they next all be in conjunction simultaneously? You may treat each period as exact.
 
 ================================================================================
 Problem 25
 ================================================================================
 Source:     Āryabhaṭīya, Gaṇitapāda 4
-Title:      Square root, cube root
-Tag:        arithmetic
+Title:      
 --------------------------------------------------------------------------------
-Āryabhaṭa, in verses 4 and 5, gives compact procedures for digit-by-digit extraction of square roots and cube roots — among the earliest such written procedures.
 
-      Find the smallest positive integer n such that both n and n + 11 are perfect cubes.
 
 ================================================================================
 Problem 26
 ================================================================================
 Source:     Āryabhaṭīya, Gaṇitapāda 12
-Title:      Versines and chords
-Tag:        trigonometry
+Title:      
 --------------------------------------------------------------------------------
-Āryabhaṭa's verse 12 gives a recursion for sine differences that is essentially equivalent to the second-order trigonometric identity
 
-      \\[ jyā(\alpha + h) - 2 jyā(\alpha ) + jyā(\alpha - h) = - jyā(\alpha ) \cdot ( jyā(h)/R )^{2} \cdot 2 / (something) , \\]
-
-      which yields the entire jyā table from the very first jyā. (Specifically: with R = 3438, jyā(3°45′) = 225 to the nearest integer.)
-
-      Take R = 3438 and the first jyā jyā(3°45′) = 225. Apply Āryabhaṭa's recursion exactly to compute jyā(15°), and report the integer answer.
-
-      (For this problem, "Āryabhaṭa's recursion" can be implemented as: build the table iteratively by Dk+1 = Dk − jyā(k · h)·(2 sin(h/2))² / R, with D1 = jyā(h) and jyā((k+1)·h) = jyā(k·h) + Dk+1, where h = 3°45′.)
 
 ================================================================================
 Problem 27
 ================================================================================
 Source:     Brāhmasphuṭasiddhānta XII.21
-Title:      The cyclic quadrilateral
-Tag:        geometry
+Title:      
 --------------------------------------------------------------------------------
-"The square root of the product of the four sums of the sides each diminished by half-perimeter — that is the area of a triangle exactly, and approximately of a quadrilateral inscribed in a circle." [Brahmagupta, BSS XII.21]
 
-      This is Brahmagupta's formula:
-
-      \\[ K = \sqrt{(s-a)(s-b)(s-c)(s-d)},\quad s = (a+b+c+d)/2. \\]
-
-      How many cyclic quadrilaterals exist with integer sides a ≤ b ≤ c ≤ d, all distinct, perimeter at most 60, and integer area?
 
 ================================================================================
 Problem 28
 ================================================================================
 Source:     Brāhmasphuṭasiddhānta XII
-Title:      Heron, as the degenerate case
-Tag:        geometry
+Title:      
 --------------------------------------------------------------------------------
-Setting d = 0 in Brahmagupta's formula gives Heron's formula for the triangle. How many integer-sided triangles, with all sides distinct, perimeter exactly 60, are Heronian (have integer area)?
+
 
 ================================================================================
 Problem 29
 ================================================================================
 Source:     BSS XII (diagonals of cyclic quad)
-Title:      Brahmagupta's diagonal rule
-Tag:        geometry
+Title:      
 --------------------------------------------------------------------------------
-Brahmagupta gave, beyond the area formula, a rule for the diagonals of a cyclic quadrilateral. If the sides in cyclic order are a, b, c, d, the squared length of the diagonal joining the vertices between sides (a, b) and (c, d) is
 
-      \\[ p^{2} = \frac{(ab + cd)(ac + bd)}{ad + bc} . \\]
-
-      How many ordered tuples of positive integers (a, b, c, d) with a + b + c + d = 50, a ≤ b ≤ c ≤ d, and all sides distinct, are such that both diagonals p and q (the other diagonal, by the analogous formula) are simultaneously rational?
 
 ================================================================================
 Problem 30
 ================================================================================
 Source:     BSS XVIII (Bījagaṇita)
-Title:      Brahmagupta–Fibonacci identity
-Tag:        number theory
+Title:      
 --------------------------------------------------------------------------------
-Brahmagupta proves what is now called the Brahmagupta–Fibonacci identity:
 
-      \\[ (a^{2} + N b^{2})(c^{2} + N d^{2}) = (ac - N bd)^{2} + N (ad + bc)^{2} = (ac + N bd)^{2} + N (ad - bc)^{2} . \\]
-
-      Set N = 5. Find the smallest positive integer that can be written in the form x² + 5 y² with positive integers x, y in two distinct ways.
 
 ================================================================================
 Problem 31
 ================================================================================
 Source:     BSS XVIII (cakravāla, of a sort)
-Title:      Brahmagupta's bhāvanā composition
-Tag:        number theory · Pell
+Title:      
 --------------------------------------------------------------------------------
-The same identity gives Brahmagupta his most beautiful application: from a single non-trivial solution of the Pell-like equation x² − N y² = k, he can compose further solutions. In particular, starting from x² − 92 y² = 1, he derives a small fundamental solution.
 
-      What is the smallest positive integer x with x² − 92 y² = 1 for some positive integer y?
 
 ================================================================================
 Problem 32
 ================================================================================
 Source:     BSS XVIII
-Title:      The rules of zero
-Tag:        number theory
+Title:      
 --------------------------------------------------------------------------------
-Brahmagupta in his BSS XVIII gives the first known systematic rules for arithmetic with zero and with negative numbers — calling them kha and ṛṇa.
 
-      Consider the polynomial p(x) = x³ − 6x² + 11x − 6. How many integers n with |n| ≤ 100 are such that p(n) is positive?
 
 ================================================================================
 Problem 33
 ================================================================================
 Source:     BSS XVIII
-Title:      The unknown amount
-Tag:        algebra
+Title:      
 --------------------------------------------------------------------------------
-Brahmagupta solves, in elegant general form, the linear equation ax + b = cx + d, treating both positive and negative coefficients.
 
-      In the system
-
-      \\[ 7 x + 13 y + 19 z = 2026, 11 x + 17 y + 23 z = 2992, 13 x + 19 y + 29 z = 3596, \\]
-
-      find the unique integer solution and report the value of x + y + z.
 
 ================================================================================
 Problem 34
 ================================================================================
 Source:     BSS XII
-Title:      Brahmagupta triples
-Tag:        geometry
+Title:      
 --------------------------------------------------------------------------------
-Brahmagupta also gives a parametric construction for what we would now call integer-sided cyclic quadrilaterals with rational diagonals and area. The simplest non-trivial example has sides 39, 60, 52, 25 (in some order).
 
-      For this quadrilateral (sides 39, 60, 52, 25 in this cyclic order), what is the integer area?
 
 ================================================================================
 Problem 35
 ================================================================================
 Source:     BSS XII
-Title:      An inscribed triangle
-Tag:        geometry
+Title:      
 --------------------------------------------------------------------------------
-A triangle has integer sides, integer area, and is inscribed in a circle of integer radius. Such triangles are sometimes called super-Heronian.
 
-      How many such triangles exist with perimeter at most 50, up to congruence?
 
 ================================================================================
 Problem 36
 ================================================================================
 Source:     BSS XVIII
-Title:      Solving by guess
-Tag:        algebra
+Title:      
 --------------------------------------------------------------------------------
-Brahmagupta gives a "rule of trial" — the rule of false position — for linear equations. In the spirit of that rule:
 
-      The smallest positive integer solution (x, y) in non-negative integers to 23 x + 29 y = 2024 (ordered by smallest x) gives some pair. What is 10 x + y for that pair?
 
 ================================================================================
 Problem 37
 ================================================================================
 Source:     BSS XVIII
-Title:      Two unknowns from sums
-Tag:        algebra
+Title:      
 --------------------------------------------------------------------------------
-Two positive integers have product 2024 and sum 105. What is the absolute difference of the two integers?
+
 
 ================================================================================
 Problem 38
 ================================================================================
 Source:     BSS XII
-Title:      Cyclic quadrilateral with integer diagonals
-Tag:        geometry
+Title:      
 --------------------------------------------------------------------------------
-How many cyclic quadrilaterals with all sides integers, both diagonals integers, and perimeter at most 100 exist, up to similarity? (Two are similar if one is a positive integer multiple of the other.)
 
-      Hint: the smallest example is the (25, 39, 52, 60)-quadrilateral with diagonals 56 and 63.
 
 ================================================================================
 Problem 39
 ================================================================================
 Source:     after BSS
-Title:      The lattice of square sums
-Tag:        number theory
+Title:      
 --------------------------------------------------------------------------------
-Brahmagupta knew (and used) the identity that says: a positive integer n is a sum of two squares iff every prime factor of the form 4k + 3 appears to an even power.
 
-      How many positive integers n ≤ 1000 can be written as a sum of two integer squares (allowing 0², so 0 is permitted as one of the squares)?
 
 ================================================================================
 Problem 40
 ================================================================================
 Source:     after BSS
-Title:      The interpolation
-Tag:        approximation
+Title:      
 --------------------------------------------------------------------------------
-Brahmagupta gives, perhaps for the first time anywhere, a second-order interpolation rule, used in his sine tables. Modern eyes recognise it as Newton's forward-difference formula truncated at the second difference.
 
-      Apply Brahmagupta's interpolation to the values
-
-      \\[ f(0) = 0, f(1) = 1, f(2) = 8, f(3) = 27, f(4) = 64 \\]
-
-      and predict f(2.5) using only the second-order Brahmagupta interpolation centred at x = 2. Express the prediction as p/q in lowest terms, and report p + q.
 
 ================================================================================
 Problem 41
 ================================================================================
 Source:     Gaṇita-sāra-saṅgraha VI
-Title:      Choosing tastes
-Tag:        combinatorics
+Title:      
 --------------------------------------------------------------------------------
-"As many tastes as there are, taken one, two, three, … at a time — those, with the things of the world variously combined, are the combinations." [Mahāvīra, GSS VI.218]
 
-      Mahāvīra is the first known author to write down explicit closed-form rules for what we call binomial coefficients C(n, r). Let n = 12 (the twelve tastes, in his account). Compute
-
-      \\[ \sum_{r=0}^{12} r \cdot \binom{12}{r} . \\]
 
 ================================================================================
 Problem 42
 ================================================================================
 Source:     GSS VII (geometry)
-Title:      Mahāvīra's quadrilateral
-Tag:        geometry
+Title:      
 --------------------------------------------------------------------------------
-Mahāvīra (c. 850 CE) gives, perhaps unfortunately, a formula for the area of any quadrilateral by Brahmagupta's recipe — overlooking that the formula is only correct for cyclic quadrilaterals. The error is illuminating.
 
-      For an isosceles trapezium with parallel sides 4 and 14 and the two equal slant sides each 13, what is the (true) integer area?
 
 ================================================================================
 Problem 43
 ================================================================================
 Source:     GSS V (fractions)
-Title:      An Egyptian-style identity
-Tag:        fractions
+Title:      
 --------------------------------------------------------------------------------
-Mahāvīra devotes much of book V of the GSS to manipulating fractions, including a remarkably general method for decomposing 1 as a sum of distinct unit fractions.
 
-      How many distinct ways are there to write
-
-      \\[ 1 = \frac{1}{a} + \frac{1}{b} + \frac{1}{c} \\]
-
-      with positive integers a ≤ b ≤ c?
 
 ================================================================================
 Problem 44
 ================================================================================
 Source:     GSS VI
-Title:      Stringing the necklace
-Tag:        combinatorics
+Title:      
 --------------------------------------------------------------------------------
-Mahāvīra discusses arrangements of beads on a string, and on a closed necklace. A necklace of length 11 is to be made from beads of 3 distinguishable colours (any colour may be used any number of times).
 
-      Two necklaces are considered the same if one is a rotation of the other (reflections are considered distinct). How many distinct necklaces are there?
 
 ================================================================================
 Problem 45
 ================================================================================
 Source:     GSS V
-Title:      The horse-trader
-Tag:        word problem
+Title:      
 --------------------------------------------------------------------------------
-"A horse, sold for the price of 240 niṣkas, brings the seller a profit of one-fifth on the cost. What is the cost of the horse?" [after GSS V]
+
 
 ================================================================================
 Problem 46
 ================================================================================
 Source:     GSS
-Title:      Sum of a finite geometric progression
-Tag:        series
+Title:      
 --------------------------------------------------------------------------------
-Mahāvīra gives the rule for the sum of a finite geometric progression in essentially the modern form.
 
-      Compute 1 + 7 + 49 + 343 + ⋯ + 7¹².
 
 ================================================================================
 Problem 47
 ================================================================================
 Source:     GSS V
-Title:      A wartime split
-Tag:        word problem · arithmetic
+Title:      
 --------------------------------------------------------------------------------
-A war booty is divided among soldiers of a king as follows: the first soldier receives 1 part, the second 2 parts, the third 4 parts, and so on (each receives twice as much as the previous). After all n soldiers have received their shares, the king finds that the total distributed is 8 191 parts.
 
-      How many soldiers were there?
 
 ================================================================================
 Problem 48
 ================================================================================
 Source:     GSS VII
-Title:      An ellipse, in disguise
-Tag:        geometry
+Title:      
 --------------------------------------------------------------------------------
-Mahāvīra gives, for the first time in any extant text, a correct formula for the perimeter and area of an ellipse — the perimeter formula being approximate. He correctly states the area as π · a · b.
 
-      Mahāvīra's perimeter approximation is
-
-      \\[ P \approx \sqrt{16 a^{2} + 24 b^{2}}. \\]
-
-      For an ellipse with semi-axes a = 5, b = 3, the true perimeter is approximately 25.527. Mahāvīra's recipe gives P*. Compute the integer ⌊1000 · P*⌋.
 
 ================================================================================
 Problem 49
 ================================================================================
 Source:     GSS V
-Title:      Honey-bees, again
-Tag:        word problem
+Title:      
 --------------------------------------------------------------------------------
-"A swarm of bees: square root of half settled on a bakula tree; eight-ninths of the rest on a champaka. A single straggler hovered over the fragrant kunda flower. How many bees in all?"
 
-      Find the smallest positive integer n consistent with this puzzle.
 
 ================================================================================
 Problem 50
 ================================================================================
 Source:     GSS VI
-Title:      Garlands of pearls
-Tag:        combinatorics
+Title:      
 --------------------------------------------------------------------------------
-From a heap of beads of n distinct colours, the worshipper chooses some non-empty subset to thread into a garland. Two garlands are the same if they consist of the same multiset of colours.
 
-      If n = 8, how many distinct non-empty subsets are there? (Equivalent to: how many non-empty subsets of an 8-element set.)
 
 ================================================================================
 Problem 51
 ================================================================================
 Source:     Triśatikā
-Title:      Śrīdhara's quadratic
-Tag:        algebra
+Title:      
 --------------------------------------------------------------------------------
-Śrīdhara is, in many accounts, the first to write down the modern quadratic formula explicitly, in the form: "Multiply both sides by four times the coefficient of the square; add the square of the coefficient of the unknown to both sides; take the square root; subtract the coefficient of the unknown; divide by twice the coefficient of the square."
 
-      Find the unique positive integer root of 3 x² − 32 x + 84 = 0.
 
 ================================================================================
 Problem 52
 ================================================================================
 Source:     Pāṭīgaṇita 79
-Title:      A travelling pilgrim
-Tag:        word problem
+Title:      
 --------------------------------------------------------------------------------
-A pilgrim covers half the distance to the holy city on the first day, one-third of the remaining distance on the second day, one-fourth of what is then left on the third day, and 18 yojanas on the fourth, completing the journey. How many yojanas was the total distance?
+
 
 ================================================================================
 Problem 53
 ================================================================================
 Source:     Pāṭīgaṇita
-Title:      Mixture and proportion
-Tag:        arithmetic
+Title:      
 --------------------------------------------------------------------------------
-Two kinds of grain are mixed: the first costs 7 māṣa per maund, the second 11 māṣa per maund. The mixture is sold for 9 māṣa per maund (the average) and yields the merchant exactly the same profit had he sold each kind separately at its cost plus 25%.
 
-      Of 60 maunds of mixture, how many maunds were of the cheaper grain?
 
 ================================================================================
 Problem 54
 ================================================================================
 Source:     after Triśatikā
-Title:      Sum of a geometric series, slowly
-Tag:        series
+Title:      
 --------------------------------------------------------------------------------
-Compute the integer ⌊S⌋, where
 
-      \\[ S = \sum_{k=0}^{30} \frac{(2 k + 1)^{2}}{2^{k}} . \\]
 
 ================================================================================
 Problem 55
 ================================================================================
 Source:     Līlāvatī, ex. 54
-Title:      The lotus and the breeze
-Tag:        word problem · geometry
+Title:      
 --------------------------------------------------------------------------------
-"In a still pond, half a cubit high above the surface, there grew a lotus. The wind drove it; it sank, two cubits away from its base, the bud just touching the water. How deep is the pond?" [Līlāvatī]
 
-      Let the depth, in cubits, be d. Solve for d and report the integer 4d.
 
 ================================================================================
 Problem 56
 ================================================================================
 Source:     Līlāvatī, ex. 137
-Title:      The flock of bees
-Tag:        word problem
+Title:      
 --------------------------------------------------------------------------------
-"Of a flock of bees, one-fifth settled on the kadamba; one-third on the śilīndhri; thrice the difference of these flew to a kuṭaja; one bee was left flying in the air. Tell me, lovely lady, how many bees in all?" [Līlāvatī, ex. 137]
+
 
 ================================================================================
 Problem 57
 ================================================================================
 Source:     Līlāvatī, ex. 67
-Title:      Monkeys in the troop
-Tag:        word problem
+Title:      
 --------------------------------------------------------------------------------
-"Of a troop of monkeys, the square of one-eighth was leaping playfully on the bough; the remaining twelve sat in the shade. How many monkeys in all?" [Līlāvatī]
 
-      Two answers; report the larger.
 
 ================================================================================
 Problem 58
 ================================================================================
 Source:     Līlāvatī, ex. 70
-Title:      Pearls of the necklace
-Tag:        word problem
+Title:      
 --------------------------------------------------------------------------------
-"One-third of a string of pearls fell upon the floor, one-fifth upon the bed, one-sixth was caught by the maiden, one-tenth by her lover. Six pearls remained on the string. How many pearls in the necklace?" [after Līlāvatī]
+
 
 ================================================================================
 Problem 59
 ================================================================================
 Source:     Bījagaṇita, on the cakravāla
-Title:      Bhāskara's chakravāla — N = 61
-Tag:        Pell
+Title:      
 --------------------------------------------------------------------------------
-Bhāskara II's cakravāla ("cyclic") method is the crowning achievement of pre-modern Indian algebra. With it, Bhāskara solves the famously hard Pell equation
 
-      \\[ x^{2} - 61 y^{2} = 1 \\]
-
-      in his Bījagaṇita — the same equation that Fermat would, six centuries later, propose as a challenge to European mathematicians.
-
-      Find the smallest positive integer x with x² − 61 y² = 1 for some positive integer y.
 
 ================================================================================
 Problem 60
 ================================================================================
 Source:     Bījagaṇita, ex. on cakravāla
-Title:      Cakravāla, second example — N = 67
-Tag:        Pell
+Title:      
 --------------------------------------------------------------------------------
-Bhāskara works the example x² − 67 y² = 1 in detail. Find the smallest positive integer x.
+
 
 ================================================================================
 Problem 61
 ================================================================================
 Source:     Līlāvatī
-Title:      The peacock and the snake
-Tag:        word problem · geometry
+Title:      
 --------------------------------------------------------------------------------
-"A peacock perches on a pillar nine cubits high. Beneath the pillar is a snake's hole. Spotting a snake returning to its hole from a distance of three times the pillar's height, the peacock pounces. They move with equal speed and meet at the same point on the ground. How far from the foot of the pillar is the meeting?" [after Līlāvatī]
+
 
 ================================================================================
 Problem 62
 ================================================================================
 Source:     Bījagaṇita, ex. of analysis
-Title:      An indeterminate quadratic
-Tag:        number theory
+Title:      
 --------------------------------------------------------------------------------
-Bhāskara, in the Bījagaṇita, treats indeterminate equations of degree 2 systematically. As a small example: find all positive integer pairs (x, y) with
 
-      \\[ x^{2} - 2 x y + 5 y^{2} = 121. \\]
-
-      Among these, what is the maximum value of x + y?
 
 ================================================================================
 Problem 63
 ================================================================================
 Source:     Līlāvatī, on permutations
-Title:      Anagrams of LĪLĀVATĪ
-Tag:        combinatorics
+Title:      
 --------------------------------------------------------------------------------
-How many distinct arrangements are there of the eight letters of the title LĪLĀVATĪ (treating each occurrence as a distinct letter — so two L's, three Ī's including a long ī twice, one Ā, one V, one T)?
 
-      Concretely: count the arrangements of the multiset {L, L, Ī, Ī, Ī, Ā, V, T}.
 
 ================================================================================
 Problem 64
 ================================================================================
 Source:     Līlāvatī, ex. on series
-Title:      Series of arithmetic progressions
-Tag:        series
+Title:      
 --------------------------------------------------------------------------------
-What is the sum of all positive integers between 1 and 1000 (inclusive) that are not divisible by any of 2, 3, or 5?
+
 
 ================================================================================
 Problem 65
 ================================================================================
 Source:     Bījagaṇita, II
-Title:      Difference of squares
-Tag:        number theory
+Title:      
 --------------------------------------------------------------------------------
-How many ordered pairs (x, y) of positive integers satisfy x² − y² = 2024?
+
 
 ================================================================================
 Problem 66
 ================================================================================
 Source:     Līlāvatī
-Title:      The rule of three
-Tag:        arithmetic
+Title:      
 --------------------------------------------------------------------------------
-Bhāskara devotes a section of the Līlāvatī to the trairāśika, or "rule of three". A merchant lends 100 niṣkas at simple interest; in 30 months, the loan returns 16 niṣkas of interest.
 
-      How many full months will it take, at the same monthly rate, for 1 000 niṣkas to earn 200 niṣkas of simple interest?
 
 ================================================================================
 Problem 67
 ================================================================================
 Source:     Līlāvatī
-Title:      Mixing currencies
-Tag:        arithmetic · word problem
+Title:      
 --------------------------------------------------------------------------------
-A merchant has gold of two purities: nine māṣakas pure per ten, and seven māṣakas pure per ten. He melts a quantity of each into a single mass weighing 80 māṣakas, of which exactly 64 māṣakas are pure gold.
 
-      How many māṣakas of the higher-purity gold did he start with?
 
 ================================================================================
 Problem 68
 ================================================================================
 Source:     Līlāvatī
-Title:      The trader and the cloth
-Tag:        word problem
+Title:      
 --------------------------------------------------------------------------------
-A trader buys cloth at a certain price per cubit and sells it at a price per cubit that is 2 māṣakas more, gaining a profit equal to the cost of 7 cubits. If he had bought 5 cubits less and sold them at the same per-cubit profit, he would have gained the price of 4 cubits.
 
-      How many cubits did he originally buy?
 
 ================================================================================
 Problem 69
 ================================================================================
 Source:     Bījagaṇita, on the kuṭṭaka
-Title:      Pulverizer, modernised
-Tag:        kuṭṭaka
+Title:      
 --------------------------------------------------------------------------------
-Find the smallest positive integer n such that:
 
-      \\[ n \equiv 7 \pmod{11}, n \equiv 5 \pmod{13}, n \equiv 9 \pmod{17}. \\]
 
 ================================================================================
 Problem 70
 ================================================================================
 Source:     Līlāvatī, on combinations
-Title:      Bhāskara's mixed garlands
-Tag:        combinatorics
+Title:      
 --------------------------------------------------------------------------------
-From four kinds of flowers, the worshipper takes some — at least one of each — to make a garland of exactly 12 flowers. (The order in the garland matters.)
 
-      How many distinct garlands are possible?
 
 ================================================================================
 Problem 71
 ================================================================================
 Source:     Bījagaṇita
-Title:      A two-equation system
-Tag:        algebra
+Title:      
 --------------------------------------------------------------------------------
-Find all positive integer pairs (x, y) with x²+y²=2024. Report the number of ordered such pairs (counting both (x, y) and (y, x) when distinct).
+
 
 ================================================================================
 Problem 72
 ================================================================================
 Source:     Bījagaṇita, on cubes
-Title:      Cubes and squares
-Tag:        number theory
+Title:      
 --------------------------------------------------------------------------------
-How many positive integers n ≤ 10⁶ are simultaneously a perfect square and a perfect cube (i.e. perfect sixth powers)?
+
 
 ================================================================================
 Problem 73
 ================================================================================
 Source:     Līlāvatī
-Title:      An ancient AM–GM puzzle
-Tag:        algebra
+Title:      
 --------------------------------------------------------------------------------
-Two positive numbers have arithmetic mean 25 and geometric mean 24. What is the absolute difference of their squares?
+
 
 ================================================================================
 Problem 74
 ================================================================================
 Source:     Līlāvatī
-Title:      Twelve travellers
-Tag:        combinatorics
+Title:      
 --------------------------------------------------------------------------------
-Twelve travellers, all of distinct heights, sit in a row at a way-station. In how many of the 12! seatings is no traveller seated immediately next to a traveller of adjacent height? (Heights 1 and 2 are adjacent; 2 and 3 are adjacent; etc.)
+
 
 ================================================================================
 Problem 75
 ================================================================================
 Source:     Bījagaṇita
-Title:      Composition of squares
-Tag:        number theory
+Title:      
 --------------------------------------------------------------------------------
-Find the largest integer k ≤ 1000 such that the equation
 
-      \\[ x^{2} + y^{2} = k \\]
-
-      has at least three ordered pairs of solutions in non-negative integers.
 
 ================================================================================
 Problem 76
 ================================================================================
 Source:     Līlāvatī
-Title:      The cistern and the pipes
-Tag:        word problem
+Title:      
 --------------------------------------------------------------------------------
-A cistern can be filled in 3 hours by one pipe alone, in 4 by a second, and in 6 by a third. The cistern is empty and all three pipes are opened together. After how many minutes is the cistern full?
+
 
 ================================================================================
 Problem 77
 ================================================================================
 Source:     Līlāvatī
-Title:      Coconuts at the temple
-Tag:        word problem · CRT
+Title:      
 --------------------------------------------------------------------------------
-The priest counts the temple's coconuts. Counted by twos, threes, fours, fives, and sixes, one coconut is left over each time. Counted by sevens, none are left over. What is the smallest possible number of coconuts?
+
 
 ================================================================================
 Problem 78
 ================================================================================
 Source:     Bījagaṇita
-Title:      Bhāskara's interpolation
-Tag:        approximation
+Title:      
 --------------------------------------------------------------------------------
-Bhāskara II refines the interpolation rules of his predecessors and uses second-order interpolation to compute fine sine values from coarse tables.
 
-      The function f(x) = √x is tabulated at x = 100, 144, 196, 256, 324. Use a second-order Newton interpolation centred at x = 196 to estimate f(225). Report ⌊1000 · estimate⌋.
 
 ================================================================================
 Problem 79
 ================================================================================
 Source:     Gaṇita Kaumudī, Book I
-Title:      Nārāyaṇa's cows
-Tag:        recurrence
+Title:      
 --------------------------------------------------------------------------------
-"A cow gives birth to a calf each year. The calves themselves begin bearing in their fourth year. Beginning with one cow, how many cows and calves are there in twenty years?" [GK, Book I]
 
-      Let a(n) denote the herd in year n, with a(1) = a(2) = a(3) = 1 and a(n) = a(n−1) + a(n−3) thereafter. Compute a(40).
 
 ================================================================================
 Problem 80
 ================================================================================
 Source:     Gaṇita Kaumudī, Book II
-Title:      Compositions
-Tag:        combinatorics
+Title:      
 --------------------------------------------------------------------------------
-A composition of n is an ordered expression of n as a sum of positive integers; thus 1+2 and 2+1 are different compositions of 3. Nārāyaṇa proves that the number of compositions of n is 2n−1.
 
-      How many compositions of 25 use only parts that are odd integers?
 
 ================================================================================
 Problem 81
 ================================================================================
 Source:     Gaṇita Kaumudī, Book IV: bhadragaṇita
-Title:      Pandiagonal magic squares of order 4
-Tag:        magic square · combinatorics
+Title:      
 --------------------------------------------------------------------------------
-Nārāyaṇa devotes Book IV of the Gaṇita Kaumudī, called bhadragaṇita, to the construction of magic squares of all orders. He gives a complete enumeration for order 4.
 
-      A pandiagonal magic square of order 4 has every row, every column, every main diagonal, and every "broken" diagonal (wrapping around the edges) summing to the magic constant 34.
-
-      How many pandiagonal 4×4 magic squares with entries 1, 2, …, 16 are there in total — counting all 8 dihedral images of each square as distinct, but counting the cyclic translations of the torus as distinct as well?
-
-      (Equivalently: count distinct fillings of the 16 cells.)
 
 ================================================================================
 Problem 82
 ================================================================================
 Source:     GK Book IV
-Title:      Magic constant of order 12
-Tag:        magic square
+Title:      
 --------------------------------------------------------------------------------
-What is the magic constant of an order-12 magic square (entries 1 through 144)?
+
 
 ================================================================================
 Problem 83
 ================================================================================
 Source:     GK Book IV
-Title:      Most-perfect 2×2 sums
-Tag:        magic square
+Title:      
 --------------------------------------------------------------------------------
-Nārāyaṇa describes most-perfect magic squares of order 4n: in such a square, every 2×2 block (including blocks that wrap around the edges) sums to the same value.
 
-      For an order-8 most-perfect magic square with entries 1–64, what is the common 2×2 sum?
 
 ================================================================================
 Problem 84
 ================================================================================
 Source:     GK Book III
-Title:      Partitions of 30
-Tag:        combinatorics
+Title:      
 --------------------------------------------------------------------------------
-Book III of the Gaṇita Kaumudī treats partitions of an integer (aṅka-pāśa). Compute p(30), the number of partitions of 30 into positive integer parts (order disregarded).
+
 
 ================================================================================
 Problem 85
 ================================================================================
 Source:     GK Book III
-Title:      Partitions into distinct parts
-Tag:        combinatorics
+Title:      
 --------------------------------------------------------------------------------
-Compute the number of partitions of 50 into distinct positive integer parts. (By a theorem of Euler — anticipated in spirit by Indian and Chinese combinatorialists — this equals the number of partitions of 50 into odd parts.)
+
 
 ================================================================================
 Problem 86
 ================================================================================
 Source:     GK Book IV
-Title:      Centre of an odd magic square
-Tag:        magic square
+Title:      
 --------------------------------------------------------------------------------
-For any magic square of odd order n with entries 1 to n², the centre cell is forced to a particular value. What is the centre value of an order-13 magic square?
+
 
 ================================================================================
 Problem 87
 ================================================================================
 Source:     GK Book I
-Title:      Cow-flock at year 50
-Tag:        recurrence
+Title:      
 --------------------------------------------------------------------------------
-For Nārāyaṇa's cow recurrence (problem 79), what is a(50)?
+
 
 ================================================================================
 Problem 88
 ================================================================================
 Source:     GK
-Title:      Square-and-cube partitions
-Tag:        combinatorics
+Title:      
 --------------------------------------------------------------------------------
-How many positive integers n ≤ 1 000 000 can be written in the form n = a² + b³ with a, b non-negative integers?
+
 
 ================================================================================
 Problem 89
 ================================================================================
 Source:     GK
-Title:      Bracelets of 9 beads
-Tag:        combinatorics
+Title:      
 --------------------------------------------------------------------------------
-A bracelet of 9 beads, each painted one of 2 colours, is considered the same as another if one can be obtained from the other by rotation or reflection (i.e. the 18-element dihedral group acts).
 
-      How many distinct bracelets are there?
 
 ================================================================================
 Problem 90
 ================================================================================
 Source:     GK
-Title:      Catalan, by another name
-Tag:        combinatorics
+Title:      
 --------------------------------------------------------------------------------
-In how many ways can a convex polygon with 12 sides be triangulated into 10 triangles by non-crossing diagonals?
 
-      (This is the 10-th Catalan number — and the bracketing/triangulation problem appears, implicitly, in the period.)
 
 ================================================================================
 Problem 91
 ================================================================================
 Source:     GK
-Title:      Compositions with parts 1 and 2
-Tag:        combinatorics · recurrence
+Title:      
 --------------------------------------------------------------------------------
-How many compositions of 20 use only parts equal to 1 or 2?
 
-      (This is the same Fibonacci-like count as the meters of weight 20 in Indian prosody.)
 
 ================================================================================
 Problem 92
 ================================================================================
 Source:     GK
-Title:      Sum of cow-numbers
-Tag:        recurrence
+Title:      
 --------------------------------------------------------------------------------
-For Nārāyaṇa's cow sequence (problem 79), compute
 
-      \\[ \sum_{n=1}^{30} a(n) . \\]
 
 ================================================================================
 Problem 93
 ================================================================================
 Source:     GK Book IV
-Title:      Squares within squares
-Tag:        magic square
+Title:      
 --------------------------------------------------------------------------------
-A magic square of order 6 contains 1 through 36, with each row, column, and main diagonal summing to the magic constant. Among the 880 essentially distinct order-4 magic squares (Frenicle's classical count), how many of those contain the integer 1 in a corner cell?
+
 
 ================================================================================
 Problem 94
 ================================================================================
 Source:     GK
-Title:      Three Nārāyaṇa identities
-Tag:        combinatorics
+Title:      
 --------------------------------------------------------------------------------
-Define L(n) = a(1) + a(2) + ⋯ + a(n), where a is Nārāyaṇa's cow sequence (problem 79).
 
-      Find L(40) − a(42).
 
 ================================================================================
 Problem 95
 ================================================================================
 Source:     Sadratnamālā, Tantrasaṅgraha — attributing Mādhava
-Title:      Mādhava's series for π
-Tag:        series
+Title:      
 --------------------------------------------------------------------------------
-Mādhava of Sangamagrāma (c. 1340 – 1425) gave
 
-      \\[ \pi/4 = 1 - 1/3 + 1/5 - 1/7 + 1/9 - \cdots , \\]
-
-      three centuries before this series appeared in Europe under Leibniz's name. The simple alternating-series error bound is 1/(2n+1) after n terms.
-
-      What is the smallest n for which this bound guarantees the partial sum approximates π/4 to within 10⁻⁹?
 
 ================================================================================
 Problem 96
 ================================================================================
 Source:     Yuktidīpikā / Yuktibhāṣā
-Title:      Mādhava's better π
-Tag:        series
+Title:      
 --------------------------------------------------------------------------------
-Mādhava also gave the much-faster series
 
-      \\[ \pi = \sqrt{12} \cdot ( 1 - \frac{1}{3 \cdot 3} + \frac{1}{5 \cdot 9} - \frac{1}{7 \cdot 27} + \cdots ) , \\]
-
-      obtained by setting x = 1/√3 in the arctangent series.
-
-      How many terms of this series suffice — by the simple alternating-series bound — for the partial sum to approximate π to within 10⁻¹⁰?
 
 ================================================================================
 Problem 97
 ================================================================================
 Source:     Yuktibhāṣā (Jyeṣṭhadeva, 16th c.)
-Title:      Mādhava's sine series
-Tag:        series
+Title:      
 --------------------------------------------------------------------------------
-Mādhava gave
 
-      \\[ \sin x = x - \frac{x^{3}}{3!} + \frac{x^{5}}{5!} - \cdots \\]
-
-      three centuries before Newton. Set x = 1 radian. How many terms (counting from k = 0) of the series above are required for the partial sum to agree with sin 1 to twenty decimal places (error < 10⁻²⁰)?
 
 ================================================================================
 Problem 98
 ================================================================================
 Source:     Tantrasaṅgraha
-Title:      Mādhava's end-correction
-Tag:        series · approximation
+Title:      
 --------------------------------------------------------------------------------
-Mādhava gives an "end-correction" that vastly accelerates the slow Mādhava–Leibniz series:
 
-      \\[ \pi/4 \approx 1 - 1/3 + 1/5 - \cdots ± \frac{1}{2n - 1} ∓ \frac{n / 2}{(2n - 1)^{2} + 1} . \\]
-
-      Apply this with n = 8: take the alternating-series partial sum through ±1/(15), then apply the correction with the proper sign, and multiply by 4. Report the integer ⌊10⁹ · result⌋.
 
 ================================================================================
 Problem 99
 ================================================================================
 Source:     Tantrasaṅgraha, II
-Title:      Mādhava's jyā table
-Tag:        trigonometry
+Title:      
 --------------------------------------------------------------------------------
-Mādhava's table of jyās is computed at intervals of 3°45′, with R chosen so that R · sin θ ≈ θ for very small θ measured in arc-minutes (so R = 3437.7468..., giving the famous compound-unit "3437'44"48‴").
 
-      Set R = 3438 (the rounded value). Compute
-
-      \\[ \lfloor R \cdot \sin( 22^\circ30' ) \rfloor . \\]
 
 ================================================================================
 Problem 100
 ================================================================================
 Source:     Tantrasaṅgraha
-Title:      The cosine series
-Tag:        series
+Title:      
 --------------------------------------------------------------------------------
-Mādhava also gave
 
-      \\[ \cos x = 1 - x^{2}/2! + x^{4}/4! - \cdots . \\]
-
-      Compute ⌊10¹⁰ · cos(0.5)⌋ using the first 8 terms of the series (k = 0, 1, …, 7).
 
 ================================================================================
 Problem 101
 ================================================================================
 Source:     after Mādhava
-Title:      Convergence vs. correction
-Tag:        series
+Title:      
 --------------------------------------------------------------------------------
-Compare two approximations to π:
 
-        • (A) The Mādhava–Leibniz partial sum, multiplied by 4, after 1000 terms.
-
-        • (B) The same partial sum after 50 terms, with Mādhava's end-correction (problem 98) applied at n = 50.
-
-      Both (A) and (B) approximate π. Which is closer to π — and by what factor?
-
-      Compute r = |A − π| / |B − π|, and report ⌊r⌋.
 
 ================================================================================
 Problem 102
 ================================================================================
 Source:     after Yuktibhāṣā
-Title:      Sum of squares revisited
-Tag:        series
+Title:      
 --------------------------------------------------------------------------------
-The Yuktibhāṣā contains a beautiful proof of the formula for the continuous integral ∫₀ᵃ x² dx = a³/3 by direct geometric reasoning. As a discrete echo: compute the smallest positive integer n such that
 
-      \\[ 1^{2} + 2^{2} + \cdots + n^{2} > 10^{6} . \\]
 
 ================================================================================
 Problem 103
 ================================================================================
 Source:     Sadratnamālā (Śaṅkara Vāriyar)
-Title:      Mādhava's π, twelve digits
-Tag:        approximation
+Title:      
 --------------------------------------------------------------------------------
-The Sadratnamālā records a value of π attributed to Mādhava that is correct to eleven decimal places: π ≈ 3.14159265359.
 
-      Using π_M = 3.14159265359, compute the integer ⌊10¹⁵ · |π_M − π|⌋.
 
 ================================================================================
 Problem 104
 ================================================================================
 Source:     after Tantrasaṅgraha
-Title:      An iterated map
-Tag:        approximation
+Title:      
 --------------------------------------------------------------------------------
-Define the iteration x → (x + 2/x)/2 — a square-root iteration anticipating Newton, used implicitly throughout Indian mathematics from Bakhshali onward. Starting from x₀ = 1, compute x₅ as a rational p/q in lowest terms.
 
-      Report the number of digits of p.
 
 ================================================================================
 Problem 105
 ================================================================================
 Source:     Tantrasaṅgraha — Nīlakaṇṭha
-Title:      Nīlakaṇṭha's series
-Tag:        series
+Title:      
 --------------------------------------------------------------------------------
-Nīlakaṇṭha (1450–1550), commenting on Mādhava, gives the rapidly-converging series
 
-      \\[ \pi = 3 + \frac{4}{2 \cdot 3 \cdot 4} - \frac{4}{4 \cdot 5 \cdot 6} + \frac{4}{6 \cdot 7 \cdot 8} - \cdots \\]
-
-      How many terms (after the leading 3) are required for the alternating-series bound to guarantee the partial sum approximates π to within 10⁻⁸?
 
 ================================================================================
 Problem 106
 ================================================================================
 Source:     after Yuktibhāṣā
-Title:      An infinite product
-Tag:        series
+Title:      
 --------------------------------------------------------------------------------
-Although the formal infinite-product representation of sin x belongs properly to Euler, the manipulations of Mādhava and his successors anticipate it. Consider the partial product
 
-      \\[ P_{N} = \prod_{n=1}^{N} ( 1 - \frac{1}{(2n)^{2}} ) . \\]
-
-      The infinite product equals 2/π. What is the smallest N for which |PN − 2/π| < 10⁻⁵?
 
 ================================================================================
 Problem 107
 ================================================================================
 Source:     Sadratnamālā
-Title:      Versines, summed
-Tag:        trigonometry
+Title:      
 --------------------------------------------------------------------------------
-The śara (versine) is defined by śar(α) = R · (1 − cos α). With R = 3438, compute
 
-      \\[ \sum_{k=1}^{24} \lfloor śar( k \cdot 3^\circ45' ) \rfloor . \\]
 
 ================================================================================
 Problem 108
 ================================================================================
 Source:     in synthesis
-Title:      Iti samāptam
-Tag:        synthesis
+Title:      
 --------------------------------------------------------------------------------
-You have come to the end. One last problem, weaving together the traditions.
 
-      Define
-
-      \\[ f(n) = \sigma(n) \cdot d(n) - n \cdot \varphi(n) , \\]
-
-      where σ(n) is the sum of divisors of n, d(n) the number of divisors, and φ(n) Euler's totient. Compute
-
-      \\[ \sum_{n=1}^{108} f(n) . \\]
-
-      iti samāptam.
 

@@ -31,10 +31,9 @@
   function getCatalog() {
     if (Array.isArray(PROBLEM_CATALOG) && PROBLEM_CATALOG.length) return PROBLEM_CATALOG;
     if (Array.isArray(PROBLEMS)) {
-      return PROBLEMS.map(({ n, title, tag }) => ({
+      return PROBLEMS.map(({ n, title }) => ({
         n,
-        title,
-        tag
+        title
       }));
     }
     return [];

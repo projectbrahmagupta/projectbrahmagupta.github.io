@@ -8,8 +8,32 @@
   <script src="assets/site-mode.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=Shobhika:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=Shobhika:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/style.css" />
+
+  <script>
+    /* MathJax 3 — same fragment conventions as problems/p###.tex */
+    window.MathJax = {
+      tex: {
+        inlineMath: [
+          ["\\(", "\\)"],
+          ["$", "$"],
+        ],
+        displayMath: [
+          ["\\[", "\\]"],
+          ["$$", "$$"],
+        ],
+        processEscapes: true,
+        processEnvironments: true,
+        tags: "none",
+      },
+      options: {
+        skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+      },
+      startup: { typeset: false },
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body class="page-prose">
   <header class="site-header">
@@ -25,6 +49,7 @@
     </a>
     <nav class="site-nav">
       <span class="show-if-problems"><a href="./archive.html">Archive</a></span>
+      <a href="./contribute.html">Contribute</a>
       <a href="./references.html">References</a>
     </nav>
   </header>
@@ -32,13 +57,35 @@
   <main class="prose contribute">
     <h1>Contribute</h1>
 
+    <section
+      class="sample-carousel"
+      aria-roledescription="carousel"
+      aria-labelledby="sample-carousel-title"
+    >
+      <div class="sample-carousel__header">
+        <h2 id="sample-carousel-title" class="sample-carousel__title">Sample problems</h2>
+        <div class="sample-carousel__toolbar">
+          <button type="button" class="sample-carousel__arrow sample-carousel__prev" aria-label="Previous sample problem">←</button>
+          <div class="sample-carousel__dots" id="sample-carousel-dots" role="tablist" aria-label="Choose sample problem"></div>
+          <button type="button" class="sample-carousel__arrow sample-carousel__next" aria-label="Next sample problem">→</button>
+        </div>
+      </div>
+
+      <div
+        class="sample-carousel__viewport"
+        tabindex="0"
+        aria-label="Sample problem carousel. Use arrow keys when focused."
+      >
+        <div class="sample-carousel__track" id="sample-carousel-track"></div>
+      </div>
+    </section>
+
     <p class="lede">
-      Send a problem statement for possible inclusion: text from a Sanskrit
-      source (your translation), a close paraphrase, or a new problem that stays
-      honest to Indian mathematical material. Plain text or TeX is fine.
+      Send a problem statement for possible inclusion: text from an Indian
+      source, or a new problem that stays honest to Indian mathematical material.
     </p>
 
-    <p>
+    <p class="lede">
       Submitting the form opens your mail client with a prefilled message to
       <a href="mailto:mittalbhumika7@gmail.com">mittalbhumika7@gmail.com</a>.
       You can also write to that address directly.
@@ -57,7 +104,7 @@
 
       <div class="field">
         <label for="cf-statement">Problem statement</label>
-        <textarea id="cf-statement" name="statement" rows="9" required placeholder="The problem itself. Plain text, or TeX with delimiters such as \( … \) and \[ … \]."></textarea>
+        <textarea id="cf-statement" name="statement" rows="9" required placeholder="The problem itself. Plain text, or TeX."></textarea>
       </div>
 
       <div class="field">
@@ -75,10 +122,6 @@
           <label for="cf-name">Your name <span class="opt">optional</span></label>
           <input id="cf-name" name="name" type="text" />
         </div>
-        <div class="field">
-          <label for="cf-email">Your email <span class="opt">optional</span></label>
-          <input id="cf-email" name="email" type="email" placeholder="for follow-up" />
-        </div>
       </div>
 
       <div class="form-actions">
@@ -86,9 +129,6 @@
         <span id="cf-msg" class="form-msg"></span>
       </div>
 
-      <p class="form-note">
-        Nothing is stored on this site; your mail client sends the message.
-      </p>
     </form>
   </main>
 
@@ -97,6 +137,7 @@
     <p class="show-if-problems">Project Brahmagupta · 108 problems from Indian mathematics</p>
   </footer>
 
+  <script src="data/contribute-samples.js"></script>
   <script>
     (function () {
       const form = document.getElementById("contribute-form");
@@ -145,6 +186,214 @@
         msg.textContent = "Opening your mail client…";
         msg.className = "form-msg good";
         window.location.href = url;
+      });
+    })();
+
+    (function () {
+      const root = document.querySelector(".sample-carousel");
+      if (!root) return;
+
+      const track = document.getElementById("sample-carousel-track");
+      const dotsParent = document.getElementById("sample-carousel-dots");
+      const prevBtn = root.querySelector(".sample-carousel__prev");
+      const nextBtn = root.querySelector(".sample-carousel__next");
+      const viewport = root.querySelector(".sample-carousel__viewport");
+
+      var data =
+        typeof CONTRIBUTE_SAMPLE_SLIDES !== "undefined" && Array.isArray(CONTRIBUTE_SAMPLE_SLIDES)
+          ? CONTRIBUTE_SAMPLE_SLIDES
+          : [];
+
+      function metaLabel(n, title) {
+        var num = String(n).padStart(3, "0");
+        var base = "Problem " + num;
+        return title ? base + " · " + title : base;
+      }
+
+      function normalizeSampleBody(t) {
+        if (!t) return "";
+        return t
+          .replace(/[ \t]+\n/g, "\n")
+          .replace(/\n{3,}/g, "\n\n")
+          .trim();
+      }
+
+      if (!track || !dotsParent || data.length === 0) {
+        root.setAttribute("hidden", "");
+        return;
+      }
+
+      root.classList.add("is-booting");
+
+      data.forEach(function (slide, i) {
+        var article = document.createElement("article");
+        article.className = "sample-carousel__slide problem-article";
+        article.id = "sample-slide-" + i;
+        article.setAttribute("role", "tabpanel");
+        article.setAttribute("aria-labelledby", "sample-tab-" + i);
+        article.setAttribute("aria-hidden", i === 0 ? "false" : "true");
+
+        var meta = document.createElement("p");
+        meta.className = "sample-carousel__meta";
+        meta.textContent = metaLabel(slide.n, slide.title);
+
+        var bodyEl = document.createElement("div");
+        bodyEl.className = "body problem-tex";
+        bodyEl.textContent = normalizeSampleBody(slide.body);
+
+        article.appendChild(meta);
+        article.appendChild(bodyEl);
+        track.appendChild(article);
+
+        var dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "sample-carousel__dot" + (i === 0 ? " is-active" : "");
+        dot.setAttribute("role", "tab");
+        dot.setAttribute("aria-selected", i === 0 ? "true" : "false");
+        dot.setAttribute("aria-controls", "sample-slide-" + i);
+        dot.id = "sample-tab-" + i;
+        dot.setAttribute("tabindex", i === 0 ? "0" : "-1");
+        dot.textContent = String(i + 1);
+        dotsParent.appendChild(dot);
+      });
+
+      var slides = root.querySelectorAll(".sample-carousel__slide");
+      var dots = root.querySelectorAll(".sample-carousel__dot");
+
+      let index = 0;
+      const total = slides.length;
+      let rotateTimer = null;
+      const rotateMs = 9000;
+
+      function syncViewportHeight() {
+        if (!viewport || !slides.length) return;
+        var active = slides[index];
+        if (!active) return;
+        var h = active.offsetHeight;
+        viewport.style.height = h ? h + "px" : "";
+      }
+
+      function typesetCarousel() {
+        const mj = window.MathJax;
+        if (!mj || typeof mj.typesetPromise !== "function") return Promise.resolve();
+        return mj.typesetPromise([root]).catch(function (err) {
+          console.warn("[mathjax]", err);
+        });
+      }
+
+      function waitMathJaxThen(fn) {
+        const mj = window.MathJax;
+        if (mj && mj.startup && mj.startup.promise && typeof mj.startup.promise.then === "function") {
+          void mj.startup.promise.then(fn);
+          return;
+        }
+        let tries = 0;
+        const id = window.setInterval(function () {
+          tries += 1;
+          const m = window.MathJax;
+          if (m && m.startup && m.startup.promise) {
+            window.clearInterval(id);
+            void m.startup.promise.then(fn);
+          } else if (tries > 80) {
+            window.clearInterval(id);
+            fn();
+          }
+        }, 50);
+      }
+
+      function go(to) {
+        index = (to + total) % total;
+        if (track) track.style.transform = "translateX(-" + index * 100 + "%)";
+        slides.forEach(function (s, j) {
+          s.setAttribute("aria-hidden", j === index ? "false" : "true");
+        });
+        dots.forEach(function (d, j) {
+          var on = j === index;
+          d.classList.toggle("is-active", on);
+          d.setAttribute("aria-selected", on ? "true" : "false");
+          d.setAttribute("tabindex", on ? "0" : "-1");
+        });
+        requestAnimationFrame(function () {
+          requestAnimationFrame(syncViewportHeight);
+        });
+      }
+
+      function prefersReducedMotion() {
+        return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      }
+
+      function startRotation() {
+        stopRotation();
+        if (prefersReducedMotion()) return;
+        rotateTimer = window.setInterval(function () {
+          go(index + 1);
+        }, rotateMs);
+      }
+
+      function stopRotation() {
+        if (rotateTimer !== null) {
+          window.clearInterval(rotateTimer);
+          rotateTimer = null;
+        }
+      }
+
+      function userStep(delta) {
+        go(index + delta);
+        stopRotation();
+        startRotation();
+      }
+
+      if (prevBtn) prevBtn.addEventListener("click", function () { userStep(-1); });
+      if (nextBtn) nextBtn.addEventListener("click", function () { userStep(1); });
+      dots.forEach(function (dot, j) {
+        dot.addEventListener("click", function () {
+          go(j);
+          stopRotation();
+          startRotation();
+        });
+      });
+
+      if (viewport) {
+        viewport.addEventListener("keydown", function (e) {
+          if (e.key === "ArrowLeft") {
+            e.preventDefault();
+            userStep(-1);
+          } else if (e.key === "ArrowRight") {
+            e.preventDefault();
+            userStep(1);
+          }
+        });
+      }
+
+      root.addEventListener("mouseenter", stopRotation);
+      root.addEventListener("mouseleave", startRotation);
+      root.addEventListener("focusin", stopRotation);
+      root.addEventListener("focusout", function () {
+        if (!root.contains(document.activeElement)) startRotation();
+      });
+
+      function finishBoot() {
+        root.classList.remove("is-booting");
+        requestAnimationFrame(function () {
+          syncViewportHeight();
+          requestAnimationFrame(function () {
+            root.classList.add("is-ready");
+            if (typeof ResizeObserver !== "undefined") {
+              var ro = new ResizeObserver(function () {
+                syncViewportHeight();
+              });
+              slides.forEach(function (s) {
+                ro.observe(s);
+              });
+            }
+            window.addEventListener("resize", syncViewportHeight);
+            startRotation();
+          });
+        });
+      }
+
+      waitMathJaxThen(function () {
+        void typesetCarousel().then(finishBoot);
       });
     })();
   </script>

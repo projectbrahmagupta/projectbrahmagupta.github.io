@@ -15,7 +15,7 @@ window.SITE_CONFIG = {
     contributions: {
       title: "Project Brahmagupta",
       description:
-        "Problems in mathematics and computation, inspired by the classical Indian tradition of ganita.",
+        "Send a problem statement for possible inclusion: text from an Indian source, or a new problem that stays honest to Indian mathematical material.",
     },
     problems: {
       title: "Project Brahmagupta",
