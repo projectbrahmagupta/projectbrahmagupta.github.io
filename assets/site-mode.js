@@ -3,18 +3,15 @@
   var cfg = typeof SITE_CONFIG !== "undefined" && SITE_CONFIG ? SITE_CONFIG : {};
   var mode = cfg.mode === "problems" ? "problems" : "contributions";
   document.documentElement.setAttribute("data-site-mode", mode);
-})();
 
-(function () {
   function applyHomeMeta() {
-    var cfg = typeof SITE_CONFIG !== "undefined" && SITE_CONFIG ? SITE_CONFIG : {};
-    var mode =
+    var m =
       document.documentElement.getAttribute("data-site-mode") === "problems"
         ? "problems"
         : "contributions";
     var hd = cfg.homeDocument;
     if (!hd || !document.body || document.body.id !== "page-home") return;
-    var block = mode === "problems" ? hd.problems : hd.contributions;
+    var block = m === "problems" ? hd.problems : hd.contributions;
     if (!block) return;
     if (block.title) document.title = block.title;
     if (block.description) {

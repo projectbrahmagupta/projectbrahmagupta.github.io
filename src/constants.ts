@@ -20,6 +20,9 @@ export const PROBLEMS_SOURCE_FILENAME = "problems.source.js";
 export const PROBLEMS_PUBLISHED_FILENAME = "problems.js";
 /** Carousel on contribute.html — built from problems/p001.tex … p003.tex. */
 export const CONTRIBUTE_SAMPLES_FILENAME = "contribute-samples.js";
+
+/** Problem indices included in that carousel (must match `problems/p00#.tex` files). */
+export const CONTRIBUTE_SAMPLE_NS = [1, 2, 3] as const;
 export const REVEAL_BROWSER_FILENAME = "reveal-config.js";
 
 /** Env override for local previews (`PB_PUBLISH_MAX_N`). */

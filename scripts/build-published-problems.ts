@@ -3,6 +3,7 @@ import fs from "node:fs";
 
 import {
   CONTRIBUTE_SAMPLES_FILENAME,
+  CONTRIBUTE_SAMPLE_NS,
   DATA_DIR,
   ENV_PUBLISH_MAX_N,
   PROBLEMS_PUBLISHED_FILENAME,
@@ -12,8 +13,7 @@ import {
 import { REVEAL_SERIES_START_MS } from "../src/reveal.js";
 import { resolveFromImport } from "../src/lib/path-utils.js";
 import { resolvedPublishMaxN } from "../src/lib/publish-env.js";
-import { parseProblemTex } from "../src/lib/parse-problem-tex.js";
-import { readProblemTex } from "../src/lib/read-problem-tex.js";
+import { titleAndBodyFromTex } from "../src/lib/title-body-from-tex.js";
 import { maxRevealedN } from "../src/lib/schedule-ist.js";
 import { loadProblemsSource } from "./load-problems-source.js";
 
@@ -28,9 +28,6 @@ const SOURCE_PATH = resolveFromImport(import.meta.url, "..", DATA_DIR, PROBLEMS_
 const OUTPUT_PATH = resolveFromImport(import.meta.url, "..", DATA_DIR, PROBLEMS_PUBLISHED_FILENAME);
 const CONTRIBUTE_SAMPLES_PATH = resolveFromImport(import.meta.url, "..", DATA_DIR, CONTRIBUTE_SAMPLES_FILENAME);
 const REVEAL_BROWSER_PATH = resolveFromImport(import.meta.url, "..", DATA_DIR, REVEAL_BROWSER_FILENAME);
-
-/** Problem indices shown on contribute.html sample carousel (must match three `.tex` files). */
-const CONTRIBUTE_SAMPLE_NS = [1, 2, 3] as const;
 
 function writeRevealBrowserConfig(): void {
   const banner =
@@ -51,17 +48,8 @@ const SERIES_TOTAL = fullProblems.length;
 const calendarMax = maxRevealedN(new Date(), SERIES_TOTAL, REVEAL_SERIES_START_MS);
 const maxBuilt = resolvedPublishMaxN(process.env[ENV_PUBLISH_MAX_N], calendarMax, SERIES_TOTAL);
 
-function titleAndBodyFromTex(n: number): { title: string; body: string } {
-  const tex = readProblemTex(REPO_ROOT, n);
-  const parsed = parseProblemTex(tex);
-  if (parsed.mode === "environment") {
-    return { title: parsed.title, body: parsed.body };
-  }
-  return { title: "", body: parsed.body };
-}
-
 const enriched = fullProblems.map((p) => {
-  const { title, body } = titleAndBodyFromTex(p.n);
+  const { title, body } = titleAndBodyFromTex(REPO_ROOT, p.n);
   return { n: p.n, source: p.source, title, body };
 });
 
@@ -88,7 +76,7 @@ fs.writeFileSync(OUTPUT_PATH, outfile, "utf8");
 console.log("Wrote", OUTPUT_PATH, "| bodies", published.length, "/", SERIES_TOTAL, "| max n", maxBuilt);
 
 const contributeSlides = CONTRIBUTE_SAMPLE_NS.map((n) => {
-  const { title, body } = titleAndBodyFromTex(n);
+  const { title, body } = titleAndBodyFromTex(REPO_ROOT, n);
   return { n, title, body };
 });
 const contributeBanner =
