@@ -1,0 +1,18 @@
+{
+  "name": "project-brahmagupta",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "npm run build:browser && npm run build:data",
+    "build:browser": "esbuild src/browser/schedule-entry.ts --bundle --outfile=assets/schedule.js --format=iife --platform=browser --target=es2020 --legal-comments=none && esbuild src/browser/app.ts --bundle --outfile=assets/app.js --format=iife --platform=browser --target=es2020 --legal-comments=none",
+    "build:data": "tsx scripts/build-published-problems.ts",
+    "export-txt": "tsx scripts/export-problems-txt.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "esbuild": "^0.24.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}
