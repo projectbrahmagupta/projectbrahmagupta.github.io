@@ -3,92 +3,222 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Project Brahmagupta</title>
-  <meta name="description" content="Send a problem statement for possible inclusion: text from an Indian source, or a new problem that stays honest to Indian mathematical material." />
-  <script src="data/site-config.js"></script>
-  <script src="assets/site-mode.js"></script>
+  <title>Project Brahmagupta · Problems from Indian mathematics</title>
+  <meta name="description" content="A growing collection of 108 problems from Indian mathematics. Launching July 1, 2026." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=Shobhika:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Shobhika:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/compile.css" />
 </head>
-<body id="page-home">
-  <header class="site-header">
-    <a class="brand" href="./" title="Project Brahmagupta">
-      <span class="brand-stack">
-        <span class="brand-project-row">
-          <span class="brand-rule" aria-hidden="true"></span>
-          <span class="brand-sup">PROJECT</span>
-          <span class="brand-rule" aria-hidden="true"></span>
-        </span>
-        <span class="brand-name">BRAHMAGUPTA</span>
-      </span>
-    </a>
-    <nav class="site-nav">
-      <span class="show-if-problems"><a href="./archive.html">Archive</a></span>
-      <a href="./contribute.html">Contribute</a>
-      <a href="./references.html">References</a>
-    </nav>
+<body class="page-compile">
+  <header class="compile-header">
+    <div class="compile-header-inner">
+      <a class="compile-brand" href="#top">Project <em>Brahmagupta</em></a>
+      <nav class="compile-nav">
+        <a href="./contribute.html">Contribute</a>
+        <a href="./references.html">References</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section class="hero show-if-contributions">
-      <p class="kicker"><span lang="sa">१०८</span> &nbsp;·&nbsp; a growing collection</p>
-      <h1>Problems from <em>Indian mathematics</em>.</h1>
-      <p class="lede">
-        Project Brahmagupta is a collection of problems in mathematics and computation, inspired by the works of Indian mathematicians.
-      </p>
-      <p class="lede">
-        This is a growing collection. Please send problems that share a similar spirit to the problems in the collection.
-      </p>
-      <div class="hero-cta">
-        <a class="btn" href="./contribute.html">Contribute</a>
+  <main id="top">
+
+    <section class="compile-hero">
+      <div class="compile-hero-text">
+        <h1>Problems from <em>Indian mathematics</em>.</h1>
+        <p class="compile-hero-lede">
+          Project Brahmagupta is an archive of <span lang="sa">१०८</span> problems in mathematics and computation, drawn from and inspired by the works of Indian mathematicians.
+        </p>
+        <div class="compile-hero-cta">
+          <a class="btn btn-primary" href="#mailing-list">Get notified at launch</a>
+          <a class="btn btn-ghost" href="./contribute.html">Contribute a problem</a>
+        </div>
+      </div>
+      <div class="compile-hero-graphic">
+        <div class="compile-cell-grid" id="hero-cell-grid"></div>
+      </div>
+    </section>
+    <script src="data/reveal-config.js"></script>
+    <script src="assets/schedule.js"></script>
+    <script>
+      (function () {
+        const grid = document.getElementById('hero-cell-grid');
+        if (!grid) return;
+        const TOTAL = 108;
+        const DEVA = '०१२३४५६७८९';
+        const toDeva = (s) => s.replace(/\d/g, (d) => DEVA[d.charCodeAt(0) - 48]);
+        const revealed = (typeof maxRevealedN === 'function') ? maxRevealedN(undefined, TOTAL) : 0;
+        const dateLine = (n) => (typeof unlockDateLineForProblemN === 'function') ? unlockDateLineForProblemN(n) : '';
+        const frag = document.createDocumentFragment();
+        for (let n = 1; n <= TOTAL; n++) {
+          const launched = n <= revealed;
+          const cell = document.createElement(launched ? 'a' : 'span');
+          cell.className = 'compile-cell' + (launched ? ' compile-cell--launched' : ' compile-cell--locked');
+          cell.setAttribute('lang', 'sa');
+          const row = Math.floor((n - 1) / 12);
+          const col = (n - 1) % 12;
+          cell.style.setProperty('--d', String(row + col));
+          cell.textContent = toDeva(String(n));
+          if (launched) {
+            cell.href = './problem.html?n=' + n;
+            cell.setAttribute('aria-label', 'Problem ' + n);
+          } else {
+            const when = dateLine(n);
+            cell.title = when ? ('Launching on ' + when) : 'Locked';
+            cell.setAttribute('aria-label', 'Problem ' + n + (when ? ' — launching on ' + when : ' — locked'));
+          }
+          frag.appendChild(cell);
+        }
+        grid.appendChild(frag);
+
+        const moreWrap = document.getElementById('problems-more');
+        if (moreWrap && revealed > 3) moreWrap.hidden = false;
+      })();
+    </script>
+
+    <section id="problems" class="compile-section">
+      <div class="compile-section-head">
+        <h2>Sample problems</h2>
+        <p class="compile-section-lede">
+          A few examples of the kind of problem in the collection. The numbered series opens July 1, 2026, one problem each day.
+        </p>
+      </div>
+      <div class="compile-problem-grid">
+        <a class="compile-problem-card" href="./contribute.html?sample=1">
+          <span class="compile-problem-card__n">Sample 0.1</span>
+          <h3 class="compile-problem-card__title">Vargaprakriti</h3>
+          <p class="compile-problem-card__body">
+            Brahmagupta's name for the equation x² − Ny² = 1. Find the smallest positive integer x for which x² − 92y² = 1 admits a positive integer solution.
+          </p>
+          <span class="compile-problem-card__cta">View sample →</span>
+        </a>
+        <a class="compile-problem-card" href="./contribute.html?sample=2">
+          <span class="compile-problem-card__n">Sample 0.2</span>
+          <h3 class="compile-problem-card__title">Faces of the Bhargava Cube</h3>
+          <p class="compile-problem-card__body">
+            Bhargava's geometric reading of Gauss composition. Count the integer quadruples (a, b, c, d) in [1, 10⁴] for which a symmetric face sum is a perfect cube.
+          </p>
+          <span class="compile-problem-card__cta">View sample →</span>
+        </a>
+        <a class="compile-problem-card" href="./contribute.html?sample=3">
+          <span class="compile-problem-card__n">Sample 0.3</span>
+          <h3 class="compile-problem-card__title">The House in Louvain</h3>
+          <p class="compile-problem-card__body">
+            Dudeney's 1917 puzzle. Houses 1, 2, …, n line a street; one house balances the sums on either side. With 50 &lt; n &lt; 500, find the house number.
+          </p>
+          <span class="compile-problem-card__cta">View sample →</span>
+        </a>
+      </div>
+      <div class="compile-problems-more" id="problems-more" hidden>
+        <a class="btn btn-ghost" href="./archive.html">View all problems →</a>
       </div>
     </section>
 
-    <section class="hero show-if-problems">
-      <p class="kicker"><span lang="sa">१०८</span> &nbsp;·&nbsp; a growing collection</p>
-      <h1>Problems from <em>Indian mathematics</em>.</h1>
-      <p class="lede">
-        Project Brahmagupta is a collection of problems in mathematics and computation, inspired by the works of Indian mathematicians.
-      </p>
-      <p class="lede">
-        During the run, one problem is listed each day at midnight India Standard Time. The archive lists everything published so far.
-      </p>
-      <div class="hero-cta">
-        <a id="hero-today-link" class="btn" href="./archive.html">Open the archive</a>
+    <section id="faq" class="compile-section">
+      <div class="compile-section-head">
+        <h2>FAQs</h2>
+        <p class="compile-section-lede">
+          A few common questions. Anything else? Send a note via the contribute page.
+        </p>
+      </div>
+      <div class="compile-faq">
+        <details>
+          <summary>What is Project Brahmagupta?</summary>
+          <p>
+            An open archive of 108 problems in mathematics and computation, inspired by the works of Indian mathematicians from antiquity to the present. Some problems are classical (Brahmagupta's vargaprakriti, Madhava's series) and some are modern, written in the same spirit.
+          </p>
+        </details>
+        <details>
+          <summary>When does it launch?</summary>
+          <p>
+            July 1, 2026. From that day, one problem is unlocked each midnight India Standard Time, for 108 days.
+          </p>
+        </details>
+        <details>
+          <summary>Who is this for?</summary>
+          <p>
+            Anyone with a working knowledge of mathematics who enjoys turning ideas into code. The problems range in difficulty: some are accessible with high-school algebra, others reward graduate-level number theory or careful computation.
+          </p>
+        </details>
+        <details>
+          <summary>Can I submit a problem?</summary>
+          <p>
+            Yes. The <a href="./contribute.html">contribute</a> page accepts problem proposals. We are looking for problems honest to Indian mathematical material, either drawn from an Indian source, or new problems that share the spirit of the collection.
+          </p>
+        </details>
+        <details>
+          <summary>Is it open source?</summary>
+          <p>
+            Yes. The site code is MIT-licensed; the content (problem statements, prose) is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The repository lives on <a href="https://github.com/projectbrahmagupta/projectbrahmagupta.github.io">GitHub</a>.
+          </p>
+        </details>
+        <details>
+          <summary>Will solutions be published?</summary>
+          <p>
+            Not on the site. In keeping with the Project Euler tradition, problems are released without solutions: you discover them by solving. A discussion forum may follow once the series is complete.
+          </p>
+        </details>
       </div>
     </section>
 
-    <section class="about-section" aria-labelledby="about-heading">
-      <h2 id="about-heading">About</h2>
-      <p class="lede">
-        Project Brahmagupta grows out of an interest in the history of mathematics in India. Alongside their historical importance, these problems remain mathematically rich and computationally interesting.
-      </p>
-      <p class="lede">
-        We are currently curating the initial collection of problems and related material. The project is expected to begin on June 7, 2026.
-      </p>
-      <p>
-        The structure of the project is inspired in part by <a href="https://projecteuler.net/">Project Euler</a> and similar archives.
-      </p>
+    <section id="mailing-list" class="compile-section">
+      <div class="compile-section-head">
+        <h2>Mailing list</h2>
+        <p class="compile-section-lede">
+          Leave an email and we'll send a single note when the first problem unlocks. No newsletter, no follow-ups.
+        </p>
+      </div>
+      <div class="compile-waitlist-wrap">
+        <form class="compile-form" id="mailing-list-form" action="mailto:mittalbhumika7@gmail.com" method="POST" enctype="text/plain">
+          <div class="compile-form-field">
+            <label for="ml-first">First name <span class="req" aria-label="required">*</span></label>
+            <input id="ml-first" name="first_name" required autocomplete="given-name" />
+          </div>
+          <div class="compile-form-field">
+            <label for="ml-last">Last name <span class="req" aria-label="required">*</span></label>
+            <input id="ml-last" name="last_name" required autocomplete="family-name" />
+          </div>
+          <div class="compile-form-field full">
+            <label for="ml-email">Email <span class="req" aria-label="required">*</span></label>
+            <input id="ml-email" name="email" required type="email" autocomplete="email" />
+          </div>
+          <div class="compile-form-actions">
+            <p class="compile-form-note">We email you once, at launch. That's it.</p>
+            <button type="submit" class="btn btn-primary">Join the mailing list</button>
+          </div>
+        </form>
+      </div>
     </section>
+
   </main>
 
-  <footer class="site-foot">
-    <p class="show-if-contributions">Project Brahmagupta · contributions welcome</p>
-    <p class="show-if-problems">Project Brahmagupta · 108 problems from Indian mathematics</p>
+  <footer class="compile-foot">
+    <div class="compile-foot-inner">
+      <div class="compile-foot-grid">
+        <div class="compile-foot-brand">
+          <h3>Project <em>Brahmagupta</em></h3>
+          <p>108 problems from Indian mathematics. An open archive, launching July 1, 2026.</p>
+        </div>
+        <div class="compile-foot-col">
+          <h4>Project</h4>
+          <ul>
+            <li><a href="./archive.html">Archive</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="compile-foot-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="./contribute.html">Contribute</a></li>
+            <li><a href="./references.html">References</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="compile-foot-bottom">
+        <span>© 2026 Project Brahmagupta · <a href="https://opensource.org/licenses/MIT">Code · MIT</a> · <a href="https://creativecommons.org/licenses/by/4.0/">Content · CC BY 4.0</a></span>
+        <span>Open source · <a href="https://github.com/projectbrahmagupta/projectbrahmagupta.github.io">github</a></span>
+      </div>
+    </div>
   </footer>
-
-<script src="data/reveal-config.js"></script>
-  <script src="data/problems.js"></script>
-  <script src="assets/schedule.js"></script>
-  <script src="assets/app.js"></script>
-  <script>
-    (function () {
-      if (document.documentElement.getAttribute("data-site-mode") === "problems") {
-        if (typeof renderIndex === "function") renderIndex();
-      }
-    })();
-  </script>
 </body>
 </html>
