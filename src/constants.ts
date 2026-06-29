@@ -9,7 +9,7 @@ export const DAY_MS = 86_400_000;
 export const TIMEZONE_IST = "Asia/Kolkata";
 
 /** Hero / lock messaging when the calendar has not yet opened. */
-export const FIRST_PROBLEM_OPENS_TITLE = "First problem opens 7 May 2026, 00:00 IST.";
+export const FIRST_PROBLEM_OPENS_TITLE = "First problem opens 1 July 2026, 00:00 IST.";
 
 export const DATA_DIR = "data";
 
