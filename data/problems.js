@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-06-29T10:42:53.366Z): bodies for n ≤ 0 (0/108).
+ * Publication slice at build (2026-06-29T11:35:40.076Z): bodies for n ≤ 0 (0/108).
  */
 "use strict";
 
@@ -10,15 +10,15 @@ var SERIES_TOTAL = 108;
 var PROBLEM_CATALOG = [
   {
     "n": 1,
-    "title": "Vargaprakriti"
+    "title": ""
   },
   {
     "n": 2,
-    "title": "Faces of the Bhargava Cube"
+    "title": ""
   },
   {
     "n": 3,
-    "title": "The House in Louvain"
+    "title": ""
   },
   {
     "n": 4,
