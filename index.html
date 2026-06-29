@@ -39,6 +39,7 @@
       </div>
     </section>
     <script src="data/reveal-config.js"></script>
+    <script src="data/problems.js"></script>
     <script src="assets/schedule.js"></script>
     <script>
       (function () {
@@ -70,49 +71,150 @@
           frag.appendChild(cell);
         }
         grid.appendChild(frag);
-
-        const moreWrap = document.getElementById('problems-more');
-        if (moreWrap && revealed > 3) moreWrap.hidden = false;
       })();
     </script>
 
     <section id="problems" class="compile-section">
-      <div class="compile-section-head">
-        <h2>Sample problems</h2>
-        <p class="compile-section-lede">
-          A few examples of the kind of problem in the collection. The numbered series opens July 1, 2026, one problem each day.
-        </p>
-      </div>
-      <div class="compile-problem-grid">
-        <a class="compile-problem-card" href="./contribute.html?sample=1">
-          <span class="compile-problem-card__n">Sample 0.1</span>
-          <h3 class="compile-problem-card__title">Vargaprakriti</h3>
-          <p class="compile-problem-card__body">
-            Brahmagupta's name for the equation x² − Ny² = 1. Find the smallest positive integer x for which x² − 92y² = 1 admits a positive integer solution.
-          </p>
-          <span class="compile-problem-card__cta">View sample →</span>
-        </a>
-        <a class="compile-problem-card" href="./contribute.html?sample=2">
-          <span class="compile-problem-card__n">Sample 0.2</span>
-          <h3 class="compile-problem-card__title">Faces of the Bhargava Cube</h3>
-          <p class="compile-problem-card__body">
-            Bhargava's geometric reading of Gauss composition. Count the integer quadruples (a, b, c, d) in [1, 10⁴] for which a symmetric face sum is a perfect cube.
-          </p>
-          <span class="compile-problem-card__cta">View sample →</span>
-        </a>
-        <a class="compile-problem-card" href="./contribute.html?sample=3">
-          <span class="compile-problem-card__n">Sample 0.3</span>
-          <h3 class="compile-problem-card__title">The House in Louvain</h3>
-          <p class="compile-problem-card__body">
-            Dudeney's 1917 puzzle. Houses 1, 2, …, n line a street; one house balances the sums on either side. With 50 &lt; n &lt; 500, find the house number.
-          </p>
-          <span class="compile-problem-card__cta">View sample →</span>
-        </a>
+      <div class="compile-carousel" id="problems-carousel">
+        <button type="button" class="compile-carousel__btn compile-carousel__btn--prev" id="carousel-prev" aria-label="Previous problems" hidden>&#8249;</button>
+        <div class="compile-carousel__track" id="problems-track">
+          <a class="compile-problem-card" href="./contribute.html?sample=1">
+            <span class="compile-problem-card__n">Sample 0.1</span>
+            <h3 class="compile-problem-card__title">Vargaprakriti</h3>
+            <p class="compile-problem-card__body">
+              Brahmagupta's name for the equation x² − Ny² = 1. Find the smallest positive integer x for which x² − 92y² = 1 admits a positive integer solution.
+            </p>
+            <span class="compile-problem-card__cta">View sample →</span>
+          </a>
+          <a class="compile-problem-card" href="./contribute.html?sample=2">
+            <span class="compile-problem-card__n">Sample 0.2</span>
+            <h3 class="compile-problem-card__title">Faces of the Bhargava Cube</h3>
+            <p class="compile-problem-card__body">
+              Bhargava's geometric reading of Gauss composition. Count the integer quadruples (a, b, c, d) in [1, 10⁴] for which a symmetric face sum is a perfect cube.
+            </p>
+            <span class="compile-problem-card__cta">View sample →</span>
+          </a>
+          <a class="compile-problem-card" href="./contribute.html?sample=3">
+            <span class="compile-problem-card__n">Sample 0.3</span>
+            <h3 class="compile-problem-card__title">The House in Louvain</h3>
+            <p class="compile-problem-card__body">
+              Dudeney's 1917 puzzle. Houses 1, 2, …, n line a street; one house balances the sums on either side. With 50 &lt; n &lt; 500, find the house number.
+            </p>
+            <span class="compile-problem-card__cta">View sample →</span>
+          </a>
+        </div>
+        <button type="button" class="compile-carousel__btn compile-carousel__btn--next" id="carousel-next" aria-label="Next problems" hidden>&#8250;</button>
       </div>
       <div class="compile-problems-more" id="problems-more" hidden>
         <a class="btn btn-ghost" href="./archive.html">View all problems →</a>
       </div>
     </section>
+    <script>
+      (function () {
+        var track = document.getElementById('problems-track');
+        if (!track) return;
+        var prevBtn = document.getElementById('carousel-prev');
+        var nextBtn = document.getElementById('carousel-next');
+        var moreWrap = document.getElementById('problems-more');
+
+        // Date gate: only problems whose unlock day has arrived (midnight IST) may show,
+        // regardless of how many bodies happen to be in data/problems.js.
+        var cap = (typeof maxRevealedN === 'function') ? maxRevealedN() : 0;
+
+        var released = (Array.isArray(window.PROBLEMS) ? window.PROBLEMS : [])
+          .filter(function (p) {
+            return p && p.n <= cap && typeof p.body === 'string' && p.body.length;
+          })
+          .slice()
+          .sort(function (a, b) { return a.n - b.n; });
+
+        if (released.length) renderReleased(released);
+        setupCarousel();
+
+        function texToPlain(s) {
+          return String(s)
+            .replace(/\$\$([\s\S]*?)\$\$/g, ' $1 ')
+            .replace(/\\\[([\s\S]*?)\\\]/g, ' $1 ')
+            .replace(/\\\(([\s\S]*?)\\\)/g, '$1')
+            .replace(/\$([^$]*)\$/g, '$1')
+            .replace(/\\(le|leq)\b/g, '≤')
+            .replace(/\\(ge|geq)\b/g, '≥')
+            .replace(/\\times\b/g, '×')
+            .replace(/\\cdot\b/g, '·')
+            .replace(/\\(ldots|dots|cdots)\b/g, '…')
+            .replace(/\\(left|right|displaystyle|,|;|!|quad|qquad)\b/g, ' ')
+            .replace(/\\[a-zA-Z]+\b/g, '')
+            .replace(/[{}\\]/g, '')
+            .replace(/``|''/g, '"')
+            .replace(/\s+/g, ' ')
+            .trim();
+        }
+
+        function snippet(s, max) {
+          var t = texToPlain(s);
+          if (t.length <= max) return t;
+          var cut = t.slice(0, max);
+          var sp = cut.lastIndexOf(' ');
+          if (sp > max * 0.6) cut = cut.slice(0, sp);
+          return cut.replace(/[\s.,;:]+$/, '') + '…';
+        }
+
+        function renderReleased(list) {
+          track.innerHTML = '';
+          list.forEach(function (p) {
+            var a = document.createElement('a');
+            a.className = 'compile-problem-card';
+            a.href = './problem.html?n=' + p.n;
+            var n = document.createElement('span');
+            n.className = 'compile-problem-card__n';
+            n.textContent = 'Problem ' + String(p.n).padStart(3, '0');
+            var h = document.createElement('h3');
+            h.className = 'compile-problem-card__title';
+            h.textContent = p.title || ('Problem ' + p.n);
+            var body = document.createElement('p');
+            body.className = 'compile-problem-card__body';
+            body.textContent = snippet(p.body, 168);
+            var cta = document.createElement('span');
+            cta.className = 'compile-problem-card__cta';
+            cta.textContent = 'View problem →';
+            a.appendChild(n);
+            a.appendChild(h);
+            a.appendChild(body);
+            a.appendChild(cta);
+            track.appendChild(a);
+          });
+          if (moreWrap) moreWrap.hidden = false;
+        }
+
+        function setupCarousel() {
+          var cards = track.querySelectorAll('.compile-problem-card');
+          if (cards.length <= 3) {
+            track.classList.remove('is-carousel');
+            if (prevBtn) prevBtn.hidden = true;
+            if (nextBtn) nextBtn.hidden = true;
+            return;
+          }
+          track.classList.add('is-carousel');
+          if (prevBtn) prevBtn.hidden = false;
+          if (nextBtn) nextBtn.hidden = false;
+
+          function update() {
+            var maxScroll = track.scrollWidth - track.clientWidth - 1;
+            if (prevBtn) prevBtn.disabled = track.scrollLeft <= 0;
+            if (nextBtn) nextBtn.disabled = track.scrollLeft >= maxScroll;
+          }
+          if (prevBtn) prevBtn.addEventListener('click', function () {
+            track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' });
+          });
+          if (nextBtn) nextBtn.addEventListener('click', function () {
+            track.scrollBy({ left: track.clientWidth, behavior: 'smooth' });
+          });
+          track.addEventListener('scroll', update, { passive: true });
+          window.addEventListener('resize', update);
+          update();
+        }
+      })();
+    </script>
 
     <section id="faq" class="compile-section">
       <div class="compile-section-head">

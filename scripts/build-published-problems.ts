@@ -53,7 +53,9 @@ const enriched = fullProblems.map((p) => {
   return { n: p.n, source: p.source, title, body };
 });
 
-const catalog = enriched.map(({ n, title }) => ({ n, title }));
+// Date-gate titles too: never ship the name of a problem before its unlock day,
+// so filling in future problems/p###.tex files can't leak spoilers via the catalog.
+const catalog = enriched.map(({ n, title }) => ({ n, title: n <= maxBuilt ? title : "" }));
 
 const published = enriched
   .filter((p) => p.n <= maxBuilt)

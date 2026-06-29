@@ -3,9 +3,11 @@
 
 name: Publish problem bodies
 
-# Daily IST cron disabled — re-enable with e.g. cron: "35 18 * * *" under `schedule:` when needed.
 on:
   workflow_dispatch:
+  schedule:
+    # 18:35 UTC == 00:05 IST (just after the IST midnight unlock boundary).
+    - cron: "35 18 * * *"
   push:
     branches: [main]
     paths:

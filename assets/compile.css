@@ -385,6 +385,79 @@ a { color: inherit; text-decoration: none; }
 }
 @media (max-width: 900px) { .compile-problem-grid { grid-template-columns: 1fr; } }
 
+/* ---------- problems carousel ---------- */
+.compile-carousel { position: relative; }
+
+.compile-carousel__track {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.compile-carousel__track.is-carousel {
+  display: flex;
+  grid-template-columns: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 2px;
+}
+.compile-carousel__track.is-carousel::-webkit-scrollbar { display: none; }
+.compile-carousel__track.is-carousel > .compile-problem-card {
+  flex: 0 0 calc((100% - 2rem) / 3);
+  scroll-snap-align: start;
+}
+@media (max-width: 900px) {
+  .compile-carousel__track { grid-template-columns: 1fr; }
+  .compile-carousel__track.is-carousel > .compile-problem-card { flex-basis: 100%; }
+}
+
+.compile-carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 0.2rem;
+  background: var(--bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(38, 37, 30, 0.08);
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+.compile-carousel__btn:hover {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+.compile-carousel__btn[hidden] { display: none; }
+.compile-carousel__btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+  box-shadow: none;
+}
+.compile-carousel__btn:disabled:hover {
+  background: var(--bg);
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+.compile-carousel__btn--prev { left: -14px; }
+.compile-carousel__btn--next { right: -14px; }
+@media (max-width: 1320px) {
+  .compile-carousel__btn--prev { left: 4px; }
+  .compile-carousel__btn--next { right: 4px; }
+}
+
 .compile-problems-more {
   margin-top: 2rem;
   display: flex;
