@@ -1,0 +1,22 @@
+\begin{problem}{Kaprekar Chains}
+
+    In 1955, D. R. Kaprekar discovered that repeatedly applying the following process to any four-digit number (with at least two distinct digits) always leads to the fixed point \(6174\):
+
+    \begin{enumerate}
+        \item Start with a four-digit number \(n\) in base 10 (with at least two distinct digits),
+        \item Sort the digits into descending order to form \(\alpha(n)\), and into ascending order to form \(\beta(n)\).
+        \item Compute \(K(n) = \alpha(n) - \beta(n)\), and repeat.
+    \end{enumerate}
+
+    As an example, starting with the number 8991 in base 10:
+
+    \begin{align*}
+        9981 - 1899 &= 8082 \\
+        8820 - 288  &= 8532 \\
+        8532 - 2358 &= 6174 \\
+        7641 - 1467 &= 6174
+    \end{align*}
+
+    We define the chain length \(\ell(n)\) as the number of steps required to first reach \(6174\). So \(\ell(8991) = 3\). Find the sum of all valid four-digit integers \(n\) (where \(1000 \le n \le 9999\)) whose chain length is exactly \(5\).
+
+\end{problem}

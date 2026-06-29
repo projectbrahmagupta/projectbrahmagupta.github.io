@@ -1,0 +1,41 @@
+\begin{problem}{A Discrete Bhatia-Davis Inequality}
+
+    For integers \(n \ge 1\) and \(0 \le m \le n^2\), define
+    \[
+    F(n,m)
+    =
+    \max
+    \left(
+    n\sum_{i=1}^n a_i^2 - m^2
+    \right),
+    \]
+    where the maximum is taken over all integer sequences
+    \[
+    (a_1,a_2,\dots,a_n)
+    \]
+    satisfying
+    \[
+    0 \le a_i \le n
+    \qquad \text{for all } i,
+    \]
+    and
+    \[
+    \sum_{i=1}^n a_i = m.
+    \]
+    
+    Now define
+    \[
+    S(N)
+    =
+    \sum_{n=1}^N
+    \sum_{m=0}^{n^2}
+    F(n,m).
+    \]
+    
+    Find
+    \[
+    S(10^7)\bmod 1\,000\,000\,007.
+    \]
+    
+    
+    \end{problem}

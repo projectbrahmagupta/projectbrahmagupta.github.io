@@ -1,0 +1,23 @@
+\begin{problem}{Counting Binary Cubic Forms}
+
+    In a celebrated series of papers beginning in 2010, Manjul Bhargava and Arul Shankar
+    determined a method to count rational solutions to elliptic curves, equations whose solution structure sits at the heart of the Birch and Swinnerton--Dyer conjecture. Their approach takes inspiration from the composition laws of Brahmagupta and Gauss, generalising the classical theory of binary quadratic forms to higher degrees. The given problem is motivated by the first step in their counting machine: enumerating binary cubic forms by discriminant.
+    
+    A binary cubic form is
+    \[
+    f(x,y)=ax^3+bx^2y+cxy^2+dy^3
+    \]
+    with integer coefficients. Its discriminant is
+    \[
+    \Delta(f)
+    =
+    b^2c^2
+    -4ac^3
+    -4b^3d
+    -27a^2d^2
+    +18abcd.
+    \]
+    
+    We call \(f\) admissible if: (i) \(\gcd(a,b,c,d)=1\), (ii) \(\Delta(f)\neq 0\), and (iii) either \(a>0\), or \(a=0\) and \(b>0\). Find the number of admissible forms with \(|\Delta(f)|\le 10^4\).
+    
+    \end{problem}
