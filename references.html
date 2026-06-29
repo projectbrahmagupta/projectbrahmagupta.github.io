@@ -9,26 +9,19 @@
   <script src="assets/site-mode.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=Shobhika:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Shobhika:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/compile.css" />
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body class="page-prose">
-  <header class="site-header">
-    <a class="brand" href="./" title="Project Brahmagupta">
-      <span class="brand-stack">
-        <span class="brand-project-row">
-          <span class="brand-rule" aria-hidden="true"></span>
-          <span class="brand-sup">PROJECT</span>
-          <span class="brand-rule" aria-hidden="true"></span>
-        </span>
-        <span class="brand-name">BRAHMAGUPTA</span>
-      </span>
-    </a>
-    <nav class="site-nav">
-      <span class="show-if-problems"><a href="./archive.html">Archive</a></span>
-      <a href="./contribute.html">Contribute</a>
-      <a href="./references.html" aria-current="page">References</a>
-    </nav>
+  <header class="compile-header">
+    <div class="compile-header-inner">
+      <a class="compile-brand" href="./">Project <em>Brahmagupta</em></a>
+      <nav class="compile-nav">
+        <a href="./contribute.html">Contribute</a>
+        <a href="./references.html">References</a>
+      </nav>
+    </div>
   </header>
 
   <main class="prose references-page">
@@ -69,9 +62,33 @@
     </ul>
   </main>
 
-  <footer class="site-foot">
-    <p class="show-if-contributions">Project Brahmagupta · contributions welcome</p>
-    <p class="show-if-problems">Project Brahmagupta · 108 problems from Indian mathematics</p>
+  <footer class="compile-foot">
+    <div class="compile-foot-inner">
+      <div class="compile-foot-grid">
+        <div class="compile-foot-brand">
+          <h3>Project <em>Brahmagupta</em></h3>
+          <p>108 problems from Indian mathematics. An open archive, launching July 1, 2026.</p>
+        </div>
+        <div class="compile-foot-col">
+          <h4>Project</h4>
+          <ul>
+            <li><a href="./archive.html">Archive</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="compile-foot-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="./contribute.html">Contribute</a></li>
+            <li><a href="./references.html">References</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="compile-foot-bottom">
+        <span>© 2026 Project Brahmagupta · <a href="https://opensource.org/licenses/MIT">Code · MIT</a> · <a href="https://creativecommons.org/licenses/by/4.0/">Content · CC BY 4.0</a></span>
+        <span>Open source · <a href="https://github.com/projectbrahmagupta/projectbrahmagupta.github.io">github</a></span>
+      </div>
+    </div>
   </footer>
 </body>
 </html>

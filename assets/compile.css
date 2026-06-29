@@ -9,7 +9,7 @@
   --bg: #F7F7F4;
   --bg-card: #F2F1ED;
   --bg-card-hover: #EBEAE5;
-  --bg-card-warm: #F3EDE6;
+
   --text: #26251E;
   --text-sec: #3B3A33;
   --text-tertiary: #6D6B5E;
@@ -114,7 +114,19 @@ a { color: inherit; text-decoration: none; }
   color: var(--text);
   white-space: nowrap;
 }
-.compile-brand em { font-style: italic; }
+.compile-brand em { font-style: normal; color: var(--accent); }
+/* Brand must not change color on hover on any page (overrides style.css a:hover on inner pages). */
+.compile-brand:hover { color: var(--text); }
+.compile-brand:hover em { color: var(--accent); }
+/* Keep header/footer chrome links undecorated even when style.css (which underlines all links) is also loaded on inner pages. */
+.compile-brand,
+.compile-brand:hover,
+.compile-nav a,
+.compile-nav a:hover,
+.compile-foot-col a,
+.compile-foot-col a:hover,
+.compile-foot-brand a,
+.compile-foot-brand a:hover { text-decoration: none; }
 .compile-nav {
   display: flex;
   gap: 1.75rem;
@@ -162,24 +174,7 @@ a { color: inherit; text-decoration: none; }
   .compile-hero { grid-template-columns: 1fr; gap: 3rem; }
   .compile-hero-graphic { order: 2; }
 }
-.compile-hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin: 0 0 2.5rem;
-  font-family: var(--mono);
-  font-size: var(--text-xs);
-  letter-spacing: var(--tracking-mono);
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-}
-.compile-hero-eyebrow::before {
-  content: "";
-  display: inline-block;
-  width: 6px; height: 6px;
-  background: var(--accent);
-  border-radius: 50%;
-}
+
 .compile-hero h1 {
   font-family: var(--display);
   font-weight: 400;
@@ -203,15 +198,7 @@ a { color: inherit; text-decoration: none; }
   max-width: 56ch;
   text-wrap: pretty;
 }
-.compile-hero-sub {
-  font-family: var(--sans);
-  font-size: var(--text-sm);
-  line-height: 1.55;
-  color: var(--text-tertiary);
-  margin: 0 0 2.5rem;
-  max-width: 56ch;
-  text-wrap: pretty;
-}
+
 .compile-hero-cta {
   display: flex;
   gap: 0.6rem;
@@ -249,21 +236,55 @@ a { color: inherit; text-decoration: none; }
   animation:
     cell-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--d, 0) * 9ms) forwards,
     cell-wave 8s ease-in-out calc(1.6s + var(--d, 0) * 22ms) infinite;
-  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
-  cursor: default;
+  transition: transform 0.18s ease;
+  cursor: pointer;
   user-select: none;
+  text-decoration: none;
+  position: relative;
 }
 .compile-cell--featured {
   background: var(--accent);
   color: #fff;
   font-weight: 500;
+  animation:
+    cell-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--d, 0) * 9ms) forwards,
+    cell-glow 4.5s ease-in-out calc(0.8s + var(--d, 0) * 80ms) infinite;
 }
 .compile-cell:hover {
-  background: var(--text);
-  color: var(--bg);
+  background: var(--text) !important;
+  color: var(--bg) !important;
   transform: scale(1.18) !important;
   z-index: 5;
-  position: relative;
+  animation-play-state: paused;
+}
+/* Launched cells: orange, clickable */
+.compile-cell--launched {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 500;
+  animation: cell-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--d, 0) * 9ms) forwards;
+}
+.compile-cell--launched:hover {
+  background: var(--accent-soft) !important;
+  color: #fff !important;
+  transform: scale(1.18) !important;
+  z-index: 5;
+  animation-play-state: paused;
+}
+/* Locked (not-yet-launched) cells: dimmed; orange lock icon + native tooltip on hover */
+.compile-cell--locked {
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+.compile-cell--locked:hover {
+  background-color: color-mix(in srgb, var(--accent) 16%, var(--bg)) !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F54E00' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4.5' y='10.5' width='15' height='10' rx='2'/%3E%3Cpath d='M8 10.5V7a4 4 0 0 1 8 0v3.5'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 62% !important;
+  color: transparent !important;
+  transform: scale(1.18) !important;
+  z-index: 5;
   animation-play-state: paused;
 }
 @keyframes cell-in {
@@ -273,11 +294,7 @@ a { color: inherit; text-decoration: none; }
   0%, 88%, 100% { background: var(--bg-card); }
   50%, 54% { background: var(--bg-card-hover); }
 }
-.compile-cell--featured {
-  animation:
-    cell-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--d, 0) * 9ms) forwards,
-    cell-glow 4.5s ease-in-out calc(0.8s + var(--d, 0) * 80ms) infinite;
-}
+
 @keyframes cell-glow {
   0%, 60%, 100% { background: var(--accent); box-shadow: 0 0 0 0 rgba(245, 78, 0, 0); }
   30% { background: var(--accent-soft); box-shadow: 0 0 0 4px rgba(245, 78, 0, 0.18); }
@@ -290,8 +307,7 @@ a { color: inherit; text-decoration: none; }
   .compile-cell { font-size: 0.65rem; }
 }
 
-/* Sections without a head — first section after hero needs a top divider feel */
-.compile-section--no-head { padding-top: clamp(2.5rem, 5vw, 4rem); }
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -368,6 +384,13 @@ a { color: inherit; text-decoration: none; }
   gap: 1rem;
 }
 @media (max-width: 900px) { .compile-problem-grid { grid-template-columns: 1fr; } }
+
+.compile-problems-more {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+.compile-problems-more[hidden] { display: none; }
 
 .compile-problem-card {
   background: var(--bg-card);
@@ -586,7 +609,7 @@ a { color: inherit; text-decoration: none; }
 }
 .compile-foot-grid {
   display: grid;
-  grid-template-columns: 2fr repeat(4, 1fr);
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 2rem;
   margin-bottom: 3rem;
 }
@@ -603,6 +626,7 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: var(--tracking-tight);
   margin: 0 0 0.6rem;
 }
+.compile-foot-brand em { font-style: normal; color: var(--accent); }
 .compile-foot-brand p {
   font-family: var(--sans);
   font-size: var(--text-sm);

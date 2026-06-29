@@ -148,7 +148,7 @@ function renderArchive(): void {
     const empty = document.createElement("p");
     empty.className = "problems-empty";
     empty.textContent =
-      "Nothing here yet — problems appear as each daily publication adds them.";
+      "Nothing here yet. Problems appear as each daily publication adds them.";
     root.appendChild(empty);
   } else {
     const ol = document.createElement("ol");
@@ -166,7 +166,7 @@ function renderArchive(): void {
   if (meta) {
     meta.textContent =
       released.length === 0
-        ? `108 problems over the season — published here one by one.`
+        ? `108 problems over the season, published here one by one.`
         : `${released.length} published · ${total} total over the season.`;
   }
 }
@@ -201,12 +201,13 @@ function renderProblem(): void {
       : `Problem ${n} · Project Brahmagupta`;
     const when = escapeHtml(opensLineForN(n) || "");
     const note = opened
-      ? `Statement not in this bundle yet — same calendar as below · <strong>${when}</strong>`
+      ? `Statement not in this bundle yet, same calendar as below · <strong>${when}</strong>`
       : `Not yet available · opens <strong>${when}</strong>`;
+    const heading = opened && meta.title ? meta.title : `Problem ${n}`;
     const backHref = escapeHtml(backFromProblemHref());
     const backLabel = escapeHtml(backFromProblemLabel());
     root.innerHTML =
-      `<h1>${escapeHtml(meta.title)}</h1>` +
+      `<h1>${escapeHtml(heading)}</h1>` +
       `<p class="problem-locked-lede">${note}</p>` +
       `<p class="problem-locked-hint"><a href="${backHref}">${backLabel}</a></p>`;
   }
