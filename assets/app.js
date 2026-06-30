@@ -1,5 +1,46 @@
 "use strict";
 (() => {
+  // src/browser/tex-render.ts
+  function texColor(name) {
+    const trimmed = name.trim();
+    return /^gr[ae]y$/i.test(trimmed) ? "#9a988c" : trimmed;
+  }
+  function renderTexBody(el, body) {
+    const open = /\\fontcolor\s*\{([^}]*)\}\s*\{/g;
+    let cursor = 0;
+    let m;
+    while ((m = open.exec(body)) !== null) {
+      if (m.index > cursor) {
+        el.appendChild(document.createTextNode(body.slice(cursor, m.index)));
+      }
+      const contentStart = open.lastIndex;
+      let depth = 1;
+      let i = contentStart;
+      while (i < body.length && depth > 0) {
+        const c = body[i];
+        if (c === "\\") {
+          i += 2;
+          continue;
+        }
+        if (c === "{") depth++;
+        else if (c === "}") depth--;
+        if (depth === 0) break;
+        i++;
+      }
+      const span = document.createElement("span");
+      span.className = "tex-fontcolor";
+      span.style.color = texColor(m[1] ?? "");
+      span.textContent = body.slice(contentStart, i);
+      el.appendChild(span);
+      cursor = i + 1;
+      open.lastIndex = cursor;
+    }
+    if (cursor < body.length) {
+      el.appendChild(document.createTextNode(body.slice(cursor)));
+    }
+  }
+  Object.assign(globalThis, { texColor, renderTexBody });
+
   // src/constants.ts
   var SERIES_TOTAL_DEFAULT = 108;
   var FIRST_PROBLEM_OPENS_TITLE = "First problem opens 1 July 2026, 00:00 IST.";
@@ -169,7 +210,7 @@
       root.innerHTML = `<h1>${escapeHtml(meta.title)}</h1>`;
       const bodyEl = document.createElement("div");
       bodyEl.className = "body problem-tex";
-      bodyEl.textContent = detail.body;
+      renderTexBody(bodyEl, detail.body);
       root.appendChild(bodyEl);
       typesetMath(bodyEl);
     } else {

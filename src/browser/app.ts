@@ -1,6 +1,7 @@
 /// <reference path="./globals.d.ts" />
 
 import type { ProblemCatalogEntry, ProblemPublished } from "../types.js";
+import { renderTexBody } from "./tex-render.js";
 import { FIRST_PROBLEM_OPENS_TITLE, SERIES_TOTAL_DEFAULT } from "../constants.js";
 import { clamp, escapeHtml } from "../lib/html.js";
 
@@ -191,7 +192,7 @@ function renderProblem(): void {
     root.innerHTML = `<h1>${escapeHtml(meta.title)}</h1>`;
     const bodyEl = document.createElement("div");
     bodyEl.className = "body problem-tex";
-    bodyEl.textContent = detail.body;
+    renderTexBody(bodyEl, detail.body);
     root.appendChild(bodyEl);
     typesetMath(bodyEl);
   } else {

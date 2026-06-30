@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "npm run build:browser && npm run build:data",
-    "build:browser": "esbuild src/browser/schedule-entry.ts --bundle --outfile=assets/schedule.js --format=iife --platform=browser --target=es2020 --legal-comments=none && esbuild src/browser/app.ts --bundle --outfile=assets/app.js --format=iife --platform=browser --target=es2020 --legal-comments=none",
+    "build:browser": "esbuild src/browser/schedule-entry.ts --bundle --outfile=assets/schedule.js --format=iife --platform=browser --target=es2020 --legal-comments=none && esbuild src/browser/tex-render.ts --bundle --outfile=assets/tex-render.js --format=iife --platform=browser --target=es2020 --legal-comments=none && esbuild src/browser/app.ts --bundle --outfile=assets/app.js --format=iife --platform=browser --target=es2020 --legal-comments=none",
     "build:data": "tsx scripts/build-published-problems.ts",
     "export-txt": "tsx scripts/export-problems-txt.ts",
     "typecheck": "tsc --noEmit"
