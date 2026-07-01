@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-06-30T06:36:37.519Z): bodies for n ≤ 0 (0/108).
+ * Publication slice at build (2026-06-30T20:32:11.003Z): bodies for n ≤ 1 (1/108).
  */
 "use strict";
 
@@ -10,7 +10,7 @@ var SERIES_TOTAL = 108;
 var PROBLEM_CATALOG = [
   {
     "n": 1,
-    "title": ""
+    "title": "Brahmagupta Quadrilaterals"
   },
   {
     "n": 2,
@@ -442,4 +442,11 @@ var PROBLEM_CATALOG = [
   }
 ];
 
-var PROBLEMS = [];
+var PROBLEMS = [
+  {
+    "n": 1,
+    "source": "Baudhāyana Śulba Sūtra, 1.48",
+    "title": "Brahmagupta Quadrilaterals",
+    "body": "In the 7th century, Brahmagupta gave a formula for the area of a cyclic quadrilateral (this extends Heron’s formula for triangles). If a cyclic quadrilateral has side lengths \\(a,b,c,d\\) and semiperimeter\n    \\[\n    s=\\frac{a+b+c+d}{2},\n    \\]\n    then its area is\n    \\[\n    A=\\sqrt{(s-a)(s-b)(s-c)(s-d)}.\n    \\]\n    A cyclic quadrilateral is called integral if all four side lengths and its area are integers. How many integral cyclic quadrilaterals satisfy \\(a \\le b \\le c \\le d,\\) all four side lengths are distinct, and \\(a+b+c+d \\le 60\\)?"
+  }
+];
