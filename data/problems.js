@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-06-30T20:32:11.003Z): bodies for n ≤ 1 (1/108).
+ * Publication slice at build (2026-07-01T20:27:42.558Z): bodies for n ≤ 2 (2/108).
  */
 "use strict";
 
@@ -14,7 +14,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 2,
-    "title": ""
+    "title": "Vargaprakriti"
   },
   {
     "n": 3,
@@ -448,5 +448,11 @@ var PROBLEMS = [
     "source": "Baudhāyana Śulba Sūtra, 1.48",
     "title": "Brahmagupta Quadrilaterals",
     "body": "In the 7th century, Brahmagupta gave a formula for the area of a cyclic quadrilateral (this extends Heron’s formula for triangles). If a cyclic quadrilateral has side lengths \\(a,b,c,d\\) and semiperimeter\n    \\[\n    s=\\frac{a+b+c+d}{2},\n    \\]\n    then its area is\n    \\[\n    A=\\sqrt{(s-a)(s-b)(s-c)(s-d)}.\n    \\]\n    A cyclic quadrilateral is called integral if all four side lengths and its area are integers. How many integral cyclic quadrilaterals satisfy \\(a \\le b \\le c \\le d,\\) all four side lengths are distinct, and \\(a+b+c+d \\le 60\\)?"
+  },
+  {
+    "n": 2,
+    "source": "Baudhāyana Śulba Sūtra, 2.12",
+    "title": "Vargaprakriti",
+    "body": "The \\(n\\)th hexagonal number \\(h_n\\) is the number of distinct dots in a pattern of dots consisting of the outlines of regular hexagons with sides up to \\(n\\) dots, when the hexagons are overlaid so that they share one vertex. It is easy to show that\n\n    \\[\n    h_n = n(2n - 1)\n    \\]\n\n    The first hexagonal number \\(h_1 = 1\\) is a perfect square. Find the second smallest hexagonal number that is a perfect square.\n\n    \\fontcolor{gray}{FFT: How many such square-hexagonal numbers are there? What about cube-hexagonal numbers?}"
   }
 ];
