@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-01T20:27:42.558Z): bodies for n ≤ 2 (2/108).
+ * Publication slice at build (2026-07-02T20:05:46.972Z): bodies for n ≤ 3 (3/108).
  */
 "use strict";
 
@@ -18,7 +18,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 3,
-    "title": ""
+    "title": "Cow Enumeration"
   },
   {
     "n": 4,
@@ -454,5 +454,11 @@ var PROBLEMS = [
     "source": "Baudhāyana Śulba Sūtra, 2.12",
     "title": "Vargaprakriti",
     "body": "The \\(n\\)th hexagonal number \\(h_n\\) is the number of distinct dots in a pattern of dots consisting of the outlines of regular hexagons with sides up to \\(n\\) dots, when the hexagons are overlaid so that they share one vertex. It is easy to show that\n\n    \\[\n    h_n = n(2n - 1)\n    \\]\n\n    The first hexagonal number \\(h_1 = 1\\) is a perfect square. Find the second smallest hexagonal number that is a perfect square.\n\n    \\fontcolor{gray}{FFT: How many such square-hexagonal numbers are there? What about cube-hexagonal numbers?}"
+  },
+  {
+    "n": 3,
+    "source": "Baudhāyana ŚS, 1.58 (citi-construction)",
+    "title": "Cow Enumeration",
+    "body": "A cow produces one calf every year. Beginning in its fourth year, each calf produces one calf at the beginning of each year. Starting with just one calf in its first year, and assuming our cows never die, how many cows will we have, modulo \\(10^9 + 7\\) after \\(2^{108}\\) years?"
   }
 ];
