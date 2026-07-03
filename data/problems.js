@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-02T20:05:46.972Z): bodies for n ≤ 3 (3/108).
+ * Publication slice at build (2026-07-03T20:01:12.056Z): bodies for n ≤ 4 (4/108).
  */
 "use strict";
 
@@ -22,7 +22,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 4,
-    "title": ""
+    "title": "Peaceful Arrangements"
   },
   {
     "n": 5,
@@ -460,5 +460,11 @@ var PROBLEMS = [
     "source": "Baudhāyana ŚS, 1.58 (citi-construction)",
     "title": "Cow Enumeration",
     "body": "A cow produces one calf every year. Beginning in its fourth year, each calf produces one calf at the beginning of each year. Starting with just one calf in its first year, and assuming our cows never die, how many cows will we have, modulo \\(10^9 + 7\\) after \\(2^{108}\\) years?"
+  },
+  {
+    "n": 4,
+    "source": "Mānava Śulba Sūtra",
+    "title": "Peaceful Arrangements",
+    "body": "Let \\(1,2,\\dots,12\\) represent twelve travelers of distinct heights seated in a row. We call an arrangement peaceful if no two adjacent travelers have consecutive heights. How many permutations of \\(1,2,\\dots,12\\) are peaceful?"
   }
 ];
