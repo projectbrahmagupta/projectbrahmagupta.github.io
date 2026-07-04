@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-03T20:01:12.056Z): bodies for n ≤ 4 (4/108).
+ * Publication slice at build (2026-07-04T19:48:59.885Z): bodies for n ≤ 5 (5/108).
  */
 "use strict";
 
@@ -26,7 +26,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 5,
-    "title": ""
+    "title": "Kaprekar Chains"
   },
   {
     "n": 6,
@@ -466,5 +466,11 @@ var PROBLEMS = [
     "source": "Mānava Śulba Sūtra",
     "title": "Peaceful Arrangements",
     "body": "Let \\(1,2,\\dots,12\\) represent twelve travelers of distinct heights seated in a row. We call an arrangement peaceful if no two adjacent travelers have consecutive heights. How many permutations of \\(1,2,\\dots,12\\) are peaceful?"
+  },
+  {
+    "n": 5,
+    "source": "Āpastamba Śulba Sūtra",
+    "title": "Kaprekar Chains",
+    "body": "In 1955, D. R. Kaprekar discovered that repeatedly applying the following process to any four-digit number (with at least two distinct digits) always leads to the fixed point \\(6174\\):\n\n    \\begin{enumerate}\n        \\item Start with a four-digit number \\(n\\) in base 10 (with at least two distinct digits),\n        \\item Sort the digits into descending order to form \\(\\alpha(n)\\), and into ascending order to form \\(\\beta(n)\\).\n        \\item Compute \\(K(n) = \\alpha(n) - \\beta(n)\\), and repeat.\n    \\end{enumerate}\n\n    As an example, starting with the number 8991 in base 10:\n\n    \\begin{align*}\n        9981 - 1899 &= 8082 \\\\\n        8820 - 288  &= 8532 \\\\\n        8532 - 2358 &= 6174 \\\\\n        7641 - 1467 &= 6174\n    \\end{align*}\n\n    We define the chain length \\(\\ell(n)\\) as the number of steps required to first reach \\(6174\\). So \\(\\ell(8991) = 3\\). Find the sum of all valid four-digit integers \\(n\\) (where \\(1000 \\le n \\le 9999\\)) whose chain length is exactly \\(5\\)."
   }
 ];
