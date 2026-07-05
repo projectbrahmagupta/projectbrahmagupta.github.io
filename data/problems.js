@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-04T19:48:59.885Z): bodies for n ≤ 5 (5/108).
+ * Publication slice at build (2026-07-05T19:54:07.740Z): bodies for n ≤ 6 (6/108).
  */
 "use strict";
 
@@ -30,7 +30,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 6,
-    "title": ""
+    "title": "Madhava’s \\(\\pi\\)-Series"
   },
   {
     "n": 7,
@@ -472,5 +472,11 @@ var PROBLEMS = [
     "source": "Āpastamba Śulba Sūtra",
     "title": "Kaprekar Chains",
     "body": "In 1955, D. R. Kaprekar discovered that repeatedly applying the following process to any four-digit number (with at least two distinct digits) always leads to the fixed point \\(6174\\):\n\n    \\begin{enumerate}\n        \\item Start with a four-digit number \\(n\\) in base 10 (with at least two distinct digits),\n        \\item Sort the digits into descending order to form \\(\\alpha(n)\\), and into ascending order to form \\(\\beta(n)\\).\n        \\item Compute \\(K(n) = \\alpha(n) - \\beta(n)\\), and repeat.\n    \\end{enumerate}\n\n    As an example, starting with the number 8991 in base 10:\n\n    \\begin{align*}\n        9981 - 1899 &= 8082 \\\\\n        8820 - 288  &= 8532 \\\\\n        8532 - 2358 &= 6174 \\\\\n        7641 - 1467 &= 6174\n    \\end{align*}\n\n    We define the chain length \\(\\ell(n)\\) as the number of steps required to first reach \\(6174\\). So \\(\\ell(8991) = 3\\). Find the sum of all valid four-digit integers \\(n\\) (where \\(1000 \\le n \\le 9999\\)) whose chain length is exactly \\(5\\)."
+  },
+  {
+    "n": 6,
+    "source": "Baudhāyana ŚS, 1.61",
+    "title": "Madhava’s \\(\\pi\\)-Series",
+    "body": "Consider the series:\n    \\[\n    \\pi=\\sqrt{12}\\left(1-\\frac1{3\\cdot3}+\\frac1{5\\cdot9}-\\frac1{7\\cdot27}+\\cdots\\right),\n    \\]\n    whose terms decrease geometrically. Using the alternating-series error bound, determine the smallest number of terms required to guarantee that the resulting approximation differs from \\(\\pi\\) by less than \\(10^{-10}.\\)"
   }
 ];
