@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-05T19:54:07.740Z): bodies for n ≤ 6 (6/108).
+ * Publication slice at build (2026-07-06T20:31:17.960Z): bodies for n ≤ 7 (7/108).
  */
 "use strict";
 
@@ -34,7 +34,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 7,
-    "title": ""
+    "title": "A Balanced Square"
   },
   {
     "n": 8,
@@ -478,5 +478,11 @@ var PROBLEMS = [
     "source": "Baudhāyana ŚS, 1.61",
     "title": "Madhava’s \\(\\pi\\)-Series",
     "body": "Consider the series:\n    \\[\n    \\pi=\\sqrt{12}\\left(1-\\frac1{3\\cdot3}+\\frac1{5\\cdot9}-\\frac1{7\\cdot27}+\\cdots\\right),\n    \\]\n    whose terms decrease geometrically. Using the alternating-series error bound, determine the smallest number of terms required to guarantee that the resulting approximation differs from \\(\\pi\\) by less than \\(10^{-10}.\\)"
+  },
+  {
+    "n": 7,
+    "source": "in the spirit of Kātyāyana ŚS",
+    "title": "A Balanced Square",
+    "body": "A \\(5\\times5\\) grid is filled with the integers \\(1,2,\\dots,25\\) without repetition. The filling is balanced if every row sum and every column sum is odd. Determine the number of balanced fillings."
   }
 ];
