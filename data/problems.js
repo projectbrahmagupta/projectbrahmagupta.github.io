@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-06T20:31:17.960Z): bodies for n ≤ 7 (7/108).
+ * Publication slice at build (2026-07-07T20:29:23.881Z): bodies for n ≤ 8 (8/108).
  */
 "use strict";
 
@@ -38,7 +38,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 8,
-    "title": ""
+    "title": "Nārāyaṇa Paths with Prescribed Peaks"
   },
   {
     "n": 9,
@@ -484,5 +484,11 @@ var PROBLEMS = [
     "source": "in the spirit of Kātyāyana ŚS",
     "title": "A Balanced Square",
     "body": "A \\(5\\times5\\) grid is filled with the integers \\(1,2,\\dots,25\\) without repetition. The filling is balanced if every row sum and every column sum is odd. Determine the number of balanced fillings."
+  },
+  {
+    "n": 8,
+    "source": "after Baudhāyana ŚS",
+    "title": "Nārāyaṇa Paths with Prescribed Peaks",
+    "body": "A lattice path from \\((0,0)\\) to \\((n,n)\\) using steps \\((1,0)\\) and \\((0,1)\\) is called admissible if it never rises above the line \\(y=x.\\) A peak is a vertex where an up-step is immediately followed by a right-step. Determine the number of admissible paths from \\((0,0)\\text{ to }(30,30)\\) having exactly ten peaks."
   }
 ];
