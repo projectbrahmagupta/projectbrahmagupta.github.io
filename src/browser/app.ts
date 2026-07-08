@@ -194,7 +194,6 @@ function renderProblem(): void {
     bodyEl.className = "body problem-tex";
     renderTexBody(bodyEl, detail.body);
     root.appendChild(bodyEl);
-    typesetMath(bodyEl);
   } else {
     const opened = n <= cap;
     document.title = opened
@@ -212,6 +211,10 @@ function renderProblem(): void {
       `<p class="problem-locked-lede">${note}</p>` +
       `<p class="problem-locked-hint"><a href="${backHref}">${backLabel}</a></p>`;
   }
+
+  // Typeset the whole article, not just the body: problem titles can carry math
+  // (e.g. "Madhava's \(\pi\)-Series"), and the <h1> lives outside bodyEl.
+  typesetMath(root);
 
   const pos = document.getElementById("problem-pos");
   if (pos) pos.textContent = `${n} of ${total}`;

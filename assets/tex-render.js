@@ -5,7 +5,7 @@
     const trimmed = name.trim();
     return /^gr[ae]y$/i.test(trimmed) ? "#9a988c" : trimmed;
   }
-  function renderTexBody(el, body) {
+  function renderInline(el, body) {
     const open = /\\fontcolor\s*\{([^}]*)\}\s*\{/g;
     let cursor = 0;
     let m;
@@ -37,6 +37,30 @@
     }
     if (cursor < body.length) {
       el.appendChild(document.createTextNode(body.slice(cursor)));
+    }
+  }
+  function listItems(inner) {
+    return inner.split(/\\item\b/).map((s) => s.trim()).filter((s) => s.length > 0);
+  }
+  function renderTexBody(el, body) {
+    const listRe = /\\begin\{(enumerate|itemize)\}([\s\S]*?)\\end\{\1\}/g;
+    let cursor = 0;
+    let m;
+    while ((m = listRe.exec(body)) !== null) {
+      if (m.index > cursor) {
+        renderInline(el, body.slice(cursor, m.index));
+      }
+      const list = document.createElement(m[1] === "enumerate" ? "ol" : "ul");
+      for (const item of listItems(m[2] ?? "")) {
+        const li = document.createElement("li");
+        renderInline(li, item);
+        list.appendChild(li);
+      }
+      el.appendChild(list);
+      cursor = listRe.lastIndex;
+    }
+    if (cursor < body.length) {
+      renderInline(el, body.slice(cursor));
     }
   }
   Object.assign(globalThis, { texColor, renderTexBody });

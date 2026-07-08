@@ -5,10 +5,11 @@ export function texColor(name: string): string {
 }
 
 /**
- * Render a problem body into `el`, turning `\fontcolor{color}{text}` into colored
- * spans while leaving everything else as text so MathJax still typesets the math.
+ * Render a run of body text into `el`, turning `\fontcolor{color}{text}` into
+ * colored spans while leaving everything else as text so MathJax still typesets
+ * the math. Does not handle list environments — see renderTexBody.
  */
-export function renderTexBody(el: HTMLElement, body: string): void {
+function renderInline(el: HTMLElement, body: string): void {
   const open = /\\fontcolor\s*\{([^}]*)\}\s*\{/g;
   let cursor = 0;
   let m: RegExpExecArray | null;
@@ -45,6 +46,49 @@ export function renderTexBody(el: HTMLElement, body: string): void {
 
   if (cursor < body.length) {
     el.appendChild(document.createTextNode(body.slice(cursor)));
+  }
+}
+
+/**
+ * Split the inner text of a list environment into item strings, dropping the
+ * whitespace preamble before the first `\item`.
+ */
+function listItems(inner: string): string[] {
+  return inner
+    .split(/\\item\b/)
+    .map((s) => s.trim())
+    .filter((s) => s.length > 0);
+}
+
+/**
+ * Render a problem body into `el`. List environments (`enumerate`/`itemize`)
+ * become real `<ol>`/`<ul>` elements: MathJax has no such environments, so
+ * leaving them as text raises "Unknown environment 'enumerate'". Everything
+ * else (inline/display math, `\fontcolor`) is left for renderInline + MathJax.
+ */
+export function renderTexBody(el: HTMLElement, body: string): void {
+  const listRe = /\\begin\{(enumerate|itemize)\}([\s\S]*?)\\end\{\1\}/g;
+  let cursor = 0;
+  let m: RegExpExecArray | null;
+
+  while ((m = listRe.exec(body)) !== null) {
+    if (m.index > cursor) {
+      renderInline(el, body.slice(cursor, m.index));
+    }
+
+    const list = document.createElement(m[1] === "enumerate" ? "ol" : "ul");
+    for (const item of listItems(m[2] ?? "")) {
+      const li = document.createElement("li");
+      renderInline(li, item);
+      list.appendChild(li);
+    }
+    el.appendChild(list);
+
+    cursor = listRe.lastIndex;
+  }
+
+  if (cursor < body.length) {
+    renderInline(el, body.slice(cursor));
   }
 }
 

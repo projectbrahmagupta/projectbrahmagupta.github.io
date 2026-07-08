@@ -5,7 +5,7 @@
     const trimmed = name.trim();
     return /^gr[ae]y$/i.test(trimmed) ? "#9a988c" : trimmed;
   }
-  function renderTexBody(el, body) {
+  function renderInline(el, body) {
     const open = /\\fontcolor\s*\{([^}]*)\}\s*\{/g;
     let cursor = 0;
     let m;
@@ -37,6 +37,30 @@
     }
     if (cursor < body.length) {
       el.appendChild(document.createTextNode(body.slice(cursor)));
+    }
+  }
+  function listItems(inner) {
+    return inner.split(/\\item\b/).map((s) => s.trim()).filter((s) => s.length > 0);
+  }
+  function renderTexBody(el, body) {
+    const listRe = /\\begin\{(enumerate|itemize)\}([\s\S]*?)\\end\{\1\}/g;
+    let cursor = 0;
+    let m;
+    while ((m = listRe.exec(body)) !== null) {
+      if (m.index > cursor) {
+        renderInline(el, body.slice(cursor, m.index));
+      }
+      const list = document.createElement(m[1] === "enumerate" ? "ol" : "ul");
+      for (const item of listItems(m[2] ?? "")) {
+        const li = document.createElement("li");
+        renderInline(li, item);
+        list.appendChild(li);
+      }
+      el.appendChild(list);
+      cursor = listRe.lastIndex;
+    }
+    if (cursor < body.length) {
+      renderInline(el, body.slice(cursor));
     }
   }
   Object.assign(globalThis, { texColor, renderTexBody });
@@ -212,7 +236,6 @@
       bodyEl.className = "body problem-tex";
       renderTexBody(bodyEl, detail.body);
       root.appendChild(bodyEl);
-      typesetMath(bodyEl);
     } else {
       const opened = n <= cap;
       document.title = opened ? `${n}. ${meta.title} \xB7 Project Brahmagupta` : `Problem ${n} \xB7 Project Brahmagupta`;
@@ -223,6 +246,7 @@
       const backLabel = escapeHtml(backFromProblemLabel());
       root.innerHTML = `<h1>${escapeHtml(heading)}</h1><p class="problem-locked-lede">${note}</p><p class="problem-locked-hint"><a href="${backHref}">${backLabel}</a></p>`;
     }
+    typesetMath(root);
     const pos = document.getElementById("problem-pos");
     if (pos) pos.textContent = `${n} of ${total}`;
     const prevHref = n > 1 && findDetail(n - 1) ? `problem.html?n=${n - 1}` : null;
