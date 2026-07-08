@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-08T14:43:56.788Z): bodies for n ≤ 8 (8/108).
+ * Publication slice at build (2026-07-08T20:06:59.535Z): bodies for n ≤ 9 (9/108).
  */
 "use strict";
 
@@ -42,7 +42,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 9,
-    "title": ""
+    "title": "Highly Composite Numbers"
   },
   {
     "n": 10,
@@ -490,5 +490,11 @@ var PROBLEMS = [
     "source": "after Baudhāyana ŚS",
     "title": "Nārāyaṇa Paths with Prescribed Peaks",
     "body": "A lattice path from \\((0,0)\\) to \\((n,n)\\) using steps \\((1,0)\\) and \\((0,1)\\) is called admissible if it never rises above the line \\(y=x.\\) A peak is a vertex where an up-step is immediately followed by a right-step. Determine the number of admissible paths from \\((0,0)\\text{ to }(30,30)\\) having exactly ten peaks."
+  },
+  {
+    "n": 9,
+    "source": "Anuyogadvāra-sūtra",
+    "title": "Highly Composite Numbers",
+    "body": "In 1915, Ramanujan studied integers with unusually many divisors. A positive integer is called \\emph{highly composite} if it has more divisors than every smaller positive integer.\n\n    Let \\(d(n)\\) denote the number of positive divisors of \\(n\\). Thus \\(n\\) is highly composite if\n    \\[\n    d(n) > d(k)\n    \\qquad \\text{for all } 1 \\le k < n.\n    \\]\n\n    For example, \\(12\\) is highly composite since \\(d(12)=6,\\) while every positive integer smaller than \\(12\\) has at most \\(4\\) divisors. Determine the smallest highly composite number having more than \\(10^3\\) divisors."
   }
 ];
