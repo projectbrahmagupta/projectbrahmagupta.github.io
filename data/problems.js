@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-08T20:06:59.535Z): bodies for n ≤ 9 (9/108).
+ * Publication slice at build (2026-07-09T20:27:03.516Z): bodies for n ≤ 10 (10/108).
  */
 "use strict";
 
@@ -46,7 +46,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 10,
-    "title": ""
+    "title": "Rational Diagonals"
   },
   {
     "n": 11,
@@ -496,5 +496,11 @@ var PROBLEMS = [
     "source": "Anuyogadvāra-sūtra",
     "title": "Highly Composite Numbers",
     "body": "In 1915, Ramanujan studied integers with unusually many divisors. A positive integer is called \\emph{highly composite} if it has more divisors than every smaller positive integer.\n\n    Let \\(d(n)\\) denote the number of positive divisors of \\(n\\). Thus \\(n\\) is highly composite if\n    \\[\n    d(n) > d(k)\n    \\qquad \\text{for all } 1 \\le k < n.\n    \\]\n\n    For example, \\(12\\) is highly composite since \\(d(12)=6,\\) while every positive integer smaller than \\(12\\) has at most \\(4\\) divisors. Determine the smallest highly composite number having more than \\(10^3\\) divisors."
+  },
+  {
+    "n": 10,
+    "source": "Sūryaprajñapti and Tattvārtha-sūtra",
+    "title": "Rational Diagonals",
+    "body": "For a cyclic quadrilateral with consecutive side lengths \\(a,b,c,d\\), the diagonal lengths \\(p,q\\) satisfy\n    \\[\n    p^2=\\frac{(ab+cd)(ac+bd)}{ad+bc},\n    \\qquad\n    q^2=\\frac{(ad+bc)(ac+bd)}{ab+cd}.\n    \\]\n    Although the product \\(pq\\) is always rational, the individual diagonals need not be. Determine the number of quadruples of distinct positive integers\n    \\[\n    a\\le b\\le c\\le d,\n    \\qquad\n    a+b+c+d=1000,\n    \\]\n    for which both diagonals are rational."
   }
 ];
