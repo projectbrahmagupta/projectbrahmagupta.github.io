@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-10T17:34:21.211Z): bodies for n ≤ 10 (10/108).
+ * Publication slice at build (2026-07-10T20:03:09.100Z): bodies for n ≤ 11 (11/108).
  */
 "use strict";
 
@@ -50,7 +50,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 11,
-    "title": ""
+    "title": "Narasimhan–Seshadri Partitions"
   },
   {
     "n": 12,
@@ -502,5 +502,11 @@ var PROBLEMS = [
     "source": "Sūryaprajñapti and Tattvārtha-sūtra",
     "title": "Rational Diagonals",
     "body": "For a cyclic quadrilateral with consecutive side lengths \\(a,b,c,d\\), the diagonal lengths \\(p,q\\) satisfy\n    \\[\n    p^2=\\frac{(ab+cd)(ac+bd)}{ad+bc},\n    \\qquad\n    q^2=\\frac{(ad+bc)(ac+bd)}{ab+cd}.\n    \\]\n    Although the product \\(pq\\) is always rational, the individual diagonals need not be. Determine the number of quadruples of distinct positive integers\n    \\[\n    a\\le b\\le c\\le d,\n    \\qquad\n    a+b+c+d=1000,\n    \\]\n    for which both diagonals are rational."
+  },
+  {
+    "n": 11,
+    "source": "Bhagavatī-sūtra: enumeration of meters",
+    "title": "Narasimhan–Seshadri Partitions",
+    "body": "The Narasimhan–Seshadri theorem a central result in geometry: it establishes a bijection between \\textit{stable} holomorphic vector bundles on a Riemann surface and irreducible unitary representations of the fundamental group. The given problem builds a combinatorial version of the \\textit{slope stability} condition:\n\n    A partition \\(n = a_1 + a_2 + \\cdots + a_k\\) of a positive integer \\(n\\) into ordered positive integer parts is called \\textit{stable} if for every prefix index \\(1 \\le i \\le k-1\\),\n\n    \\[\n    \\frac{a_1 + a_2 + \\cdots + a_i}{i} < \\frac{a_1 + a_2 + \\cdots + a_k}{k}.\n    \\]\n\n    How many stable ordered partitions of \\(105\\) are there?"
   }
 ];
