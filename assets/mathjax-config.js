@@ -16,5 +16,5 @@ window.MathJax = {
   options: {
     skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"],
   },
-  startup: { typeset: false },
+  startup: { typeset: true },
 };
