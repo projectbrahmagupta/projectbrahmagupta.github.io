@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-10T20:03:09.100Z): bodies for n ≤ 11 (11/108).
+ * Publication slice at build (2026-07-11T19:47:34.347Z): bodies for n ≤ 12 (12/108).
  */
 "use strict";
 
@@ -54,7 +54,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 12,
-    "title": ""
+    "title": "Integer Triangles"
   },
   {
     "n": 13,
@@ -508,5 +508,11 @@ var PROBLEMS = [
     "source": "Bhagavatī-sūtra: enumeration of meters",
     "title": "Narasimhan–Seshadri Partitions",
     "body": "The Narasimhan–Seshadri theorem a central result in geometry: it establishes a bijection between \\textit{stable} holomorphic vector bundles on a Riemann surface and irreducible unitary representations of the fundamental group. The given problem builds a combinatorial version of the \\textit{slope stability} condition:\n\n    A partition \\(n = a_1 + a_2 + \\cdots + a_k\\) of a positive integer \\(n\\) into ordered positive integer parts is called \\textit{stable} if for every prefix index \\(1 \\le i \\le k-1\\),\n\n    \\[\n    \\frac{a_1 + a_2 + \\cdots + a_i}{i} < \\frac{a_1 + a_2 + \\cdots + a_k}{k}.\n    \\]\n\n    How many stable ordered partitions of \\(105\\) are there?"
+  },
+  {
+    "n": 12,
+    "source": "Tattvārthādhigama-sūtra",
+    "title": "Integer Triangles",
+    "body": "Two triangles with integer length sides are called \\emph{compatible} if:\n    \\begin{enumerate}\n        \\item They have the same area,\n        \\item They have the same perimeter, and\n        \\item They are not congruent.\n    \\end{enumerate}\n\n    For example, \\((13, 9, 6)\\) and \\((12, 12, 4)\\) are compatible. Find the smallest perimeter admitting at least \\(10\\) pairwise compatible triangles."
   }
 ];
