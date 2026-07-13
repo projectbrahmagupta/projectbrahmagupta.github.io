@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-12T19:45:21.333Z): bodies for n ≤ 13 (13/108).
+ * Publication slice at build (2026-07-13T20:01:33.707Z): bodies for n ≤ 14 (14/108).
  */
 "use strict";
 
@@ -62,7 +62,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 14,
-    "title": ""
+    "title": "The AKS Impostor"
   },
   {
     "n": 15,
@@ -520,5 +520,11 @@ var PROBLEMS = [
     "source": "Āryabhaṭīya, Gaṇitapāda 10",
     "title": "Counting Binary Cubic Forms",
     "body": "In a celebrated series of papers beginning in 2010, Manjul Bhargava and Arul Shankar\n    determined a method to count rational solutions to elliptic curves, equations whose solution structure sits at the heart of the Birch and Swinnerton--Dyer conjecture. Their approach takes inspiration from the composition laws of Brahmagupta and Gauss, generalising the classical theory of binary quadratic forms to higher degrees. The given problem is motivated by the first step in their counting machine: enumerating binary cubic forms by discriminant.\n\n    A binary cubic form is\n    \\[\n    f(x,y)=ax^3+bx^2y+cxy^2+dy^3\n    \\]\n    with integer coefficients. Its discriminant is\n    \\[\n    \\Delta(f)\n    =\n    b^2c^2\n    -4ac^3\n    -4b^3d\n    -27a^2d^2\n    +18abcd.\n    \\]\n\n    We call \\(f\\) admissible if: (i) \\(\\gcd(a,b,c,d)=1\\), (ii) \\(\\Delta(f)\\neq 0\\), and (iii) either \\(a>0\\), or \\(a=0\\) and \\(b>0\\). Find the number of admissible forms with \\(|\\Delta(f)|\\le 10^4\\)."
+  },
+  {
+    "n": 14,
+    "source": "Āryabhaṭīya, Gaṇitapāda 12",
+    "title": "The AKS Impostor",
+    "body": "The AKS primality test is based on the fact that every prime \\(p\\) satisfies\n    \\[\n    (x-a)^p \\equiv x^p-a \\pmod p\n    \\]\n    for all integers \\(a\\). However, certain composite integers can satisfy weakened forms of this congruence.\n    Determine the smallest composite integer \\(n\\) such that\n    \\[\n    (x-1)^n \\equiv x^n-1\n    \\pmod{x^r-1,\\; n}\n    \\]\n    for every integer \\(1 \\le r \\le 20\\)."
   }
 ];
