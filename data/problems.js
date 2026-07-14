@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-13T20:01:33.707Z): bodies for n ≤ 14 (14/108).
+ * Publication slice at build (2026-07-14T19:53:14.200Z): bodies for n ≤ 15 (15/108).
  */
 "use strict";
 
@@ -66,7 +66,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 15,
-    "title": ""
+    "title": "The Lotus Arrangement Problem"
   },
   {
     "n": 16,
@@ -526,5 +526,11 @@ var PROBLEMS = [
     "source": "Āryabhaṭīya, Gaṇitapāda 12",
     "title": "The AKS Impostor",
     "body": "The AKS primality test is based on the fact that every prime \\(p\\) satisfies\n    \\[\n    (x-a)^p \\equiv x^p-a \\pmod p\n    \\]\n    for all integers \\(a\\). However, certain composite integers can satisfy weakened forms of this congruence.\n    Determine the smallest composite integer \\(n\\) such that\n    \\[\n    (x-1)^n \\equiv x^n-1\n    \\pmod{x^r-1,\\; n}\n    \\]\n    for every integer \\(1 \\le r \\le 20\\)."
+  },
+  {
+    "n": 15,
+    "source": "Āryabhaṭīya, Gaṇitapāda 32–33",
+    "title": "The Lotus Arrangement Problem",
+    "body": "Place the integers \\(1,2,\\dots,12\\) around a circle. This arrangement is called harmonious if the sum of every pair of adjacent numbers is composite. Determine the number of harmonious arrangements up to rotation and reflection."
   }
 ];
