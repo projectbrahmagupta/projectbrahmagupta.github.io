@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-14T19:53:14.200Z): bodies for n ≤ 15 (15/108).
+ * Publication slice at build (2026-07-15T17:08:46.977Z): bodies for n ≤ 15 (15/108).
  */
 "use strict";
 
@@ -471,7 +471,7 @@ var PROBLEMS = [
     "n": 5,
     "source": "Āpastamba Śulba Sūtra",
     "title": "Kaprekar Chains",
-    "body": "In 1955, D. R. Kaprekar discovered that repeatedly applying the following process to any four-digit number (with at least two distinct digits) always leads to the fixed point \\(6174\\):\n\n    \\begin{enumerate}\n        \\item Start with a four-digit number \\(n\\) in base 10 (with at least two distinct digits),\n        \\item Sort the digits into descending order to form \\(\\alpha(n)\\), and into ascending order to form \\(\\beta(n)\\).\n        \\item Compute \\(K(n) = \\alpha(n) - \\beta(n)\\), and repeat.\n    \\end{enumerate}\n\n    As an example, starting with the number 8991 in base 10:\n\n    \\begin{align*}\n        9981 - 1899 &= 8082 \\\\\n        8820 - 288  &= 8532 \\\\\n        8532 - 2358 &= 6174 \\\\\n        7641 - 1467 &= 6174\n    \\end{align*}\n\n    We define the chain length \\(\\ell(n)\\) as the number of steps required to first reach \\(6174\\). So \\(\\ell(8991) = 3\\). Find the sum of all valid four-digit integers \\(n\\) (where \\(1000 \\le n \\le 9999\\)) whose chain length is exactly \\(5\\)."
+    "body": "In 1955, D. R. Kaprekar discovered that repeatedly applying the following process to any four-digit number (with at least two distinct digits) always leads to the fixed point \\(6174\\):\n    \\begin{enumerate}\n        \\item Start with a four-digit number \\(n\\) in base 10 (with at least two distinct digits),\n        \\item Sort the digits into descending order to form \\(\\alpha(n)\\), and into ascending order to form \\(\\beta(n)\\).\n        \\item Compute \\(K(n) = \\alpha(n) - \\beta(n)\\), and repeat.\n    \\end{enumerate}\n    As an example, starting with the number 8991 in base 10:\n    \\begin{align*}\n        9981 - 1899 &= 8082 \\\\\n        8820 - 288  &= 8532 \\\\\n        8532 - 2358 &= 6174 \\\\\n        7641 - 1467 &= 6174\n    \\end{align*}\n    We define the chain length \\(\\ell(n)\\) as the number of steps required to first reach \\(6174\\). So \\(\\ell(8991) = 3\\). Find the sum of all valid four-digit integers \\(n\\) (where \\(1000 \\le n \\le 9999\\)) whose chain length is exactly \\(5\\)."
   },
   {
     "n": 6,
@@ -513,13 +513,13 @@ var PROBLEMS = [
     "n": 12,
     "source": "Tattvārthādhigama-sūtra",
     "title": "Integer Triangles",
-    "body": "Two triangles with integer length sides are called \\emph{compatible} if:\n    \\begin{enumerate}\n        \\item They have the same area,\n        \\item They have the same perimeter, and\n        \\item They are not congruent.\n    \\end{enumerate}\n\n    For example, \\((13, 9, 6)\\) and \\((12, 12, 4)\\) are compatible. Find the smallest perimeter admitting at least \\(10\\) pairwise compatible triangles."
+    "body": "Two triangles with integer length sides are called \\emph{compatible} if:\n    \\begin{enumerate}\n        \\item They have the same area,\n        \\item They have the same perimeter, and\n        \\item They are not congruent.\n    \\end{enumerate}\n    For example, \\((13, 9, 6)\\) and \\((12, 12, 4)\\) are compatible. Find the smallest perimeter admitting at least \\(10\\) pairwise compatible triangles."
   },
   {
     "n": 13,
     "source": "Āryabhaṭīya, Gaṇitapāda 10",
     "title": "Counting Binary Cubic Forms",
-    "body": "In a celebrated series of papers beginning in 2010, Manjul Bhargava and Arul Shankar\n    determined a method to count rational solutions to elliptic curves, equations whose solution structure sits at the heart of the Birch and Swinnerton--Dyer conjecture. Their approach takes inspiration from the composition laws of Brahmagupta and Gauss, generalising the classical theory of binary quadratic forms to higher degrees. The given problem is motivated by the first step in their counting machine: enumerating binary cubic forms by discriminant.\n\n    A binary cubic form is\n    \\[\n    f(x,y)=ax^3+bx^2y+cxy^2+dy^3\n    \\]\n    with integer coefficients. Its discriminant is\n    \\[\n    \\Delta(f)\n    =\n    b^2c^2\n    -4ac^3\n    -4b^3d\n    -27a^2d^2\n    +18abcd.\n    \\]\n\n    We call \\(f\\) admissible if: (i) \\(\\gcd(a,b,c,d)=1\\), (ii) \\(\\Delta(f)\\neq 0\\), and (iii) either \\(a>0\\), or \\(a=0\\) and \\(b>0\\). Find the number of admissible forms with \\(|\\Delta(f)|\\le 10^4\\)."
+    "body": "In a celebrated series of papers beginning in 2010, Manjul Bhargava and Arul Shankar determined a method to count rational solutions to elliptic curves, equations whose solution structure sits at the heart of the Birch and Swinnerton--Dyer conjecture. Their approach takes inspiration from the composition laws of Brahmagupta and Gauss, generalising the classical theory of binary quadratic forms to higher degrees. The given problem is motivated by the first step in their counting machine: enumerating binary cubic forms by discriminant.\n\n    A binary cubic form is\n    \\[\n    f(x,y)=ax^3+bx^2y+cxy^2+dy^3\n    \\]\n    with integer coefficients. Its discriminant is\n    \\[\n    \\Delta(f)\n    =\n    b^2c^2\n    -4ac^3\n    -4b^3d\n    -27a^2d^2\n    +18abcd.\n    \\]\n\n    We call \\(f\\) admissible if: (i) \\(\\gcd(a,b,c,d)=1\\), (ii) \\(\\Delta(f)\\neq 0\\), and (iii) either \\(a>0\\), or \\(a=0\\) and \\(b>0\\). Find the number of admissible forms with \\(|\\Delta(f)|\\le 10^4\\)."
   },
   {
     "n": 14,
