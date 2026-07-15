@@ -1,5 +1,5 @@
 /** Map a `\fontcolor{...}` token to a CSS color, theming a couple of friendly names. */
-export function texColor(name: string): string {
+function texColor(name: string): string {
   const trimmed = name.trim();
   return /^gr[ae]y$/i.test(trimmed) ? "#9a988c" : trimmed;
 }
@@ -36,11 +36,9 @@ function readGroup(s: string, brace: number): { inner: string; end: number } {
 }
 
 /**
- * Render a run of body text into `el`: translate text-mode markup (`\emph`,
- * `\textbf`, `\textit`, `\texttt`, `\textsc`, `\underline`, `\fontcolor`) to HTML
- * and recurse into it, while leaving math spans (`\(…\)`, `\[…\]`, `$…$`, math
- * environments) untouched as text for MathJax. The tokenizer consumes whole math
- * spans, so command-like text inside them is never rewritten.
+ * Translate text-mode markup (`\emph`, `\textbf`, `\fontcolor`, …) to HTML;
+ * leave math spans (`\(…\)`, `\[…\]`, `$…$`, environments) as text for MathJax.
+ * Math spans are tokenized whole, so markup-like text inside them is left alone.
  */
 function renderInline(el: HTMLElement, body: string): void {
   const token =
@@ -97,9 +95,8 @@ function listItems(inner: string): string[] {
 }
 
 /**
- * Render a problem body into `el`. List environments (`enumerate`/`itemize`)
- * become real `<ol>`/`<ul>` — MathJax has no such environments, so leaving them
- * as text raises "Unknown environment". Everything else goes through renderInline.
+ * Render a problem body into `el`. `enumerate`/`itemize` become real `<ol>`/`<ul>`
+ * (MathJax lacks these environments); everything else goes through renderInline.
  */
 export function renderTexBody(el: HTMLElement, body: string): void {
   const listRe = /\\begin\{(enumerate|itemize)\}([\s\S]*?)\\end\{\1\}/g;
@@ -127,4 +124,4 @@ export function renderTexBody(el: HTMLElement, body: string): void {
   }
 }
 
-Object.assign(globalThis, { texColor, renderTexBody });
+Object.assign(globalThis, { renderTexBody });

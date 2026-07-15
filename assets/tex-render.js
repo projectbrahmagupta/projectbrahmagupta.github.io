@@ -96,5 +96,5 @@
       renderInline(el, body.slice(cursor));
     }
   }
-  Object.assign(globalThis, { texColor, renderTexBody });
+  Object.assign(globalThis, { renderTexBody });
 })();

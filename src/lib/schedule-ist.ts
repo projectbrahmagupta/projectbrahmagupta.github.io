@@ -1,6 +1,6 @@
 import { DAY_MS, TIMEZONE_IST } from "../constants.js";
 
-export function istYmd(d: Date): { y: number; m: number; d: number } {
+function istYmd(d: Date): { y: number; m: number; d: number } {
   const fmt = new Intl.DateTimeFormat("en-CA", {
     timeZone: TIMEZONE_IST,
     year: "numeric",
@@ -13,18 +13,18 @@ export function istYmd(d: Date): { y: number; m: number; d: number } {
   return { y: get("year"), m: get("month"), d: get("day") };
 }
 
-export function istMidnightUtcMs(y: number, m: number, day: number): number {
+function istMidnightUtcMs(y: number, m: number, day: number): number {
   return Date.parse(
     `${y}-${String(m).padStart(2, "0")}-${String(day).padStart(2, "0")}T00:00:00+05:30`,
   );
 }
 
-export function istMidnightUtcNow(d = new Date()): number {
+function istMidnightUtcNow(d = new Date()): number {
   const p = istYmd(d);
   return istMidnightUtcMs(p.y, p.m, p.d);
 }
 
-export function revealDayOffset(now: Date | undefined, seriesStartMs: number): number {
+function revealDayOffset(now: Date | undefined, seriesStartMs: number): number {
   const t = now ?? new Date();
   return Math.floor((istMidnightUtcNow(t) - seriesStartMs) / DAY_MS);
 }
@@ -36,7 +36,7 @@ export function maxRevealedN(now: Date | undefined, totalProblems: number, serie
   return Math.min(totalProblems, off + 1);
 }
 
-export function unlockInstantMsForProblemN(n: number, seriesStartMs: number): number {
+function unlockInstantMsForProblemN(n: number, seriesStartMs: number): number {
   return seriesStartMs + (n - 1) * DAY_MS;
 }
 

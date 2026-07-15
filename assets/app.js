@@ -96,7 +96,7 @@
       renderInline(el, body.slice(cursor));
     }
   }
-  Object.assign(globalThis, { texColor, renderTexBody });
+  Object.assign(globalThis, { renderTexBody });
 
   // src/constants.ts
   var SERIES_TOTAL_DEFAULT = 108;
