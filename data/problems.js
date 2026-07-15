@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-15T17:08:46.977Z): bodies for n ≤ 15 (15/108).
+ * Publication slice at build (2026-07-15T19:48:14.502Z): bodies for n ≤ 16 (16/108).
  */
 "use strict";
 
@@ -70,7 +70,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 16,
-    "title": ""
+    "title": "Prime Sign Sums"
   },
   {
     "n": 17,
@@ -532,5 +532,11 @@ var PROBLEMS = [
     "source": "Āryabhaṭīya, Gaṇitapāda 32–33",
     "title": "The Lotus Arrangement Problem",
     "body": "Place the integers \\(1,2,\\dots,12\\) around a circle. This arrangement is called harmonious if the sum of every pair of adjacent numbers is composite. Determine the number of harmonious arrangements up to rotation and reflection."
+  },
+  {
+    "n": 16,
+    "source": "Āryabhaṭīya, Gaṇitapāda 6",
+    "title": "Prime Sign Sums",
+    "body": "Ritabrata Munshi studied cancellation in sums over primes, a central theme in analytic number theory where large arithmetic sums remain surprisingly small because oscillations destroy accumulation. In this problem we make that phenomenon concrete and computational. We define:\n    \\[\n    S(n) = \\sum_{2 < p \\leq n} (-1)^{(p-1)/2}\n    \\]\n    where the sum runs over odd primes \\(p\\). Equivalently, \\(S(n)\\) adds \\(+1\\) for primes \\(p \\equiv 1 \\pmod{4}\\) and \\(-1\\) for primes \\(p \\equiv 3 \\pmod{4}\\). Find the smallest \\(n\\) for which \\(|S(n)| > 100\\)."
   }
 ];
