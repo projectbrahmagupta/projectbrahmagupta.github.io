@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-15T19:48:14.502Z): bodies for n ≤ 16 (16/108).
+ * Publication slice at build (2026-07-16T19:43:58.983Z): bodies for n ≤ 17 (17/108).
  */
 "use strict";
 
@@ -74,7 +74,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 17,
-    "title": ""
+    "title": "The House in Louvain"
   },
   {
     "n": 18,
@@ -538,5 +538,11 @@ var PROBLEMS = [
     "source": "Āryabhaṭīya, Gaṇitapāda 6",
     "title": "Prime Sign Sums",
     "body": "Ritabrata Munshi studied cancellation in sums over primes, a central theme in analytic number theory where large arithmetic sums remain surprisingly small because oscillations destroy accumulation. In this problem we make that phenomenon concrete and computational. We define:\n    \\[\n    S(n) = \\sum_{2 < p \\leq n} (-1)^{(p-1)/2}\n    \\]\n    where the sum runs over odd primes \\(p\\). Equivalently, \\(S(n)\\) adds \\(+1\\) for primes \\(p \\equiv 1 \\pmod{4}\\) and \\(-1\\) for primes \\(p \\equiv 3 \\pmod{4}\\). Find the smallest \\(n\\) for which \\(|S(n)| > 100\\)."
+  },
+  {
+    "n": 17,
+    "source": "Āryabhaṭīya, Gaṇitapāda 22",
+    "title": "The House in Louvain",
+    "body": "``I was talking the other day,'' said William Rogers to the other villagers gathered around the inn fire, ``to a gentleman about the place called Louvain, what the Germans have burnt down. He said he knowed it well --- used to visit a Belgian friend there.\n\n    He said the house of his friend was in a long street, numbered on this side one, two, three, and so on, and that all the numbers on one side of him added up exactly the same as all the numbers on the other side of him. Funny thing that! He said he knew there was more than fifty houses on that side of the street, but not so many as five hundred. I made mention of the matter to our parson, and he took a pencil and worked out the number of the house where the Belgian lived. I don't know how he done it.''\n\n    Perhaps the reader may like to discover the number of that house."
   }
 ];
