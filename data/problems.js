@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-16T19:43:58.983Z): bodies for n ≤ 17 (17/108).
+ * Publication slice at build (2026-07-17T19:42:31.680Z): bodies for n ≤ 18 (18/108).
  */
 "use strict";
 
@@ -78,7 +78,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 18,
-    "title": ""
+    "title": "Taxicab Search"
   },
   {
     "n": 19,
@@ -544,5 +544,11 @@ var PROBLEMS = [
     "source": "Āryabhaṭīya, Gaṇitapāda 22",
     "title": "The House in Louvain",
     "body": "``I was talking the other day,'' said William Rogers to the other villagers gathered around the inn fire, ``to a gentleman about the place called Louvain, what the Germans have burnt down. He said he knowed it well --- used to visit a Belgian friend there.\n\n    He said the house of his friend was in a long street, numbered on this side one, two, three, and so on, and that all the numbers on one side of him added up exactly the same as all the numbers on the other side of him. Funny thing that! He said he knew there was more than fifty houses on that side of the street, but not so many as five hundred. I made mention of the matter to our parson, and he took a pencil and worked out the number of the house where the Belgian lived. I don't know how he done it.''\n\n    Perhaps the reader may like to discover the number of that house."
+  },
+  {
+    "n": 18,
+    "source": "Bhāskara I, Mahābhāskarīya VII.17",
+    "title": "Taxicab Search",
+    "body": "The number \\(1729\\) is the smallest integer expressible as a sum of two positive cubes in two distinct ways. Find the smallest integer that can be expressed as a sum of two positive cubes in five distinct ways."
   }
 ];
