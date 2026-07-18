@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-17T19:42:31.680Z): bodies for n ≤ 18 (18/108).
+ * Publication slice at build (2026-07-18T19:47:28.146Z): bodies for n ≤ 19 (19/108).
  */
 "use strict";
 
@@ -82,7 +82,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 19,
-    "title": ""
+    "title": "Sieve of Sundaram"
   },
   {
     "n": 20,
@@ -550,5 +550,11 @@ var PROBLEMS = [
     "source": "Bhāskara I, Mahābhāskarīya VII.17",
     "title": "Taxicab Search",
     "body": "The number \\(1729\\) is the smallest integer expressible as a sum of two positive cubes in two distinct ways. Find the smallest integer that can be expressed as a sum of two positive cubes in five distinct ways."
+  },
+  {
+    "n": 19,
+    "source": "Āryabhaṭīya, Gaṇitapāda 19",
+    "title": "Sieve of Sundaram",
+    "body": "In 1934, S. P. Sundaram introduced a method to generate all odd primes by removing numbers of the form \\(i + j + 2ij\\) from the integers. Specifically, for \\(i, j \\geq 1\\), mark every integer of the form \\(i + j + 2ij\\). The remaining unmarked numbers \\(k\\), when doubled and incremented, give us odd primes \\(2k+1\\).\n\n    Let \\(F(N)\\) be the number of integers in \\(\\{1, 2, \\ldots, N\\}\\) that are never marked, that is, cannot be written as \\(i + j + 2ij\\) for any \\(i, j \\geq 1\\). Compute \\(F(10^6)\\)."
   }
 ];
