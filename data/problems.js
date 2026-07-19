@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-18T19:47:28.146Z): bodies for n ≤ 19 (19/108).
+ * Publication slice at build (2026-07-19T19:47:54.377Z): bodies for n ≤ 20 (20/108).
  */
 "use strict";
 
@@ -86,7 +86,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 20,
-    "title": ""
+    "title": "Square–Triangular Numbers"
   },
   {
     "n": 21,
@@ -556,5 +556,11 @@ var PROBLEMS = [
     "source": "Āryabhaṭīya, Gaṇitapāda 19",
     "title": "Sieve of Sundaram",
     "body": "In 1934, S. P. Sundaram introduced a method to generate all odd primes by removing numbers of the form \\(i + j + 2ij\\) from the integers. Specifically, for \\(i, j \\geq 1\\), mark every integer of the form \\(i + j + 2ij\\). The remaining unmarked numbers \\(k\\), when doubled and incremented, give us odd primes \\(2k+1\\).\n\n    Let \\(F(N)\\) be the number of integers in \\(\\{1, 2, \\ldots, N\\}\\) that are never marked, that is, cannot be written as \\(i + j + 2ij\\) for any \\(i, j \\geq 1\\). Compute \\(F(10^6)\\)."
+  },
+  {
+    "n": 20,
+    "source": "Āryabhaṭīya, Kālakriyā 4",
+    "title": "Square–Triangular Numbers",
+    "body": "A positive integer is called square–triangular if it is both a perfect square and a triangular number:\n    \\[n=m^2=\\frac{k(k+1)}2.\\]\n    Determine the first square–triangular number exceeding \\(10^{20}.\\)"
   }
 ];
