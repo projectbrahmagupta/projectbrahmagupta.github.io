@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-19T19:47:54.377Z): bodies for n ≤ 20 (20/108).
+ * Publication slice at build (2026-07-20T20:09:59.239Z): bodies for n ≤ 21 (21/108).
  */
 "use strict";
 
@@ -90,7 +90,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 21,
-    "title": ""
+    "title": "Magic Squares"
   },
   {
     "n": 22,
@@ -562,5 +562,11 @@ var PROBLEMS = [
     "source": "Āryabhaṭīya, Kālakriyā 4",
     "title": "Square–Triangular Numbers",
     "body": "A positive integer is called square–triangular if it is both a perfect square and a triangular number:\n    \\[n=m^2=\\frac{k(k+1)}2.\\]\n    Determine the first square–triangular number exceeding \\(10^{20}.\\)"
+  },
+  {
+    "n": 21,
+    "source": "Āryabhaṭīya, Gaṇitapāda 17",
+    "title": "Magic Squares",
+    "body": "A pan-diagonal magic square is a square array of numbers in which every row, column, main diagonal, and wraparound (“broken”) diagonal has the same total, called the magic sum. How many \\(4 \\times 4\\) pan-diagonal magic squares have magic sum 34?"
   }
 ];
