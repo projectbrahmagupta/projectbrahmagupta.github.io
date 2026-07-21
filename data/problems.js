@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-21T07:45:51.815Z): bodies for n ≤ 21 (21/108).
+ * Publication slice at build (2026-07-21T20:04:08.809Z): bodies for n ≤ 22 (22/108).
  */
 "use strict";
 
@@ -94,7 +94,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 22,
-    "title": ""
+    "title": "A Discrete Bhatia-Davis Inequality"
   },
   {
     "n": 23,
@@ -568,5 +568,11 @@ var PROBLEMS = [
     "source": "Āryabhaṭīya, Gaṇitapāda 17",
     "title": "Magic Squares",
     "body": "A pan-diagonal magic square is a square array of numbers in which every row, column, main diagonal, and wraparound (“broken”) diagonal has the same total, called the magic sum. How many \\(4 \\times 4\\) pan-diagonal magic squares have magic sum 34?"
+  },
+  {
+    "n": 22,
+    "source": "Bhāskara I's commentary on the Āryabhaṭīya",
+    "title": "A Discrete Bhatia-Davis Inequality",
+    "body": "For integers \\(n \\ge 1\\) and \\(0 \\le m \\le n^2\\), define\n    \\[\n    F(n,m)\n    =\n    \\max\n    \\left(\n    n\\sum_{i=1}^n a_i^2 - m^2\n    \\right),\n    \\]\n    where the maximum is taken over all integer sequences\n    \\[\n    (a_1,a_2,\\dots,a_n)\n    \\]\n    satisfying\n    \\[\n    0 \\le a_i \\le n\n    \\qquad \\text{for all } i,\n    \\]\n    and\n    \\[\n    \\sum_{i=1}^n a_i = m.\n    \\]\n\n    Now define\n    \\[\n    S(N)\n    =\n    \\sum_{n=1}^N\n    \\sum_{m=0}^{n^2}\n    F(n,m).\n    \\]\n\n    Find\n    \\[\n    S(10^7)\\bmod 1\\,000\\,000\\,007.\n    \\]"
   }
 ];
