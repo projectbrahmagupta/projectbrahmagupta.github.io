@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-22T19:54:44.649Z): bodies for n ≤ 23 (23/108).
+ * Publication slice at build (2026-07-23T19:57:52.566Z): bodies for n ≤ 24 (24/108).
  */
 "use strict";
 
@@ -102,7 +102,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 24,
-    "title": ""
+    "title": "Consecutive Harshad Numbers"
   },
   {
     "n": 25,
@@ -580,5 +580,11 @@ var PROBLEMS = [
     "source": "Lalla, Śiṣya-dhī-vṛddhi-tantra",
     "title": "Harder–Narasimhan polygons.",
     "body": "An increasing lattice path uses unit steps right \\((1,0)\\) or up \\((0,1)\\), and we define its slope as the total number of up-steps divided by the total number of right-steps. A path from \\((0,0)\\) to \\((n,n)\\) is called \\textit{semistable} if the slopes of its maximal constant-slope segments never increase.\n    How many \\textit{semistable} lattice paths from \\((0,0)\\) to \\((2000,2000)\\) are there?"
+  },
+  {
+    "n": 24,
+    "source": "after Āryabhaṭīya, Kālakriyā",
+    "title": "Consecutive Harshad Numbers",
+    "body": "A positive integer \\(n\\) is called a \\textit{Harshad number} if \\(n\\) is divisible by the sum of its\n    decimal digits. Formally, writing \\(S(n)\\) for the sum of the digits of \\(n\\), we require \\(S(n) \\mid n\\). For example, \\(18\\) is a Harshad number since \\(S(18) = 9\\) and \\(9 \\mid 18\\), while \\(19\\) is \\emph{not}, since \\(S(19) = 10\\) and \\(10 \\nmid 19\\).\n\n    Find the smallest \\(n\\) such that \\(n\\), \\(n+1\\), \\(n+2\\), \\(n+3\\) and \\(n+4\\) are all Harshad numbers."
   }
 ];
