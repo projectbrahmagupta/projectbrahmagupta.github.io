@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-23T19:57:52.566Z): bodies for n ≤ 24 (24/108).
+ * Publication slice at build (2026-07-24T19:58:20.811Z): bodies for n ≤ 25 (25/108).
  */
 "use strict";
 
@@ -106,7 +106,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 25,
-    "title": ""
+    "title": "Balanced Quadruples"
   },
   {
     "n": 26,
@@ -586,5 +586,11 @@ var PROBLEMS = [
     "source": "after Āryabhaṭīya, Kālakriyā",
     "title": "Consecutive Harshad Numbers",
     "body": "A positive integer \\(n\\) is called a \\textit{Harshad number} if \\(n\\) is divisible by the sum of its\n    decimal digits. Formally, writing \\(S(n)\\) for the sum of the digits of \\(n\\), we require \\(S(n) \\mid n\\). For example, \\(18\\) is a Harshad number since \\(S(18) = 9\\) and \\(9 \\mid 18\\), while \\(19\\) is \\emph{not}, since \\(S(19) = 10\\) and \\(10 \\nmid 19\\).\n\n    Find the smallest \\(n\\) such that \\(n\\), \\(n+1\\), \\(n+2\\), \\(n+3\\) and \\(n+4\\) are all Harshad numbers."
+  },
+  {
+    "n": 25,
+    "source": "Āryabhaṭīya, Gaṇitapāda 4",
+    "title": "Balanced Quadruples",
+    "body": "Define \\(T(a,b,c,d) = (ab+cd,\\; ac+bd,\\; ad+bc,\\; a+b+c+d)\\). A quadruple is called self-composing if repeated application of \\(T\\) eventually produces a quadruple of the form \\((x, x, x, x)\\).\n    Determine the number of self-composing quadruples satisfying \\(1 \\le a,b,c,d \\le 10^4\\)."
   }
 ];
