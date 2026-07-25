@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-24T19:58:20.811Z): bodies for n ≤ 25 (25/108).
+ * Publication slice at build (2026-07-25T19:49:55.134Z): bodies for n ≤ 26 (26/108).
  */
 "use strict";
 
@@ -110,7 +110,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 26,
-    "title": ""
+    "title": "Faces of the Bhargava Cube"
   },
   {
     "n": 27,
@@ -592,5 +592,11 @@ var PROBLEMS = [
     "source": "Āryabhaṭīya, Gaṇitapāda 4",
     "title": "Balanced Quadruples",
     "body": "Define \\(T(a,b,c,d) = (ab+cd,\\; ac+bd,\\; ad+bc,\\; a+b+c+d)\\). A quadruple is called self-composing if repeated application of \\(T\\) eventually produces a quadruple of the form \\((x, x, x, x)\\).\n    Determine the number of self-composing quadruples satisfying \\(1 \\le a,b,c,d \\le 10^4\\)."
+  },
+  {
+    "n": 26,
+    "source": "Āryabhaṭīya, Gaṇitapāda 12",
+    "title": "Faces of the Bhargava Cube",
+    "body": "In his 2006 paper, Manjul Bhargava provided a geometric reinterpretation of composition laws by placing eight integers at the corners of a \\(2\\times2\\times2\\) cube. Slicing the cube along each of its three pairs of opposite faces yields three binary quadratic forms, and these three forms always compose to the identity. The face determinants of the cube, when expanded, produce sums of products of pairs of entries. The following problem asks which integer quadruples make this symmetric sum a perfect cube, in the same spirit as the classical question of which integers are represented by a given quadratic form.\n\n    For integers \\(a, b, c, d\\), define the symmetric sum\n    \\[\n    B(a,b,c,d) = ab + ac + ad + bc + bd + cd.\n    \\]\n    We call \\((a,b,c,d)\\) balanced if \\(B(a,b,c,d)\\) is a perfect cube.\n    Find the number of balanced quadruples with \\(1 \\leq a, b, c, d \\leq 10^4\\)."
   }
 ];
