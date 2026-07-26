@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-25T19:49:55.134Z): bodies for n ≤ 26 (26/108).
+ * Publication slice at build (2026-07-26T19:47:59.264Z): bodies for n ≤ 27 (27/108).
  */
 "use strict";
 
@@ -114,7 +114,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 27,
-    "title": ""
+    "title": "Kaprekar Numbers"
   },
   {
     "n": 28,
@@ -598,5 +598,11 @@ var PROBLEMS = [
     "source": "Āryabhaṭīya, Gaṇitapāda 12",
     "title": "Faces of the Bhargava Cube",
     "body": "In his 2006 paper, Manjul Bhargava provided a geometric reinterpretation of composition laws by placing eight integers at the corners of a \\(2\\times2\\times2\\) cube. Slicing the cube along each of its three pairs of opposite faces yields three binary quadratic forms, and these three forms always compose to the identity. The face determinants of the cube, when expanded, produce sums of products of pairs of entries. The following problem asks which integer quadruples make this symmetric sum a perfect cube, in the same spirit as the classical question of which integers are represented by a given quadratic form.\n\n    For integers \\(a, b, c, d\\), define the symmetric sum\n    \\[\n    B(a,b,c,d) = ab + ac + ad + bc + bd + cd.\n    \\]\n    We call \\((a,b,c,d)\\) balanced if \\(B(a,b,c,d)\\) is a perfect cube.\n    Find the number of balanced quadruples with \\(1 \\leq a, b, c, d \\leq 10^4\\)."
+  },
+  {
+    "n": 27,
+    "source": "Brāhmasphuṭasiddhānta XII.21",
+    "title": "Kaprekar Numbers",
+    "body": "A natural number \\(n\\) is called a \\textit{Kaprekar number} if there exists a way to split the decimal representation of \\(n^2\\) into a left part \\(L\\) and a right part \\(R\\)\n    (where \\(R\\) may have leading zeros but must be positive) such that \\(L + R = n\\).\n    For example:\n    \\begin{itemize}\n      \\item \\(45^2 = 2025\\), and \\(20 + 25 = 45\\),\n      \\item \\(297^2 = 88209\\), and \\(88 + 209 = 297\\),\n      \\item \\(999^2 = 998001\\), and \\(998 + 001 = 999\\).\n    \\end{itemize}\n    Compute the sum of all Kaprekar numbers \\(n\\) under \\(10^6\\)."
   }
 ];
