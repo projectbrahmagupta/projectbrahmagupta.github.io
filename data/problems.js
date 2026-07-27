@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-27T17:27:26.988Z): bodies for n ≤ 27 (27/108).
+ * Publication slice at build (2026-07-27T20:07:39.017Z): bodies for n ≤ 28 (28/108).
  */
 "use strict";
 
@@ -118,7 +118,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 28,
-    "title": ""
+    "title": "Combination of Digits"
   },
   {
     "n": 29,
@@ -604,5 +604,11 @@ var PROBLEMS = [
     "source": "Brāhmasphuṭasiddhānta XII.21",
     "title": "Kaprekar Numbers",
     "body": "A natural number \\(n\\) is called a \\textit{Kaprekar number} if there exists a way to split the decimal representation of \\(n^2\\) into a left part \\(L\\) and a right part \\(R\\)\n    (where \\(R\\) may have leading zeros but must be positive) such that \\(L + R = n\\).\n    For example:\n    \\begin{itemize}\n      \\item \\(45^2 = 2025\\), and \\(20 + 25 = 45\\),\n      \\item \\(297^2 = 88209\\), and \\(88 + 209 = 297\\),\n      \\item \\(999^2 = 998001\\), and \\(998 + 001 = 999\\).\n    \\end{itemize}\n    Compute the sum of all Kaprekar numbers \\(n\\) under \\(10^6\\)."
+  },
+  {
+    "n": 28,
+    "source": "Brāhmasphuṭasiddhānta XII",
+    "title": "Combination of Digits",
+    "body": "How many 10-digit numbers in base 108 have digit sum 786?"
   }
 ];
