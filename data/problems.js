@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-28T17:15:15.004Z): bodies for n ≤ 28 (28/108).
+ * Publication slice at build (2026-07-28T20:04:17.589Z): bodies for n ≤ 29 (29/108).
  */
 "use strict";
 
@@ -122,7 +122,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 29,
-    "title": ""
+    "title": "Balanced Numbers"
   },
   {
     "n": 30,
@@ -610,5 +610,11 @@ var PROBLEMS = [
     "source": "Brāhmasphuṭasiddhānta XII",
     "title": "Combination of Digits",
     "body": "How many 10-digit numbers in base 108 have digit sum 786?"
+  },
+  {
+    "n": 29,
+    "source": "BSS XII (diagonals of cyclic quad)",
+    "title": "Balanced Numbers",
+    "body": "A natural number $N$ is balanced if it can be written as the sum of two adjacent blocks of consecutive natural numbers. That is, $N$ is balanced if there exist positive integers $a$ and $k$ such that\n    \\[\n    N = a + (a+1) + \\cdots + (a+k) = (a+k+1) + (a+k+2) + \\cdots + (a+k'),\n    \\]\n    where $k < k'$. For example, $15$ is balanced because $4 + 5 + 6 = 15 = 7 + 8$.\n\n    How many balanced numbers are there less than $10^6$?"
   }
 ];
