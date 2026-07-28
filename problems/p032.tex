@@ -1,0 +1,12 @@
+\begin{problem}{The Difference to be Crossed}
+Brahmagupta gave the first second-order interpolation rule on record. Let \(S_n\) be \(3438\sin(3.75n)^\circ\) rounded to the nearest integer for \(0\le n\le24\), a table at intervals of \(225\) arcminutes. For an arc of \(a\) arcminutes with \(225\le a\le5399\) and \(a\) not a multiple of \(225\), write \(r=\lfloor a/225\rfloor\) and \(t=a-225r\), and set \(D_p=S_r-S_{r-1}\) and \(D_f=S_{r+1}-S_r\). Linear interpolation gives
+    \[
+    L(a)=S_r+\frac{t}{225}D_f,
+    \]
+while Brahmagupta replaces \(D_f\) by a corrected difference, giving
+    \[
+    B(a)=S_r+\frac{t}{225}\left(\frac{D_p+D_f}{2}
+    +\frac{t}{225}\cdot\frac{D_f-D_p}{2}\right).
+    \]    
+Count the arcs \(a\) in this range for which \(B(a)\) is strictly farther from \(3438\sin a\) than \(L(a)\) is.
+\end{problem}

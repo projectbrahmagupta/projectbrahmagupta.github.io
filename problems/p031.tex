@@ -1,0 +1,14 @@
+\begin{problem}{Rsine Drift}
+Āryabhaṭa builds a table of Rsines from differences alone. Divide the quadrant into \(p\) equal parts, fix a radius \(R\), and let \(h\) be the first tabular entry, that is \(R\sin(90^\circ/p)\) rounded to the nearest integer. Set
+    \[
+    S_0=0,\qquad \Delta_1=h,
+    \]
+and
+    \[
+    S_n=S_{n-1}+\Delta_n,\qquad
+    \Delta_{n+1}=\Delta_n-\left[\frac{S_n}{h}\right],
+    \]
+where \([x]\) is the nearest integer to \(x\). The rule is exact in the limit but drifts under rounding, so the closing entry \(S_p\) need not equal \(R\).
+
+Fix \(R=3438\) and define the closing error \(E(p)=|S_p-R|\). Find the least value of \(E(p)\) for \(4\le p\le5000\).
+\end{problem}
