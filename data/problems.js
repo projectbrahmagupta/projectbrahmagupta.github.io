@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-28T20:04:17.589Z): bodies for n ≤ 29 (29/108).
+ * Publication slice at build (2026-07-29T19:54:57.586Z): bodies for n ≤ 30 (30/108).
  */
 "use strict";
 
@@ -126,7 +126,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 30,
-    "title": ""
+    "title": "Sporadic Sequences"
   },
   {
     "n": 31,
@@ -616,5 +616,11 @@ var PROBLEMS = [
     "source": "BSS XII (diagonals of cyclic quad)",
     "title": "Balanced Numbers",
     "body": "A natural number $N$ is balanced if it can be written as the sum of two adjacent blocks of consecutive natural numbers. That is, $N$ is balanced if there exist positive integers $a$ and $k$ such that\n    \\[\n    N = a + (a+1) + \\cdots + (a+k) = (a+k+1) + (a+k+2) + \\cdots + (a+k'),\n    \\]\n    where $k < k'$. For example, $15$ is balanced because $4 + 5 + 6 = 15 = 7 + 8$.\n\n    How many balanced numbers are there less than $10^6$?"
+  },
+  {
+    "n": 30,
+    "source": "BSS XVIII (Bījagaṇita)",
+    "title": "Sporadic Sequences",
+    "body": "Ramanujan--Sato series generalise Ramanujan's formulas for \\(1/\\pi\\) by replacing the binomial coefficients in the summand with other sequences of integers. The sequences that work satisfy an Apéry-like recurrence, and integrality is a severe restriction: the recurrence divides by \\((n+1)^2\\) at every step, so almost every choice of parameters produces a fraction within a few terms.\n\nFor integers \\(a,b,c\\) define \\(u_{-1}=0\\), \\(u_0=1\\), and\n    \\[\n    (n+1)^2u_{n+1}=(an^2+an+b)u_n-cn^2u_{n-1},\n    \\qquad n\\ge0.\n    \\]\nCall the triple \\((a,b,c)\\) integral if \\(u_0,u_1,\\dots,u_{108}\\) are all integers. How many integral triples satisfy \\(|a|,|b|,|c|\\le108\\)?"
   }
 ];
