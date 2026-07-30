@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-29T19:54:57.586Z): bodies for n ≤ 30 (30/108).
+ * Publication slice at build (2026-07-30T20:04:58.918Z): bodies for n ≤ 31 (31/108).
  */
 "use strict";
 
@@ -130,7 +130,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 31,
-    "title": ""
+    "title": "Rsine Drift"
   },
   {
     "n": 32,
@@ -622,5 +622,11 @@ var PROBLEMS = [
     "source": "BSS XVIII (Bījagaṇita)",
     "title": "Sporadic Sequences",
     "body": "Ramanujan--Sato series generalise Ramanujan's formulas for \\(1/\\pi\\) by replacing the binomial coefficients in the summand with other sequences of integers. The sequences that work satisfy an Apéry-like recurrence, and integrality is a severe restriction: the recurrence divides by \\((n+1)^2\\) at every step, so almost every choice of parameters produces a fraction within a few terms.\n\nFor integers \\(a,b,c\\) define \\(u_{-1}=0\\), \\(u_0=1\\), and\n    \\[\n    (n+1)^2u_{n+1}=(an^2+an+b)u_n-cn^2u_{n-1},\n    \\qquad n\\ge0.\n    \\]\nCall the triple \\((a,b,c)\\) integral if \\(u_0,u_1,\\dots,u_{108}\\) are all integers. How many integral triples satisfy \\(|a|,|b|,|c|\\le108\\)?"
+  },
+  {
+    "n": 31,
+    "source": "BSS XVIII (cakravāla, of a sort)",
+    "title": "Rsine Drift",
+    "body": "Āryabhaṭa builds a table of Rsines from differences alone. Divide the quadrant into \\(p\\) equal parts, fix a radius \\(R\\), and let \\(h\\) be the first tabular entry, that is \\(R\\sin(90^\\circ/p)\\) rounded to the nearest integer. Set\n    \\[\n    S_0=0,\\qquad \\Delta_1=h,\n    \\]\nand\n    \\[\n    S_n=S_{n-1}+\\Delta_n,\\qquad\n    \\Delta_{n+1}=\\Delta_n-\\left[\\frac{S_n}{h}\\right],\n    \\]\nwhere \\([x]\\) is the nearest integer to \\(x\\). The rule is exact in the limit but drifts under rounding, so the closing entry \\(S_p\\) need not equal \\(R\\).\n\nFix \\(R=3438\\) and define the closing error \\(E(p)=|S_p-R|\\). Find the least value of \\(E(p)\\) for \\(4\\le p\\le5000\\)."
   }
 ];
