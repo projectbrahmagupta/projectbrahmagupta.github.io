@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-07-30T20:04:58.918Z): bodies for n ≤ 31 (31/108).
+ * Publication slice at build (2026-07-31T20:05:51.231Z): bodies for n ≤ 32 (32/108).
  */
 "use strict";
 
@@ -134,7 +134,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 32,
-    "title": ""
+    "title": "The Difference to be Crossed"
   },
   {
     "n": 33,
@@ -628,5 +628,11 @@ var PROBLEMS = [
     "source": "BSS XVIII (cakravāla, of a sort)",
     "title": "Rsine Drift",
     "body": "Āryabhaṭa builds a table of Rsines from differences alone. Divide the quadrant into \\(p\\) equal parts, fix a radius \\(R\\), and let \\(h\\) be the first tabular entry, that is \\(R\\sin(90^\\circ/p)\\) rounded to the nearest integer. Set\n    \\[\n    S_0=0,\\qquad \\Delta_1=h,\n    \\]\nand\n    \\[\n    S_n=S_{n-1}+\\Delta_n,\\qquad\n    \\Delta_{n+1}=\\Delta_n-\\left[\\frac{S_n}{h}\\right],\n    \\]\nwhere \\([x]\\) is the nearest integer to \\(x\\). The rule is exact in the limit but drifts under rounding, so the closing entry \\(S_p\\) need not equal \\(R\\).\n\nFix \\(R=3438\\) and define the closing error \\(E(p)=|S_p-R|\\). Find the least value of \\(E(p)\\) for \\(4\\le p\\le5000\\)."
+  },
+  {
+    "n": 32,
+    "source": "BSS XVIII",
+    "title": "The Difference to be Crossed",
+    "body": "Brahmagupta gave the first second-order interpolation rule on record. Let \\(S_n\\) be \\(3438\\sin(3.75n)^\\circ\\) rounded to the nearest integer for \\(0\\le n\\le24\\), a table at intervals of \\(225\\) arcminutes. For an arc of \\(a\\) arcminutes with \\(225\\le a\\le5399\\) and \\(a\\) not a multiple of \\(225\\), write \\(r=\\lfloor a/225\\rfloor\\) and \\(t=a-225r\\), and set \\(D_p=S_r-S_{r-1}\\) and \\(D_f=S_{r+1}-S_r\\). Linear interpolation gives\n    \\[\n    L(a)=S_r+\\frac{t}{225}D_f,\n    \\]\nwhile Brahmagupta replaces \\(D_f\\) by a corrected difference, giving\n    \\[\n    B(a)=S_r+\\frac{t}{225}\\left(\\frac{D_p+D_f}{2}\n    +\\frac{t}{225}\\cdot\\frac{D_f-D_p}{2}\\right).\n    \\]\nCount the arcs \\(a\\) in this range for which \\(B(a)\\) is strictly farther from \\(3438\\sin a\\) than \\(L(a)\\) is."
   }
 ];
