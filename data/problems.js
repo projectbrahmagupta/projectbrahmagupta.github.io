@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-08-01T19:48:16.548Z): bodies for n ≤ 33 (33/108).
+ * Publication slice at build (2026-08-02T19:47:35.009Z): bodies for n ≤ 34 (34/108).
  */
 "use strict";
 
@@ -142,7 +142,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 34,
-    "title": ""
+    "title": "The End Correction"
   },
   {
     "n": 35,
@@ -640,5 +640,11 @@ var PROBLEMS = [
     "source": "BSS XVIII",
     "title": "Small Multipliers",
     "body": "Indian computational manuals reduce a planet's revolution count and the civil-day count of a great cycle to a coprime pair, then expand the ratio as a continued fraction to obtain multipliers and divisors small enough to compute with by hand. In a great cycle of \\(1{,}577{,}917{,}500\\) civil days the Moon completes \\(57{,}753{,}336\\) revolutions and its apogee completes \\(488{,}219\\); the difference is the number of revolutions of the lunar anomaly.\n\nForm the ratio of civil days to revolutions of the anomaly, reduce it to lowest terms, and expand it as a simple continued fraction. Taking the convergents in order and counting each convergent once, find the sum of all convergent denominators below \\(10^6\\). Note that the first two convergents both have denominator \\(1\\) and both count."
+  },
+  {
+    "n": 34,
+    "source": "BSS XII",
+    "title": "The End Correction",
+    "body": "Nīlakaṇṭha transmits three correction terms attributed to Mādhava, applied after truncating the series for \\(\\pi/4\\) at \\(n\\) terms:\n    \\[\n    \\frac{\\pi}{4}\\approx\n    1-\\frac13+\\frac15-\\cdots\n    +\\frac{(-1)^{n-1}}{2n-1}\n    +(-1)^nF(n),\n    \\]\n    with\n    \\[\n    F_1(n)=\\frac1{4n},\\qquad\n    F_2(n)=\\frac{n}{4n^2+1},\\qquad\n    F_3(n)=\\frac{n^2+1}{4n^3+5n}.\n    \\]\nFor each of the three, let \\(n_i\\) be the least \\(n\\) for which the corrected sum differs from \\(\\pi/4\\) by less than \\(10^{-12}\\). Find \\(n_1+n_2+n_3\\)."
   }
 ];
