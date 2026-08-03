@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-08-02T19:47:35.009Z): bodies for n ≤ 34 (34/108).
+ * Publication slice at build (2026-08-03T20:16:29.604Z): bodies for n ≤ 35 (35/108).
  */
 "use strict";
 
@@ -146,7 +146,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 35,
-    "title": ""
+    "title": "Ardhaccheda of a Tower"
   },
   {
     "n": 36,
@@ -646,5 +646,11 @@ var PROBLEMS = [
     "source": "BSS XII",
     "title": "The End Correction",
     "body": "Nīlakaṇṭha transmits three correction terms attributed to Mādhava, applied after truncating the series for \\(\\pi/4\\) at \\(n\\) terms:\n    \\[\n    \\frac{\\pi}{4}\\approx\n    1-\\frac13+\\frac15-\\cdots\n    +\\frac{(-1)^{n-1}}{2n-1}\n    +(-1)^nF(n),\n    \\]\n    with\n    \\[\n    F_1(n)=\\frac1{4n},\\qquad\n    F_2(n)=\\frac{n}{4n^2+1},\\qquad\n    F_3(n)=\\frac{n^2+1}{4n^3+5n}.\n    \\]\nFor each of the three, let \\(n_i\\) be the least \\(n\\) for which the corrected sum differs from \\(\\pi/4\\) by less than \\(10^{-12}\\). Find \\(n_1+n_2+n_3\\)."
+  },
+  {
+    "n": 35,
+    "source": "BSS XII",
+    "title": "Ardhaccheda of a Tower",
+    "body": "Jaina texts define the \\emph{ardhaccheda} of a positive integer as the number of times it can be halved, and state that the ardhaccheda of a product is the sum of the ardhacchedas of its factors. The same literature builds very large numbers by the operation \\emph{vargita-saṃvargita}, which sends \\(x\\) to \\(x^x\\).\n\nLet \\(x_1=96\\) and \\(x_{k+1}=x_k^{\\,x_k}\\). Find the ardhaccheda of \\(x_4\\), modulo \\(10^9+7\\)."
   }
 ];
