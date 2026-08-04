@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-08-03T20:16:29.604Z): bodies for n ≤ 35 (35/108).
+ * Publication slice at build (2026-08-04T20:11:07.652Z): bodies for n ≤ 36 (36/108).
  */
 "use strict";
 
@@ -150,7 +150,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 36,
-    "title": ""
+    "title": "How Long a Table Lasts"
   },
   {
     "n": 37,
@@ -652,5 +652,11 @@ var PROBLEMS = [
     "source": "BSS XII",
     "title": "Ardhaccheda of a Tower",
     "body": "Jaina texts define the \\emph{ardhaccheda} of a positive integer as the number of times it can be halved, and state that the ardhaccheda of a product is the sum of the ardhacchedas of its factors. The same literature builds very large numbers by the operation \\emph{vargita-saṃvargita}, which sends \\(x\\) to \\(x^x\\).\n\nLet \\(x_1=96\\) and \\(x_{k+1}=x_k^{\\,x_k}\\). Find the ardhaccheda of \\(x_4\\), modulo \\(10^9+7\\)."
+  },
+  {
+    "n": 36,
+    "source": "BSS XVIII",
+    "title": "How Long a Table Lasts",
+    "body": "A table text stores a planet's mean daily motion as a sexagesimal fraction cut off after a fixed number of places, and accumulates it day by day. The truncation is invisible on any one day and fatal over a long enough span, which is why such texts are re-anchored to fresh epochs.\n\nTake the Moon's mean daily motion to be\n    \\[\n    \\frac{57{,}753{,}336\\times360}{1{,}577{,}917{,}500}\n    \\]\ndegrees. For \\(k=2,3,4,5\\), truncate this value after \\(k\\) sexagesimal fractional places and let \\(d_k\\) be the least number of days after which the accumulated shortfall exceeds one degree. Find \\(d_2+d_3+d_4+d_5\\)."
   }
 ];
