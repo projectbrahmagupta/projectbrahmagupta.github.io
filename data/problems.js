@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-08-04T20:11:07.652Z): bodies for n ≤ 36 (36/108).
+ * Publication slice at build (2026-08-05T13:45:08.867Z): bodies for n ≤ 36 (36/108).
  */
 "use strict";
 
