@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-08-05T13:45:08.867Z): bodies for n ≤ 36 (36/108).
+ * Publication slice at build (2026-08-05T20:12:12.058Z): bodies for n ≤ 37 (37/108).
  */
 "use strict";
 
@@ -154,7 +154,7 @@ var PROBLEM_CATALOG = [
   },
   {
     "n": 37,
-    "title": ""
+    "title": "The Long Die"
   },
   {
     "n": 38,
@@ -658,5 +658,11 @@ var PROBLEMS = [
     "source": "BSS XVIII",
     "title": "How Long a Table Lasts",
     "body": "A table text stores a planet's mean daily motion as a sexagesimal fraction cut off after a fixed number of places, and accumulates it day by day. The truncation is invisible on any one day and fatal over a long enough span, which is why such texts are re-anchored to fresh epochs.\n\nTake the Moon's mean daily motion to be\n    \\[\n    \\frac{57{,}753{,}336\\times360}{1{,}577{,}917{,}500}\n    \\]\ndegrees. For \\(k=2,3,4,5\\), truncate this value after \\(k\\) sexagesimal fractional places and let \\(d_k\\) be the least number of days after which the accumulated shortfall exceeds one degree. Find \\(d_2+d_3+d_4+d_5\\)."
+  },
+  {
+    "n": 37,
+    "source": "BSS XVIII",
+    "title": "The Long Die",
+    "body": "The Indian long die (pāśa) has four faces. You are tasked with numbering its faces with any four natural numbers \\(a,b,c,d\\) (they need not be consecutive or distinct). Three identical copies of the die will be rolled together in a board game. Your goal is to choose the four numbers so that:\n    \\begin{enumerate}\n        \\item The possible sums of the three dice form the longest possible contiguous interval of integers (with no missing values).\n        \\item Subject to (1), the probability distribution of the sums is as close to uniform as possible.\n    \\end{enumerate}\nWhich four numbers would you choose?"
   }
 ];
