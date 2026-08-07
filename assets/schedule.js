@@ -62,8 +62,25 @@
   function unlockDateLineForProblemN2(n) {
     return unlockDateLineForProblemN(n, seriesStartMs());
   }
+  function isBundledN(n) {
+    const list = globalThis.PROBLEMS;
+    if (!Array.isArray(list)) return false;
+    const p = list.find((row) => row && row.n === n);
+    return !!p && typeof p.body === "string" && p.body.length > 0;
+  }
+  function isUnlockedN(n, now) {
+    return n >= 1 && n <= maxRevealedN2(now) && isBundledN(n);
+  }
+  function latestUnlockedN(now) {
+    for (let n = maxRevealedN2(now); n >= 1; n--) {
+      if (isBundledN(n)) return n;
+    }
+    return 0;
+  }
   Object.assign(globalThis, {
     maxRevealedN: maxRevealedN2,
-    unlockDateLineForProblemN: unlockDateLineForProblemN2
+    unlockDateLineForProblemN: unlockDateLineForProblemN2,
+    isUnlockedN,
+    latestUnlockedN
   });
 })();

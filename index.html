@@ -51,11 +51,11 @@
         const TOTAL = 108;
         const DEVA = '०१२३४५६७८९';
         const toDeva = (s) => s.replace(/\d/g, (d) => DEVA[d.charCodeAt(0) - 48]);
-        const revealed = (typeof maxRevealedN === 'function') ? maxRevealedN(undefined, TOTAL) : 0;
+        const isOpen = (n) => (typeof isUnlockedN === 'function') ? isUnlockedN(n) : false;
         const dateLine = (n) => (typeof unlockDateLineForProblemN === 'function') ? unlockDateLineForProblemN(n) : '';
         const frag = document.createDocumentFragment();
         for (let n = 1; n <= TOTAL; n++) {
-          const launched = n <= revealed;
+          const launched = isOpen(n);
           const cell = document.createElement(launched ? 'a' : 'span');
           cell.className = 'compile-cell' + (launched ? ' compile-cell--launched' : ' compile-cell--locked');
           cell.setAttribute('lang', 'sa');
@@ -120,13 +120,11 @@
         var nextBtn = document.getElementById('carousel-next');
         var moreWrap = document.getElementById('problems-more');
 
-        // Date gate: only problems whose unlock day has arrived (midnight IST) may show,
-        // regardless of how many bodies happen to be in data/problems.js.
-        var cap = (typeof maxRevealedN === 'function') ? maxRevealedN() : 0;
+        var isOpen = (typeof isUnlockedN === 'function') ? isUnlockedN : function () { return false; };
 
         var released = (Array.isArray(window.PROBLEMS) ? window.PROBLEMS : [])
           .filter(function (p) {
-            return p && p.n <= cap && typeof p.body === 'string' && p.body.length;
+            return p && isOpen(p.n);
           })
           .slice()
           .sort(function (a, b) { return a.n - b.n; });

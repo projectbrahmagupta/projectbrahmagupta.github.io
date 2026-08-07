@@ -158,6 +158,17 @@
     const total = getSeriesTotal();
     return typeof maxRevealedN === "function" ? maxRevealedN(void 0, total) : total;
   }
+  function isOpen(n) {
+    if (typeof isUnlockedN === "function") return isUnlockedN(n);
+    return n <= maxReveal() && findDetail(n) !== null;
+  }
+  function latestOpen() {
+    if (typeof latestUnlockedN === "function") return latestUnlockedN();
+    for (let n = maxReveal(); n >= 1; n--) {
+      if (findDetail(n)) return n;
+    }
+    return 0;
+  }
   function opensLineForN(n) {
     return typeof unlockDateLineForProblemN === "function" ? unlockDateLineForProblemN(n) : "";
   }
@@ -209,25 +220,22 @@
     ol.appendChild(li);
   }
   function renderIndex() {
-    const cap = maxReveal();
-    const cat = getCatalog();
-    const released = cat.filter((p) => p.n <= cap).sort((a, b) => a.n - b.n);
-    const latest = released[released.length - 1];
     const link = document.getElementById("hero-today-link");
     if (!link) return;
-    if (latest && findDetail(latest.n)) {
-      link.href = `problem.html?n=${latest.n}`;
+    const latest = latestOpen();
+    if (latest >= 1) {
+      link.href = `problem.html?n=${latest}`;
       link.removeAttribute("title");
       return;
     }
     link.href = "archive.html";
-    link.title = cap < 1 ? FIRST_PROBLEM_OPENS_TITLE : "Open the archive for dates and links.";
+    link.title = maxReveal() < 1 ? FIRST_PROBLEM_OPENS_TITLE : "Open the archive for dates and links.";
   }
   function renderArchive() {
     const root = document.getElementById("archive-list");
     if (!root) return;
     const total = getSeriesTotal();
-    const released = getCatalog().filter((p) => findDetail(p.n)).sort((a, b) => a.n - b.n);
+    const released = getCatalog().filter((p) => isOpen(p.n)).sort((a, b) => a.n - b.n);
     root.innerHTML = "";
     if (!released.length) {
       const empty = document.createElement("p");
@@ -260,8 +268,7 @@
       root.innerHTML = `<p>Problem ${n} not found.</p>`;
       return;
     }
-    const detail = findDetail(n);
-    const cap = maxReveal();
+    const detail = isOpen(n) ? findDetail(n) : null;
     if (detail) {
       document.title = `${n}. ${meta.title} \xB7 Project Brahmagupta`;
       root.innerHTML = `<h1>${escapeHtml(meta.title)}</h1>`;
@@ -270,11 +277,11 @@
       renderTexBody(bodyEl, detail.body);
       root.appendChild(bodyEl);
     } else {
-      const opened = n <= cap;
-      document.title = opened ? `${n}. ${meta.title} \xB7 Project Brahmagupta` : `Problem ${n} \xB7 Project Brahmagupta`;
+      const dayArrived = n <= maxReveal();
+      document.title = dayArrived ? `${n}. ${meta.title} \xB7 Project Brahmagupta` : `Problem ${n} \xB7 Project Brahmagupta`;
       const when = escapeHtml(opensLineForN(n) || "");
-      const note = opened ? `Statement not in this bundle yet, same calendar as below \xB7 <strong>${when}</strong>` : `Not yet available \xB7 opens <strong>${when}</strong>`;
-      const heading = opened && meta.title ? meta.title : `Problem ${n}`;
+      const note = dayArrived ? `Statement not in this bundle yet, same calendar as below \xB7 <strong>${when}</strong>` : `Not yet available \xB7 opens <strong>${when}</strong>`;
+      const heading = dayArrived && meta.title ? meta.title : `Problem ${n}`;
       const backHref = escapeHtml(backFromProblemHref());
       const backLabel = escapeHtml(backFromProblemLabel());
       root.innerHTML = `<h1>${escapeHtml(heading)}</h1><p class="problem-locked-lede">${note}</p><p class="problem-locked-hint"><a href="${backHref}">${backLabel}</a></p>`;
@@ -282,8 +289,8 @@
     typesetMath(root);
     const pos = document.getElementById("problem-pos");
     if (pos) pos.textContent = `${n} of ${total}`;
-    const prevHref = n > 1 && findDetail(n - 1) ? `problem.html?n=${n - 1}` : null;
-    const nextHref = n < total && findDetail(n + 1) ? `problem.html?n=${n + 1}` : null;
+    const prevHref = n > 1 && isOpen(n - 1) ? `problem.html?n=${n - 1}` : null;
+    const nextHref = n < total && isOpen(n + 1) ? `problem.html?n=${n + 1}` : null;
     setPager("prev-link", prevHref);
     setPager("prev-link-2", prevHref);
     setPager("next-link", nextHref);

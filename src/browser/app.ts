@@ -50,6 +50,20 @@ function maxReveal(): number {
   return typeof maxRevealedN === "function" ? maxRevealedN(undefined, total) : total;
 }
 
+
+function isOpen(n: number): boolean {
+  if (typeof isUnlockedN === "function") return isUnlockedN(n);
+  return n <= maxReveal() && findDetail(n) !== null;
+}
+
+function latestOpen(): number {
+  if (typeof latestUnlockedN === "function") return latestUnlockedN();
+  for (let n = maxReveal(); n >= 1; n--) {
+    if (findDetail(n)) return n;
+  }
+  return 0;
+}
+
 function opensLineForN(n: number): string {
   return typeof unlockDateLineForProblemN === "function" ? unlockDateLineForProblemN(n) : "";
 }
@@ -116,22 +130,18 @@ function appendRow(
 }
 
 function renderIndex(): void {
-  const cap = maxReveal();
-  const cat = getCatalog();
-  const released = cat.filter((p) => p.n <= cap).sort((a, b) => a.n - b.n);
-  const latest = released[released.length - 1];
-
   const link = document.getElementById("hero-today-link") as HTMLAnchorElement | null;
   if (!link) return;
 
-  if (latest && findDetail(latest.n)) {
-    link.href = `problem.html?n=${latest.n}`;
+  const latest = latestOpen();
+  if (latest >= 1) {
+    link.href = `problem.html?n=${latest}`;
     link.removeAttribute("title");
     return;
   }
   link.href = "archive.html";
   link.title =
-    cap < 1 ? FIRST_PROBLEM_OPENS_TITLE : "Open the archive for dates and links.";
+    maxReveal() < 1 ? FIRST_PROBLEM_OPENS_TITLE : "Open the archive for dates and links.";
 }
 
 function renderArchive(): void {
@@ -140,7 +150,7 @@ function renderArchive(): void {
 
   const total = getSeriesTotal();
   const released = getCatalog()
-    .filter((p) => findDetail(p.n))
+    .filter((p) => isOpen(p.n))
     .sort((a, b) => a.n - b.n);
 
   root.innerHTML = "";
@@ -184,8 +194,7 @@ function renderProblem(): void {
     return;
   }
 
-  const detail = findDetail(n);
-  const cap = maxReveal();
+  const detail = isOpen(n) ? findDetail(n) : null;
 
   if (detail) {
     document.title = `${n}. ${meta.title} · Project Brahmagupta`;
@@ -195,15 +204,16 @@ function renderProblem(): void {
     renderTexBody(bodyEl, detail.body);
     root.appendChild(bodyEl);
   } else {
-    const opened = n <= cap;
-    document.title = opened
+
+    const dayArrived = n <= maxReveal();
+    document.title = dayArrived
       ? `${n}. ${meta.title} · Project Brahmagupta`
       : `Problem ${n} · Project Brahmagupta`;
     const when = escapeHtml(opensLineForN(n) || "");
-    const note = opened
+    const note = dayArrived
       ? `Statement not in this bundle yet, same calendar as below · <strong>${when}</strong>`
       : `Not yet available · opens <strong>${when}</strong>`;
-    const heading = opened && meta.title ? meta.title : `Problem ${n}`;
+    const heading = dayArrived && meta.title ? meta.title : `Problem ${n}`;
     const backHref = escapeHtml(backFromProblemHref());
     const backLabel = escapeHtml(backFromProblemLabel());
     root.innerHTML =
@@ -219,10 +229,8 @@ function renderProblem(): void {
   const pos = document.getElementById("problem-pos");
   if (pos) pos.textContent = `${n} of ${total}`;
 
-  const prevHref =
-    n > 1 && findDetail(n - 1) ? `problem.html?n=${n - 1}` : null;
-  const nextHref =
-    n < total && findDetail(n + 1) ? `problem.html?n=${n + 1}` : null;
+  const prevHref = n > 1 && isOpen(n - 1) ? `problem.html?n=${n - 1}` : null;
+  const nextHref = n < total && isOpen(n + 1) ? `problem.html?n=${n + 1}` : null;
   setPager("prev-link", prevHref);
   setPager("prev-link-2", prevHref);
   setPager("next-link", nextHref);

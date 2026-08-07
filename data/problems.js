@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-08-07T10:58:18.531Z): bodies for n ≤ 38 (38/108).
+ * Publication slice at build (2026-08-07T11:01:46.029Z): bodies for n ≤ 38 (37/108).
  */
 "use strict";
 
@@ -664,11 +664,5 @@ var PROBLEMS = [
     "source": "BSS XVIII",
     "title": "The Long Die",
     "body": "The Indian long die (pāśa) has four faces. You are tasked with numbering its faces with any four natural numbers \\(a,b,c,d\\) (they need not be consecutive or distinct). Three identical copies of the die will be rolled together in a board game. Your goal is to choose the four numbers so that:\n    \\begin{enumerate}\n        \\item The possible sums of the three dice form the longest possible contiguous interval of integers (with no missing values).\n        \\item Subject to (1), the probability distribution of the sums is as close to uniform as possible.\n    \\end{enumerate}\nWhich four numbers would you choose?"
-  },
-  {
-    "n": 38,
-    "source": "BSS XII",
-    "title": "",
-    "body": ""
   }
 ];

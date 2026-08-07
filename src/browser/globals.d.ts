@@ -16,6 +16,8 @@ declare global {
   var PROBLEMS: ProblemPublished[];
   var maxRevealedN: (now?: Date, totalProblems?: number) => number;
   var unlockDateLineForProblemN: (n: number) => string;
+  var isUnlockedN: (n: number, now?: Date) => boolean;
+  var latestUnlockedN: (now?: Date) => number;
   function renderIndex(): void;
   function renderArchive(): void;
   function renderProblem(): void;

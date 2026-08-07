@@ -58,7 +58,7 @@ const enriched = fullProblems.map((p) => {
 const catalog = enriched.map(({ n, title }) => ({ n, title: n <= maxBuilt ? title : "" }));
 
 const published = enriched
-  .filter((p) => p.n <= maxBuilt)
+  .filter((p) => p.n <= maxBuilt && p.body.length > 0)
   .map(({ n, source, title, body }) => ({ n, source, title, body }));
 
 const banner =
