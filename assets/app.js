@@ -159,13 +159,11 @@
     return typeof maxRevealedN === "function" ? maxRevealedN(void 0, total) : total;
   }
   function isOpen(n) {
-    if (typeof isUnlockedN === "function") return isUnlockedN(n);
     return n <= maxReveal() && findDetail(n) !== null;
   }
   function latestOpen() {
-    if (typeof latestUnlockedN === "function") return latestUnlockedN();
     for (let n = maxReveal(); n >= 1; n--) {
-      if (findDetail(n)) return n;
+      if (isOpen(n)) return n;
     }
     return 0;
   }

@@ -51,7 +51,11 @@
         const TOTAL = 108;
         const DEVA = '०१२३४५६७८९';
         const toDeva = (s) => s.replace(/\d/g, (d) => DEVA[d.charCodeAt(0) - 48]);
-        const isOpen = (n) => (typeof isUnlockedN === 'function') ? isUnlockedN(n) : false;
+
+        const bundled = Array.isArray(window.PROBLEMS) ? window.PROBLEMS : [];
+        const hasBody = (n) => bundled.some((p) => p && p.n === n && typeof p.body === 'string' && p.body.length > 0);
+        const revealed = (typeof maxRevealedN === 'function') ? maxRevealedN(undefined, TOTAL) : TOTAL;
+        const isOpen = (n) => n <= revealed && hasBody(n);
         const dateLine = (n) => (typeof unlockDateLineForProblemN === 'function') ? unlockDateLineForProblemN(n) : '';
         const frag = document.createDocumentFragment();
         for (let n = 1; n <= TOTAL; n++) {
@@ -120,11 +124,11 @@
         var nextBtn = document.getElementById('carousel-next');
         var moreWrap = document.getElementById('problems-more');
 
-        var isOpen = (typeof isUnlockedN === 'function') ? isUnlockedN : function () { return false; };
+        var cap = (typeof maxRevealedN === 'function') ? maxRevealedN() : Infinity;
 
         var released = (Array.isArray(window.PROBLEMS) ? window.PROBLEMS : [])
           .filter(function (p) {
-            return p && isOpen(p.n);
+            return p && p.n <= cap && typeof p.body === 'string' && p.body.length;
           })
           .slice()
           .sort(function (a, b) { return a.n - b.n; });
