@@ -1,7 +1,7 @@
 /* Generated — do not edit by hand.
  * Sources: data/problems.source.js · Titles + statements: problems/p###.tex
  * Regenerate: npm run build:data
- * Publication slice at build (2026-08-07T00:27:04.912Z): bodies for n ≤ 38 (38/108).
+ * Publication slice at build (2026-08-07T10:58:18.531Z): bodies for n ≤ 38 (38/108).
  */
 "use strict";
 
@@ -519,7 +519,7 @@ var PROBLEMS = [
     "n": 13,
     "source": "Āryabhaṭīya, Gaṇitapāda 10",
     "title": "Counting Binary Cubic Forms",
-    "body": "In a celebrated series of papers beginning in 2010, Manjul Bhargava and Arul Shankar determined a method to count rational solutions to elliptic curves, equations whose solution structure sits at the heart of the Birch and Swinnerton--Dyer conjecture. Their approach takes inspiration from the composition laws of Brahmagupta and Gauss, generalising the classical theory of binary quadratic forms to higher degrees. The given problem is motivated by the first step in their counting machine: enumerating binary cubic forms by discriminant.\n\n    A binary cubic form is\n    \\[\n    f(x,y)=ax^3+bx^2y+cxy^2+dy^3\n    \\]\n    with integer coefficients. Its discriminant is\n    \\[\n    \\Delta(f)\n    =\n    b^2c^2\n    -4ac^3\n    -4b^3d\n    -27a^2d^2\n    +18abcd.\n    \\]\n\n    We call \\(f\\) admissible if: (i) \\(\\gcd(a,b,c,d)=1\\), (ii) \\(\\Delta(f)\\neq 0\\), and (iii) either \\(a>0\\), or \\(a=0\\) and \\(b>0\\). Find the number of admissible forms with \\(|\\Delta(f)|\\le 10^4\\)."
+    "body": "In a celebrated series of papers beginning in 2010, Manjul Bhargava and Arul Shankar determined a method to count rational solutions to elliptic curves, equations whose solution structure sits at the heart of the Birch and Swinnerton—Dyer conjecture. Their approach takes inspiration from the composition laws of Brahmagupta and Gauss, generalising the classical theory of binary quadratic forms to higher degrees. The given problem is motivated by the first step in their counting machine: enumerating binary cubic forms by discriminant.\n\n    A binary cubic form is\n    \\[\n    f(x,y)=ax^3+bx^2y+cxy^2+dy^3\n    \\]\n    with integer coefficients. Its discriminant is\n    \\[\n    \\Delta(f)\n    =\n    b^2c^2\n    -4ac^3\n    -4b^3d\n    -27a^2d^2\n    +18abcd.\n    \\]\n\n    We call \\(f\\) admissible if: (i) \\(\\gcd(a,b,c,d)=1\\), (ii) \\(\\Delta(f)\\neq 0\\), and (iii) either \\(a>0\\), or \\(a=0\\) and \\(b>0\\). Find the number of admissible forms with \\(|\\Delta(f)|\\le 10^4\\)."
   },
   {
     "n": 14,
@@ -543,7 +543,7 @@ var PROBLEMS = [
     "n": 17,
     "source": "Āryabhaṭīya, Gaṇitapāda 22",
     "title": "The House in Louvain",
-    "body": "``I was talking the other day,'' said William Rogers to the other villagers gathered around the inn fire, ``to a gentleman about the place called Louvain, what the Germans have burnt down. He said he knowed it well --- used to visit a Belgian friend there.\n\n    He said the house of his friend was in a long street, numbered on this side one, two, three, and so on, and that all the numbers on one side of him added up exactly the same as all the numbers on the other side of him. Funny thing that! He said he knew there was more than fifty houses on that side of the street, but not so many as five hundred. I made mention of the matter to our parson, and he took a pencil and worked out the number of the house where the Belgian lived. I don't know how he done it.''\n\n    Perhaps the reader may like to discover the number of that house."
+    "body": "\"I was talking the other day\", said William Rogers to the other villagers gathered around the inn fire, \"to a gentleman about the place called Louvain, what the Germans have burnt down. He said he knowed it well—used to visit a Belgian friend there.\n\n    He said the house of his friend was in a long street, numbered on this side one, two, three, and so on, and that all the numbers on one side of him added up exactly the same as all the numbers on the other side of him. Funny thing that! He said he knew there was more than fifty houses on that side of the street, but not so many as five hundred. I made mention of the matter to our parson, and he took a pencil and worked out the number of the house where the Belgian lived. I don't know how he done it.''\n\n    Perhaps the reader may like to discover the number of that house."
   },
   {
     "n": 18,
@@ -585,7 +585,7 @@ var PROBLEMS = [
     "n": 24,
     "source": "after Āryabhaṭīya, Kālakriyā",
     "title": "Consecutive Harshad Numbers",
-    "body": "A positive integer \\(n\\) is called a \\textit{Harshad number} if \\(n\\) is divisible by the sum of its\n    decimal digits. Formally, writing \\(S(n)\\) for the sum of the digits of \\(n\\), we require \\(S(n) \\mid n\\). For example, \\(18\\) is a Harshad number since \\(S(18) = 9\\) and \\(9 \\mid 18\\), while \\(19\\) is \\emph{not}, since \\(S(19) = 10\\) and \\(10 \\nmid 19\\).\n\n    Find the smallest \\(n\\) such that \\(n\\), \\(n+1\\), \\(n+2\\), \\(n+3\\) and \\(n+4\\) are all Harshad numbers."
+    "body": "A positive integer \\(n\\) is called a \\textit{Harshad number} if \\(n\\) is divisible by the sum of its decimal digits. Formally, writing \\(S(n)\\) for the sum of the digits of \\(n\\), we require \\(S(n) \\mid n\\). For example, \\(18\\) is a Harshad number since \\(S(18) = 9\\) and \\(9 \\mid 18\\), while \\(19\\) is \\emph{not}, since \\(S(19) = 10\\) and \\(10 \\nmid 19\\).\n\n    Find the smallest \\(n\\) such that \\(n\\), \\(n+1\\), \\(n+2\\), \\(n+3\\) and \\(n+4\\) are all Harshad numbers."
   },
   {
     "n": 25,
@@ -603,7 +603,7 @@ var PROBLEMS = [
     "n": 27,
     "source": "Brāhmasphuṭasiddhānta XII.21",
     "title": "Kaprekar Numbers",
-    "body": "A natural number \\(n\\) is called a \\textit{Kaprekar number} if there exists a way to split the decimal representation of \\(n^2\\) into a left part \\(L\\) and a right part \\(R\\)\n    (where \\(R\\) may have leading zeros but must be positive) such that \\(L + R = n\\).\n    For example:\n    \\begin{itemize}\n      \\item \\(45^2 = 2025\\), and \\(20 + 25 = 45\\),\n      \\item \\(297^2 = 88209\\), and \\(88 + 209 = 297\\),\n      \\item \\(999^2 = 998001\\), and \\(998 + 001 = 999\\).\n    \\end{itemize}\n    Compute the sum of all Kaprekar numbers \\(n\\) under \\(10^6\\)."
+    "body": "A natural number \\(n\\) is called a \\textit{Kaprekar number} if there exists a way to split the decimal representation of \\(n^2\\) into a left part \\(L\\) and a right part \\(R\\) (where \\(R\\) may have leading zeros but must be positive) such that \\(L + R = n\\). For example:\n    \\begin{itemize}\n      \\item \\(45^2 = 2025\\), and \\(20 + 25 = 45\\),\n      \\item \\(297^2 = 88209\\), and \\(88 + 209 = 297\\),\n      \\item \\(999^2 = 998001\\), and \\(998 + 001 = 999\\).\n    \\end{itemize}\n    Compute the sum of all Kaprekar numbers \\(n\\) under \\(10^6\\)."
   },
   {
     "n": 28,
@@ -615,7 +615,7 @@ var PROBLEMS = [
     "n": 29,
     "source": "BSS XII (diagonals of cyclic quad)",
     "title": "Balanced Numbers",
-    "body": "A natural number $N$ is balanced if it can be written as the sum of two adjacent blocks of consecutive natural numbers. That is, $N$ is balanced if there exist positive integers $a$ and $k$ such that\n    \\[\n    N = a + (a+1) + \\cdots + (a+k) = (a+k+1) + (a+k+2) + \\cdots + (a+k'),\n    \\]\n    where $k < k'$. For example, $15$ is balanced because $4 + 5 + 6 = 15 = 7 + 8$.\n\n    How many balanced numbers are there less than $10^6$?"
+    "body": "A natural number $N$ is balanced if it can be written as the sum of two adjacent blocks of consecutive natural numbers. That is, $N$ is balanced if there exist positive integers $a$ and $k$ such that\n    \\[\n    N = a + (a+1) + \\cdots + (a+k) = (a+k+1) + (a+k+2) + \\cdots + (a+k'),\n    \\]\n    where $k < k'$. For example, $15$ is balanced because 4 + 5 + 6 = 15 = 7 + 8.\n    How many balanced numbers are there less than $10^6$?"
   },
   {
     "n": 30,
