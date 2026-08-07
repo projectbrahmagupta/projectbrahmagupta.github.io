@@ -4,299 +4,124 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Project Brahmagupta · Problems from Indian mathematics</title>
-  <meta name="description" content="A growing collection of 108 problems from Indian mathematics. An open archive, launched July 1, 2026." />
+  <meta name="description" content="A growing collection of 108 problems in mathematics and computation, drawn from the works of Indian mathematicians. One opens each day." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Shobhika:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/compile.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Shobhika:wght@400;700&display=swap" />
+  <link rel="stylesheet" href="assets/style.css" />
 
-  <script src="assets/mathjax-config.js"></script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <script defer src="data/problems.js"></script>
+  <script defer src="assets/site.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
-<body class="page-compile">
-  <header class="compile-header">
-    <div class="compile-header-inner">
-      <a class="compile-brand" href="#top">Project <em>Brahmagupta</em></a>
-      <nav class="compile-nav">
+<body data-page="home">
+  <header class="header">
+    <div class="header__inner">
+      <a class="brand" href="./">Project <em>Brahmagupta</em></a>
+      <nav>
         <a href="./contribute.html">Contribute</a>
         <a href="./references.html">References</a>
       </nav>
     </div>
   </header>
 
-  <main id="top">
-
-    <section class="compile-hero">
-      <div class="compile-hero-text">
+  <main>
+    <section class="hero">
+      <div>
         <h1>Problems from <em>Indian mathematics</em>.</h1>
-        <p class="compile-hero-lede">
-          Project Brahmagupta is an archive of <span lang="sa">१०८</span> problems in mathematics and computation, drawn from and inspired by the works of Indian mathematicians.
+        <p>
+          Project Brahmagupta is an archive of <span lang="sa">१०८</span> problems in mathematics
+          and computation, drawn from and inspired by the works of Indian mathematicians.
         </p>
-        <div class="compile-hero-cta">
-          <a class="btn btn-primary" href="./contribute.html">Contribute a problem</a>
-        </div>
+        <a class="btn" href="./contribute.html">Contribute a problem</a>
       </div>
-      <div class="compile-hero-graphic">
-        <div class="compile-cell-grid" id="hero-cell-grid"></div>
+      <div class="cell-grid" id="cell-grid"></div>
+    </section>
+
+    <section class="section">
+      <div class="carousel" id="problems-carousel">
+        <button type="button" class="carousel__btn carousel__btn--prev" data-prev aria-label="Previous problems">&#8249;</button>
+        <div class="carousel__track" id="problems-track" data-track></div>
+        <button type="button" class="carousel__btn carousel__btn--next" data-next aria-label="Next problems">&#8250;</button>
+      </div>
+      <div class="carousel__more">
+        <a class="btn btn--ghost" href="./archive.html">View all problems →</a>
       </div>
     </section>
-    <script src="data/reveal-config.js"></script>
-    <script src="data/problems.js"></script>
-    <script src="assets/schedule.js"></script>
-    <script src="assets/tex-render.js"></script>
-    <script>
-      (function () {
-        const grid = document.getElementById('hero-cell-grid');
-        if (!grid) return;
-        const TOTAL = 108;
-        const DEVA = '०१२३४५६७८९';
-        const toDeva = (s) => s.replace(/\d/g, (d) => DEVA[d.charCodeAt(0) - 48]);
 
-        const bundled = Array.isArray(window.PROBLEMS) ? window.PROBLEMS : [];
-        const hasBody = (n) => bundled.some((p) => p && p.n === n && typeof p.body === 'string' && p.body.length > 0);
-        const revealed = (typeof maxRevealedN === 'function') ? maxRevealedN(undefined, TOTAL) : TOTAL;
-        const isOpen = (n) => n <= revealed && hasBody(n);
-        const dateLine = (n) => (typeof unlockDateLineForProblemN === 'function') ? unlockDateLineForProblemN(n) : '';
-        const frag = document.createDocumentFragment();
-        for (let n = 1; n <= TOTAL; n++) {
-          const launched = isOpen(n);
-          const cell = document.createElement(launched ? 'a' : 'span');
-          cell.className = 'compile-cell' + (launched ? ' compile-cell--launched' : ' compile-cell--locked');
-          cell.setAttribute('lang', 'sa');
-          const row = Math.floor((n - 1) / 12);
-          const col = (n - 1) % 12;
-          cell.style.setProperty('--d', String(row + col));
-          cell.textContent = toDeva(String(n));
-          if (launched) {
-            cell.href = './problem.html?n=' + n;
-            cell.setAttribute('aria-label', 'Problem ' + n);
-          } else {
-            const when = dateLine(n);
-            cell.title = when ? ('Unlocks on ' + when) : 'Locked';
-            cell.setAttribute('aria-label', 'Problem ' + n + (when ? ' — unlocks on ' + when : ' — locked'));
-          }
-          frag.appendChild(cell);
-        }
-        grid.appendChild(frag);
-      })();
-    </script>
-
-    <section id="problems" class="compile-section">
-      <div class="compile-carousel" id="problems-carousel">
-        <button type="button" class="compile-carousel__btn compile-carousel__btn--prev" id="carousel-prev" aria-label="Previous problems" hidden>&#8249;</button>
-        <div class="compile-carousel__track" id="problems-track">
-          <a class="compile-problem-card" href="./contribute.html?sample=1">
-            <span class="compile-problem-card__n">Sample 0.1</span>
-            <h3 class="compile-problem-card__title">Brahmagupta Quadrilaterals</h3>
-            <p class="compile-problem-card__body">
-              Brahmagupta's formula for the area of a cyclic quadrilateral. Count the integral cyclic quadrilaterals with distinct sides a ≤ b ≤ c ≤ d and a + b + c + d ≤ 60.
-            </p>
-            <span class="compile-problem-card__cta">View sample →</span>
-          </a>
-          <a class="compile-problem-card" href="./contribute.html?sample=2">
-            <span class="compile-problem-card__n">Sample 0.2</span>
-            <h3 class="compile-problem-card__title">Vargaprakriti</h3>
-            <p class="compile-problem-card__body">
-              The nth hexagonal number is hₙ = n(2n − 1). Find the second smallest hexagonal number that is also a perfect square.
-            </p>
-            <span class="compile-problem-card__cta">View sample →</span>
-          </a>
-          <a class="compile-problem-card" href="./contribute.html?sample=3">
-            <span class="compile-problem-card__n">Sample 0.3</span>
-            <h3 class="compile-problem-card__title">Cow Enumeration</h3>
-            <p class="compile-problem-card__body">
-              A cow bears one calf a year; each calf breeds from its fourth year. Starting from a single calf, count the herd after 2¹⁰⁸ years, modulo 10⁹ + 7.
-            </p>
-            <span class="compile-problem-card__cta">View sample →</span>
-          </a>
-        </div>
-        <button type="button" class="compile-carousel__btn compile-carousel__btn--next" id="carousel-next" aria-label="Next problems" hidden>&#8250;</button>
-      </div>
-      <div class="compile-problems-more" id="problems-more" hidden>
-        <a class="btn btn-ghost" href="./archive.html">View all problems →</a>
-      </div>
-    </section>
-    <script>
-      (function () {
-        var track = document.getElementById('problems-track');
-        if (!track) return;
-        var prevBtn = document.getElementById('carousel-prev');
-        var nextBtn = document.getElementById('carousel-next');
-        var moreWrap = document.getElementById('problems-more');
-
-        var cap = (typeof maxRevealedN === 'function') ? maxRevealedN() : Infinity;
-
-        var released = (Array.isArray(window.PROBLEMS) ? window.PROBLEMS : [])
-          .filter(function (p) {
-            return p && p.n <= cap && typeof p.body === 'string' && p.body.length;
-          })
-          .slice()
-          .sort(function (a, b) { return a.n - b.n; });
-
-        if (released.length) renderReleased(released);
-        setupCarousel();
-
-        // Teaser that keeps LaTeX intact for MathJax to render. Math spans,
-        // environments and \fontcolor are atomic (never split), so MathJax always
-        // gets balanced TeX; display math is inlined to keep the card compact.
-        function preview(body, max) {
-          var src = String(body)
-            .replace(/\$\$([\s\S]*?)\$\$/g, function (_, x) { return '\\(' + x + '\\)'; })
-            .replace(/\\\[([\s\S]*?)\\\]/g, function (_, x) { return '\\(' + x + '\\)'; });
-
-          var atomicRe = /\\\([\s\S]*?\\\)|\$[^$]*\$|\\begin\{([a-z*]+)\}[\s\S]*?\\end\{\1\}|\\[a-zA-Z]+\*?\s*\{(?:[^{}]|\{[^{}]*\})*\}(?:\s*\{(?:[^{}]|\{[^{}]*\})*\})?/g;
-          var parts = [];
-          var last = 0, m;
-          while ((m = atomicRe.exec(src)) !== null) {
-            if (m.index > last) parts.push({ text: src.slice(last, m.index), atomic: false });
-            parts.push({ text: m[0], atomic: true });
-            last = atomicRe.lastIndex;
-          }
-          if (last < src.length) parts.push({ text: src.slice(last), atomic: false });
-
-          var out = '', truncated = false;
-          for (var i = 0; i < parts.length; i++) {
-            var p = parts[i];
-            if (out.length + p.text.length <= max) { out += p.text; continue; }
-            if (p.atomic) {
-              if (out.length === 0) out += p.text;
-              truncated = true;
-              break;
-            }
-            var room = Math.max(0, max - out.length);
-            var cut = p.text.slice(0, room);
-            var sp = cut.lastIndexOf(' ');
-            if (sp > room * 0.5) cut = cut.slice(0, sp);
-            out += cut;
-            truncated = true;
-            break;
-          }
-          out = out.replace(/\s+/g, ' ').trim();
-          if (truncated) out = out.replace(/[\s.,;:]+$/, '') + '…';
-          return out;
-        }
-
-        function renderReleased(list) {
-          track.innerHTML = '';
-          list.forEach(function (p) {
-            var a = document.createElement('a');
-            a.className = 'compile-problem-card';
-            a.href = './problem.html?n=' + p.n;
-            var n = document.createElement('span');
-            n.className = 'compile-problem-card__n';
-            n.textContent = 'Problem ' + String(p.n).padStart(3, '0');
-            var h = document.createElement('h3');
-            h.className = 'compile-problem-card__title';
-            h.textContent = p.title || ('Problem ' + p.n);
-            var body = document.createElement('div');
-            body.className = 'compile-problem-card__body';
-            renderTexBody(body, preview(p.body, 168));
-            var cta = document.createElement('span');
-            cta.className = 'compile-problem-card__cta';
-            cta.textContent = 'View problem →';
-            a.appendChild(n);
-            a.appendChild(h);
-            a.appendChild(body);
-            a.appendChild(cta);
-            track.appendChild(a);
-          });
-          if (moreWrap) moreWrap.hidden = false;
-        }
-
-        function setupCarousel() {
-          var cards = track.querySelectorAll('.compile-problem-card');
-          if (cards.length <= 3) {
-            track.classList.remove('is-carousel');
-            if (prevBtn) prevBtn.hidden = true;
-            if (nextBtn) nextBtn.hidden = true;
-            return;
-          }
-          track.classList.add('is-carousel');
-          if (prevBtn) prevBtn.hidden = false;
-          if (nextBtn) nextBtn.hidden = false;
-
-          function update() {
-            var maxScroll = track.scrollWidth - track.clientWidth - 1;
-            if (prevBtn) prevBtn.disabled = track.scrollLeft <= 0;
-            if (nextBtn) nextBtn.disabled = track.scrollLeft >= maxScroll;
-          }
-          if (prevBtn) prevBtn.addEventListener('click', function () {
-            track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' });
-          });
-          if (nextBtn) nextBtn.addEventListener('click', function () {
-            track.scrollBy({ left: track.clientWidth, behavior: 'smooth' });
-          });
-          track.addEventListener('scroll', update, { passive: true });
-          window.addEventListener('resize', update);
-          update();
-        }
-      })();
-    </script>
-
-    <section id="faq" class="compile-section">
-      <div class="compile-section-head">
+    <section class="section" id="faq">
+      <div class="section__head">
         <h2>FAQs</h2>
-        <p class="compile-section-lede">
-          A few common questions. Anything else? Send a note via the contribute page.
-        </p>
+        <p>A few common questions. Anything else? Send a note via the contribute page.</p>
       </div>
-      <div class="compile-faq">
+      <div class="faq">
         <details>
           <summary>What is Project Brahmagupta?</summary>
           <p>
-            An open archive of 108 problems in mathematics and computation, inspired by the works of Indian mathematicians from antiquity to the present. Some problems are classical and some are modern, written in the same spirit.
+            An open archive of 108 problems in mathematics and computation, inspired by the works
+            of Indian mathematicians from antiquity to the present. Some problems are classical,
+            some are modern and written in the same spirit.
           </p>
         </details>
         <details>
           <summary>When did it launch?</summary>
           <p>
-            July 1, 2026. From that day, one problem is unlocked each midnight India Standard Time, for 108 days.
+            1 July 2026. From that day, one problem unlocks each midnight India Standard Time,
+            for 108 days.
           </p>
         </details>
         <details>
           <summary>Who is this for?</summary>
           <p>
-            Anyone with a working knowledge of mathematics who enjoys turning ideas into code. The problems range in difficulty: some are accessible with high-school algebra, others reward graduate-level number theory or careful computation.
+            Anyone with a working knowledge of mathematics who enjoys turning ideas into code.
+            The problems range in difficulty: some are accessible with high-school algebra,
+            others reward graduate-level number theory or careful computation.
           </p>
         </details>
         <details>
           <summary>Can I submit a problem?</summary>
           <p>
-            Yes. The <a href="./contribute.html">contribute</a> page accepts problem proposals. We are looking for problems honest to Indian mathematical material, either drawn from an Indian source, or new problems that share the spirit of the collection.
+            Yes. The <a href="./contribute.html">contribute</a> page accepts proposals. We are
+            looking for problems honest to Indian mathematical material, either drawn from an
+            Indian source or new problems that share the spirit of the collection.
           </p>
         </details>
         <details>
           <summary>Is it open source?</summary>
           <p>
-            Yes. The site code is MIT-licensed; the content (problem statements, prose) is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The repository lives on <a href="https://github.com/projectbrahmagupta/projectbrahmagupta.github.io">GitHub</a>.
+            Yes. The site code is MIT-licensed; the content is licensed under
+            <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The repository
+            lives on <a href="https://github.com/projectbrahmagupta/projectbrahmagupta.github.io">GitHub</a>.
           </p>
         </details>
         <details>
           <summary>Will solutions be published?</summary>
           <p>
-            Not on the site. In keeping with the Project Euler tradition, problems are released without solutions: you discover them by solving. A discussion forum may follow once the series is complete.
+            Not on the site. In keeping with the Project Euler tradition, problems are released
+            without solutions: you discover them by solving. A discussion forum may follow once
+            the series is complete.
           </p>
         </details>
       </div>
     </section>
-
   </main>
 
-  <footer class="compile-foot">
-    <div class="compile-foot-inner">
-      <div class="compile-foot-grid">
-        <div class="compile-foot-brand">
+  <footer class="foot">
+    <div class="foot__inner">
+      <div class="foot__grid">
+        <div>
           <h3>Project <em>Brahmagupta</em></h3>
-          <p>108 problems from Indian mathematics. An open archive, launched July 1, 2026.</p>
+          <p>108 problems from Indian mathematics. An open archive, launched 1 July 2026.</p>
         </div>
-        <div class="compile-foot-col">
+        <div>
           <h4>Project</h4>
           <ul>
             <li><a href="./archive.html">Archive</a></li>
-            <li><a href="#faq">FAQ</a></li>
+            <li><a href="./index.html#faq">FAQ</a></li>
           </ul>
         </div>
-        <div class="compile-foot-col">
+        <div>
           <h4>Resources</h4>
           <ul>
             <li><a href="./contribute.html">Contribute</a></li>
@@ -304,7 +129,7 @@
           </ul>
         </div>
       </div>
-      <div class="compile-foot-bottom">
+      <div class="foot__legal">
         <span>© 2026 Project Brahmagupta</span>
         <span><a href="https://opensource.org/licenses/MIT">Code · MIT</a> · <a href="https://creativecommons.org/licenses/by/4.0/">Content · CC BY 4.0</a></span>
       </div>

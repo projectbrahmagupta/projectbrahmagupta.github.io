@@ -4,62 +4,58 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Problem · Project Brahmagupta</title>
-  <script src="data/site-config.js"></script>
-  <script src="assets/site-mode.js"></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Shobhika:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/compile.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Devanagari:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Shobhika:wght@400;700&display=swap" />
   <link rel="stylesheet" href="assets/style.css" />
 
-  <script src="assets/mathjax-config.js"></script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <script defer src="data/problems.js"></script>
+  <script defer src="assets/site.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
-<body class="page-problem">
-  <header class="compile-header">
-    <div class="compile-header-inner">
-      <a class="compile-brand" href="./">Project <em>Brahmagupta</em></a>
-      <nav class="compile-nav">
+<body data-page="problem">
+  <header class="header">
+    <div class="header__inner">
+      <a class="brand" href="./">Project <em>Brahmagupta</em></a>
+      <nav>
         <a href="./contribute.html">Contribute</a>
         <a href="./references.html">References</a>
       </nav>
     </div>
   </header>
 
-  <main class="problem-page">
-    <nav class="problem-pager top">
-      <a id="prev-link" class="pager-link" href="#">← previous</a>
-      <span id="problem-pos" class="pager-pos"></span>
-      <a id="next-link" class="pager-link" href="#">next →</a>
+  <main class="page page--problem">
+    <nav class="pager">
+      <a data-prev-link>← previous</a>
+      <span id="problem-pos"></span>
+      <a data-next-link>next →</a>
     </nav>
 
-    <article id="problem" class="problem-article">
-      <p class="loading">Loading…</p>
-    </article>
+    <article class="problem" id="problem"></article>
 
-    <nav class="problem-pager">
-      <a id="prev-link-2" class="pager-link" href="#">← previous</a>
-      <a class="pager-link show-if-contributions" href="./">home</a>
-      <a class="pager-link show-if-problems" href="./archive.html">archive</a>
-      <a id="next-link-2" class="pager-link" href="#">next →</a>
+    <nav class="pager pager--foot">
+      <a data-prev-link>← previous</a>
+      <a href="./">home</a>
+      <a data-next-link>next →</a>
     </nav>
   </main>
 
-  <footer class="compile-foot">
-    <div class="compile-foot-inner">
-      <div class="compile-foot-grid">
-        <div class="compile-foot-brand">
+  <footer class="foot">
+    <div class="foot__inner">
+      <div class="foot__grid">
+        <div>
           <h3>Project <em>Brahmagupta</em></h3>
-          <p>108 problems from Indian mathematics. An open archive, launched July 1, 2026.</p>
+          <p>108 problems from Indian mathematics. An open archive, launched 1 July 2026.</p>
         </div>
-        <div class="compile-foot-col">
+        <div>
           <h4>Project</h4>
           <ul>
             <li><a href="./archive.html">Archive</a></li>
-            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="./index.html#faq">FAQ</a></li>
           </ul>
         </div>
-        <div class="compile-foot-col">
+        <div>
           <h4>Resources</h4>
           <ul>
             <li><a href="./contribute.html">Contribute</a></li>
@@ -67,17 +63,11 @@
           </ul>
         </div>
       </div>
-      <div class="compile-foot-bottom">
+      <div class="foot__legal">
         <span>© 2026 Project Brahmagupta</span>
         <span><a href="https://opensource.org/licenses/MIT">Code · MIT</a> · <a href="https://creativecommons.org/licenses/by/4.0/">Content · CC BY 4.0</a></span>
       </div>
     </div>
   </footer>
-
-<script src="data/reveal-config.js"></script>
-  <script src="data/problems.js"></script>
-  <script src="assets/schedule.js"></script>
-  <script src="assets/app.js"></script>
-  <script>renderProblem();</script>
 </body>
 </html>

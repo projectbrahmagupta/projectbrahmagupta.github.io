@@ -1,0 +1,43 @@
+# Publishes each day's problem by regenerating data/problems.js.
+name: Publish problems
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 18:35 UTC == 00:05 IST, just after the midnight unlock.
+    - cron: "35 18 * * *"
+    # 01:35 UTC == 07:05 IST. A safety net: GitHub can delay or drop a scheduled
+    # run, and this republishes before most readers are awake. It is a no-op when
+    # the midnight run already succeeded.
+    - cron: "35 1 * * *"
+  push:
+    branches: [main]
+    paths:
+      - "problems/**"
+      - "scripts/build.mjs"
+
+concurrency:
+  group: publish-problems
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: node scripts/build.mjs
+
+      - name: Commit if the slice changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/problems.js
+          if git diff --staged --quiet; then
+            echo "Nothing new to publish."
+          else
+            git commit -m "chore: publish today's problem"
+            git push
+          fi

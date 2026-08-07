@@ -1,4 +1,4 @@
-node_modules/
-latex/
 .DS_Store
 .claude/
+latex/
+node_modules/
